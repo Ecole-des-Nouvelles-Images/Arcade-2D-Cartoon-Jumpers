@@ -5,56 +5,59 @@ namespace Charlie.Scripts
 {
     public class PlayerController : MonoBehaviour
     {
-        private InputAction dashAction;
-        private InputAction aimAction;
-        private Vector2 aimDirection;
-        private Rigidbody2D rb;
+        public float DashForce = 10f;
+
+        public bool IsOnSurface => _surfaceHitbox.IsOnSurface;
         
-        public float dashForce = 10f;
-        public Transform aimingIndicator; 
-    
-        private void OnEnable()
+        private InputAction _onDash;
+        private InputAction _onAim;
+
+        private Rigidbody2D _rigidbody;
+        private SurfaceHitbox _surfaceHitbox;
+        private Vector2 _aimDirection;
+
+        private void Awake()
         {
-            dashAction = new InputAction("GamePlay/Dash"); 
-            aimAction = new InputAction("GamePlay/Aim");
-            //dashAction.performed += ctx => Dash();
-           // aimAction.performed += ctx => SetAimDirection(ctx.ReadValue<Vector2>());
-            dashAction.Enable();
-            aimAction.Enable();
+            _onDash = new InputAction("Gameplay/Dash"); 
+            _onAim = new InputAction("Gameplay/Aim");
         }
-    
+        
+
         private void Start()
         {
-            rb = GetComponent<Rigidbody2D>();
+            _rigidbody = GetComponent<Rigidbody2D>();
+            _surfaceHitbox = GetComponent<SurfaceHitbox>();
         }
-    
+        
+        private void OnEnable()
+        {
+            _onDash.Enable();
+            _onAim.Enable();
+            _onDash.performed += OnDash;
+            _onAim.performed += OnAim;
+        }
+        
         private void OnDisable()
         {
-            dashAction.Disable();
-            aimAction.Disable();
+            _onDash.Disable();
+            _onAim.Disable();
+            _onDash.performed -= OnDash;
+            _onAim.performed -= OnAim;
         }
     
-        private void Update()
-        {
-            //aimDirection = aimAction.ReadValue<Vector2>();
-        }
+        // Actions Handlers
     
         public void OnAim(InputAction.CallbackContext ctx)
         {
-            aimDirection = ctx.ReadValue<Vector2>();
-            float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
-            aimingIndicator.rotation = Quaternion.Euler(new Vector3(0,0,angle));
-    
+            _aimDirection = ctx.ReadValue<Vector2>();
         }
     
         public void OnDash(InputAction.CallbackContext ctx)
         {
-            if (aimDirection != Vector2.zero)
-            {
-                Debug.Log("Dashing");
-                rb.velocity = Vector2.zero;
-                rb.AddForce(aimDirection * dashForce, ForceMode2D.Impulse);
-            }
+            if (_aimDirection == Vector2.zero) return;
+            
+            _rigidbody.velocity = Vector2.zero;
+            _rigidbody.AddForce(_aimDirection * DashForce, ForceMode2D.Impulse);
         }
     }
 }
