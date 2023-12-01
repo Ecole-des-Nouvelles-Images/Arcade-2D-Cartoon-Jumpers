@@ -13,21 +13,29 @@ namespace Alex.Scripts
     public class PlayerController : MonoBehaviour
     {
         private InputAction dashAction;
-        private InputAction aimAction;
-        private Vector2 aimDirection;
+        private InputAction shootAction;
+        private InputAction aimDashAction;
+        private InputAction aimShootAction;
+        private Vector2 aimDashDirection;
+        private Vector2 aimShootDirection;
         private Rigidbody2D rb;
         public float dashForce = 10f;
         public float dashCooldown = 2f;
         private float lastDashTime = Mathf.NegativeInfinity;
-        public Transform aimingIndicator;
+        public Transform aimingDashIndicator;
+        public Transform aimingShootIndicator;
 
         private void OnEnable()
         {
             dashAction = new InputAction("GamePlay/Dash");
-            aimAction = new InputAction("GamePlay/Aim");
+            aimDashAction = new InputAction("GamePlay/AimDash");
+            aimShootAction = new InputAction("GamePlay/AimShoot");
+            shootAction = new InputAction("GamePlay/Shoot");
             dashAction.started += ctx => OnDash(ctx);
             dashAction.Enable();
-            aimAction.Enable();
+            aimDashAction.Enable();
+            aimShootAction.Enable();
+            shootAction.Enable();
         }
 
         private void Start()
@@ -38,29 +46,44 @@ namespace Alex.Scripts
         private void OnDisable()
         {
             dashAction.Disable();
-            aimAction.Disable();
+            aimDashAction.Disable();
+            aimShootAction.Disable();
+            shootAction.Disable();
         }
 
-        public void OnAim(InputAction.CallbackContext ctx)
+        public void OnAimDash(InputAction.CallbackContext ctx)
         {
-            aimDirection = ctx.ReadValue<Vector2>();
-            float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
-            aimingIndicator.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            aimDashDirection = ctx.ReadValue<Vector2>();
+            float aimAngle = Mathf.Atan2(aimDashDirection.y, aimDashDirection.x) * Mathf.Rad2Deg;
+            aimingDashIndicator.rotation = Quaternion.Euler(new Vector3(0, 0, aimAngle));
+        }
+
+        public void OnAimShoot(InputAction.CallbackContext ctx)
+        {
+            aimShootDirection = ctx.ReadValue<Vector2>();
+            float shootAngle = Mathf.Atan2(aimShootDirection.y, aimShootDirection.x) * Mathf.Rad2Deg;
+            aimingShootIndicator.rotation = Quaternion.Euler(new Vector3(0, 0, shootAngle));
         }
 
         public void OnDash(InputAction.CallbackContext ctx)
         {
             if (Time.time - lastDashTime > dashCooldown)
             {
-                if (aimDirection != Vector2.zero)
+                if (aimDashDirection != Vector2.zero)
                 {
                     Debug.Log("Dashing");
                     rb.velocity = Vector2.zero;
-                    rb.AddForce(aimDirection * dashForce, ForceMode2D.Impulse);
+                    rb.AddForce(aimDashDirection * dashForce, ForceMode2D.Impulse);
                     lastDashTime = Time.time; 
                 }
             }
             else Debug.Log("Dash on Cooldown");
         }
+
+        public void OnShoot(InputAction.CallbackContext ctx)
+        {
+            Debug.Log("Shot");
+        }
+        
     }
 }
