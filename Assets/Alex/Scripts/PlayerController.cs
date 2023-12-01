@@ -22,6 +22,10 @@ namespace Alex.Scripts
         public float dashForce = 10f;
         public float dashCooldown = 2f;
         private float lastDashTime = Mathf.NegativeInfinity;
+
+        public float shootForce = 10f;
+        public float shootCooldown = 2f;
+        private float lastShotTime = Mathf.NegativeInfinity;
         public Transform aimingDashIndicator;
         public Transform aimingShootIndicator;
 
@@ -82,7 +86,16 @@ namespace Alex.Scripts
 
         public void OnShoot(InputAction.CallbackContext ctx)
         {
-            Debug.Log("Shot");
+            if (Time.time - lastShotTime > shootCooldown)
+            {
+                if (aimShootDirection != Vector2.zero)
+                {
+                    Debug.Log("Shot");
+                    rb.velocity = Vector2.zero; // conserver le reset avant le tir ? 
+                    rb.AddForce(aimShootDirection! * shootForce, ForceMode2D.Impulse);
+                    lastShotTime = Time.time;
+                }
+            }
         }
         
     }
