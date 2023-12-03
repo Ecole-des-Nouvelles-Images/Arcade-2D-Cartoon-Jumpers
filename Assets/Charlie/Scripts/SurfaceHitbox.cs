@@ -14,7 +14,7 @@ namespace Charlie.Scripts
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (!other.CompareTag("Ground")) return;
+            if (!other.CompareTag("Wall")) return;
 
             _objectCount++;
             IsOnSurface = true;
@@ -23,7 +23,7 @@ namespace Charlie.Scripts
         
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (!other.CompareTag("Ground")) return;
+            if (!other.CompareTag("Wall")) return;
 
             _objectCount--;
 
