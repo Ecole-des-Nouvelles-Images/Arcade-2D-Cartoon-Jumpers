@@ -97,6 +97,11 @@ namespace Alex.Scripts
                 }
             }
         }
+
+        public void ResetDashCoolDown() // Methode pour reset le cooldown du dash ( à utiliser sur le script de l'ennemi ) 
+        {
+            lastDashTime = -Mathf.Infinity; 
+        }
         
     }
 }
