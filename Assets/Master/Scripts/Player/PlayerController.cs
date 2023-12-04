@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Charlie.Scripts
+namespace Master.Scripts.Player
 {
     public class PlayerController : MonoBehaviour
     {

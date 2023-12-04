@@ -5,7 +5,7 @@ using Cinemachine;
 
 using Master.Scripts.Player;
 
-namespace Charlie.Scripts
+namespace Master.Scripts.Camera
 {
     [RequireComponent(typeof (CinemachineVirtualCamera))]
     public class CameraController: MonoBehaviour
