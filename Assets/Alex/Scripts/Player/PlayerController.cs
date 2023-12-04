@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -5,14 +6,20 @@ namespace Alex.Scripts.Player
 {
     public class PlayerController : MonoBehaviour
     {
-        public float DashForce = 50f;
+        public float DashForce = 80f;
         public float DashCooldown = 1f;
-        public float ShootForce = -10f;
+        public float ShootForce = -40f;
         public float ShootCooldown = 1f;
         
         [Space(10)]
         public Transform AimingDashIndicator;
         public Transform AimingShootIndicator;
+        [Space] 
+        public GameObject Projectile;
+
+        public int AvailableShots = 3;
+
+        public float ProjectileVelocity = 80f;
 
         private PlayerInputActions _inputActions;
         
@@ -52,7 +59,15 @@ namespace Alex.Scripts.Player
             _inputActions.GamePlay.Shoot.performed -= OnShoot;
             _inputActions.GamePlay.AimShoot.performed -= OnAimShoot;
         }
-        
+
+        private void Update()
+        {
+            if (Time.time - _lastShotTime >= 1f && AvailableShots < 3)
+            {
+                AvailableShots++;
+                _lastShotTime = Time.time;
+            }
+        }
         // Event Handlers
 
         public void OnDashAim(InputAction.CallbackContext ctx)
@@ -88,8 +103,13 @@ namespace Alex.Scripts.Player
                 {
                     Debug.Log("Shot");
                     _rigidbody.velocity = Vector2.zero; // conserver le reset avant le tir ? 
-                    _rigidbody.AddForce(_aimShootDirection! * ShootForce, ForceMode2D.Impulse);
+                    _rigidbody.AddForce(-_aimShootDirection * ShootForce, ForceMode2D.Impulse);
+                    GameObject shotFired = Instantiate(Projectile, transform.position, Quaternion.identity);
+                    Vector2 shootDirection = _aimShootDirection.normalized;
+                    shotFired.GetComponent<Rigidbody2D>().AddForce( shootDirection * ProjectileVelocity, ForceMode2D.Impulse);
+                    AvailableShots--;
                     _lastShotTime = Time.time;
+
                 }
             }
         }
