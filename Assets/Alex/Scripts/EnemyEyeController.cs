@@ -1,19 +1,18 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Alex.Scripts
 {
     public class EnemyEyeController : MonoBehaviour
     {
-        public PlayerController playerController;
-        private void OnTriggerEnter(Collider other)
+
+        public Player.PlayerController Player;
+        
+        private void OnTriggerEnter2D(Collider2D other)
         {
             if (!other.CompareTag("Player")) return; // ajouter la vérification isDashing
             
             Debug.Log("Enemy Killed, reset DashCoolDown");
-            playerController.ResetDashCoolDown();
+            Player.ResetDashCoolDown();
             //Détruire l'ennemi 
         }
     }
