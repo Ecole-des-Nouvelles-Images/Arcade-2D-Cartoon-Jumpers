@@ -11,18 +11,31 @@ namespace Alex.Scripts.Enemies
         public List<MoveCommand> moveCommands;
         public float EnemySpeed = 5f;
         public float EnemyPower;
-        public abstract void Move(IMoveCommand moveCommand);
+        //public abstract void Move(IMoveCommand moveCommand);
         public PlayerController Player;
 
         private int currentMoveIndex = 0;
+        private bool isMoving = false;
 
         private void Update()
         {
-            if (currentMoveIndex < moveCommands.Count)
+            if (!isMoving && currentMoveIndex < moveCommands.Count)
             {
                 Move(moveCommands[currentMoveIndex]);
+                // !! Ajouter logique de fin
                 currentMoveIndex++;
             }
+        }
+        public void Move(IMoveCommand moveCommand)
+        {
+            if (moveCommand != null)
+            {
+                isMoving = true;
+                Vector2 _destination = moveCommand.Execute(transform); // récupère la destination de l'instance du SO
+                Vector2 _direction = (_destination - (Vector2)transform.position);
+                transform.Translate(_direction * (EnemySpeed * Time.deltaTime));
+            }
+           
         }
 
        /* private void Start()

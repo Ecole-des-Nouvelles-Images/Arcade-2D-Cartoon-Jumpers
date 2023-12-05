@@ -4,6 +4,6 @@ namespace Alex.Scripts.Enemies
 {
     public interface IMoveCommand
     {
-        void Execute(Transform transform, float speed);
+        Vector2 Execute(Transform transform);
     }
 }

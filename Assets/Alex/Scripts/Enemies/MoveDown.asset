@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ec5404e62fe40b58dd90a78407f7371, type: 3}
   m_Name: MoveDown
   m_EditorClassIdentifier: 
-  _direction: {x: 0, y: -20}
+  _direction: {x: 0, y: -100}

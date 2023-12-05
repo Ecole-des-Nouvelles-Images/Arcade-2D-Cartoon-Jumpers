@@ -8,7 +8,7 @@ namespace Alex.Scripts.Player
     {
         public float DashForce = 80f;
         public float DashCooldown = 1f;
-        public float ShootForce = -40f;
+        public float ShootForce = 40f;
         public float ShootCooldown = 1f;
         
         [Space(10)]

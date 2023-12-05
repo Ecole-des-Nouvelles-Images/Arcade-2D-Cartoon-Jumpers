@@ -256,7 +256,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0000009536743, y: 2, z: -10}
+  m_LocalPosition: {x: -0.0000076293945, y: 2, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1233,7 +1233,7 @@ Transform:
   m_GameObject: {fileID: 7582125217251817482}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0000009536743, y: 2, z: -10}
+  m_LocalPosition: {x: -0.0000076293945, y: 2, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1433,7 +1433,6 @@ GameObject:
   - component: {fileID: 8155856647263737958}
   - component: {fileID: 5908354907138533993}
   - component: {fileID: 609447274572979688}
-  - component: {fileID: 8155856647263737960}
   - component: {fileID: 8155856647263737959}
   m_Layer: 6
   m_Name: Player
@@ -1488,27 +1487,6 @@ MonoBehaviour:
   AimingDashIndicator: {fileID: 8828411751025256761}
   AimingShootIndicator: {fileID: 3632843825570505347}
   Projectile: {fileID: 1706836210364569650, guid: 0615db1db5ff74c4f99933712cb1cdd8, type: 3}
-  AvailableShots: 3
-  ProjectileVelocity: 80
---- !u!114 &8155856647263737960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7645378659545294228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b6d23238ca58864aa5d148a5bc14424, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DashForce: 80
-  DashCooldown: 1
-  ShootForce: -40
-  ShootCooldown: 1
-  AimingDashIndicator: {fileID: 0}
-  AimingShootIndicator: {fileID: 0}
-  Projectile: {fileID: 0}
   AvailableShots: 3
   ProjectileVelocity: 80
 --- !u!61 &8650167672727669508
@@ -1624,6 +1602,10 @@ PrefabInstance:
     - target: {fileID: 5603983834845565926, guid: 0ad22211f4b82bc49904c708286c235d, type: 3}
       propertyPath: m_Name
       value: EyeEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6850629148674650233, guid: 0ad22211f4b82bc49904c708286c235d, type: 3}
+      propertyPath: Player
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
