@@ -301,7 +301,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: -10}
+  m_LocalPosition: {x: 0, y: 6, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -753,8 +753,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 361649846}
     m_Modifications:
     - target: {fileID: 108100455353218219, guid: 27e7640dd6ea20949948303979e031c3, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 108100455353218219, guid: 27e7640dd6ea20949948303979e031c3, type: 3}
       propertyPath: m_TargetGraphic
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1843701596930339806, guid: 27e7640dd6ea20949948303979e031c3, type: 3}
+      propertyPath: m_Value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1843701596930339806, guid: 27e7640dd6ea20949948303979e031c3, type: 3}
       propertyPath: m_TargetGraphic
@@ -878,10 +886,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 996428445782893172, guid: 3030c21de79f11e48b66cf4a4aa532da, type: 3}
+      propertyPath: OffsetY
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2338799085242094739, guid: 3030c21de79f11e48b66cf4a4aa532da, type: 3}
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 690379236}
+    - target: {fileID: 3160950113092773685, guid: 3030c21de79f11e48b66cf4a4aa532da, type: 3}
+      propertyPath: m_TrackedObjectOffset.y
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6726831671282260356, guid: 3030c21de79f11e48b66cf4a4aa532da, type: 3}
       propertyPath: m_Name
       value: VCamMain
@@ -892,7 +908,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7931100705575197967, guid: 3030c21de79f11e48b66cf4a4aa532da, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7931100705575197967, guid: 3030c21de79f11e48b66cf4a4aa532da, type: 3}
       propertyPath: m_LocalPosition.z
