@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Master.Scripts.Player
+namespace Alex.Scripts.Player
 {
     public class PlayerController : MonoBehaviour
     {
@@ -21,7 +21,7 @@ namespace Master.Scripts.Player
 
         public float ProjectileVelocity = 80f;
 
-        private PlayerControls _inputActions;
+        private PlayerInputActions _inputActions;
         
         private Rigidbody2D _rigidbody;
         private Vector2 _aimDashDirection;
@@ -32,7 +32,7 @@ namespace Master.Scripts.Player
 
         private void Awake()
         {
-            _inputActions = new PlayerControls();
+            _inputActions = new PlayerInputActions();
         }
 
         private void Start()
