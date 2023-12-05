@@ -21,7 +21,7 @@ namespace Alex.Scripts.Player
 
         public float ProjectileVelocity = 80f;
 
-        private PlayerInputActions _inputActions;
+        private PlayerControls _inputActions;
         
         private Rigidbody2D _rigidbody;
         private Vector2 _aimDashDirection;
@@ -32,7 +32,7 @@ namespace Alex.Scripts.Player
 
         private void Awake()
         {
-            _inputActions = new PlayerInputActions();
+            _inputActions = new PlayerControls();
         }
 
         private void Start()
