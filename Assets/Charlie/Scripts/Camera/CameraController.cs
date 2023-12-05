@@ -3,9 +3,9 @@ using System.Collections;
 using UnityEngine;
 using Cinemachine;
 
-using Master.Scripts.Player;
+using Charlie.Scripts.Player;
 
-namespace Charlie.Scripts
+namespace Charlie.Scripts.Camera
 {
     [RequireComponent(typeof (CinemachineVirtualCamera))]
     public class CameraController: MonoBehaviour
