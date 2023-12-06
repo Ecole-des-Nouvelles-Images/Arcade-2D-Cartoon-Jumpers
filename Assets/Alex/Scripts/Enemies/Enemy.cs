@@ -5,9 +5,9 @@ using UnityEngine;
 
 namespace Alex.Scripts.Enemies
 {
-    public abstract class Enemy : MonoBehaviour
-    {
-        
+    public abstract class Enemy : MonoBehaviour {
+
+        public Dictionary<(Command, string), object> Memory = new();
         public List<Command> Commands;
         public float EnemySpeed = 5f;
         public float EnemyPower;
@@ -24,15 +24,19 @@ namespace Alex.Scripts.Enemies
             // If no command then fetch first command
             if (!_currentCommand) {
                 _currentCommand = Commands[0];
+                _currentCommand.Setup(this);
             }
             // If current command is finished then get the next
             if (_currentCommand.IsFinished(this)) {
+                _currentCommand.CleanUp(this);
+                Debug.Log($"Current command : { _currentCommand } is Finished, getting next one");
                 _currentCommandIndex++;
                 // If index is higher than the number of elements
                 if (_currentCommandIndex >= Commands.Count) 
                     _currentCommandIndex = 0;
                 // Fetch the next command
                 _currentCommand = Commands[_currentCommandIndex];
+                _currentCommand.Setup(this);
             }
             _currentCommand.Execute(this);
         }

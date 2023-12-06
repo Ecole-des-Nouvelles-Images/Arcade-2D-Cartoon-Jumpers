@@ -10,6 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ec5404e62fe40b58dd90a78407f7371, type: 3}
-  m_Name: MoveRight
+  m_Name: RightMove
   m_EditorClassIdentifier: 
-  _direction: {x: 80, y: 0}
+  _destination: {x: 30, y: 0}
+  speed: 0
