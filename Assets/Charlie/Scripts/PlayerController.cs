@@ -11,7 +11,7 @@ namespace Charlie.Scripts
         [Space(10)]
         public Transform AimingIndicator;
 
-        private PlayerInputActions _inputActions;
+        private PlayerControls _inputActions;
         private Rigidbody2D _rigidbody;
         
         private Vector2 _aimDirection;
@@ -20,24 +20,24 @@ namespace Charlie.Scripts
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
-            _inputActions = new PlayerInputActions();
+            _inputActions = new PlayerControls();
         }
 
         private void Start()
         {
-            _inputActions.Player.Enable();
+            _inputActions.GamePlay.Enable();
         }
         
         private void OnEnable()
         {
-            _inputActions.Player.Dash.performed += OnDash;
-            _inputActions.Player.Aim.performed += OnAim;
+            _inputActions.GamePlay.Dash.performed += OnDash;
+            _inputActions.GamePlay.AimDash.performed += OnAim;
         }
 
         private void OnDisable()
         {
-            _inputActions.Player.Dash.performed -= OnDash;
-            _inputActions.Player.Aim.performed -= OnAim;
+            _inputActions.GamePlay.Dash.performed -= OnDash;
+            _inputActions.GamePlay.AimDash.performed -= OnAim;
         }
         
         // Event Handlers
