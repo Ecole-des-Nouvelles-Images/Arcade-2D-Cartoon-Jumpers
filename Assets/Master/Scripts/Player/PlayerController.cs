@@ -20,7 +20,7 @@ namespace Master.Scripts.Player
 
         public float ProjectileVelocity = 80f;
 
-        private PlayerControls _inputActions;
+        private PlayerControls _controls;
         
         private Rigidbody2D _rigidbody;
         private Vector2 _aimDashDirection;
@@ -31,12 +31,12 @@ namespace Master.Scripts.Player
 
         private void Awake()
         {
-            _inputActions = new PlayerControls();
+            _controls = new PlayerControls();
         }
 
         private void Start()
         {
-            _inputActions.Enable();
+            _controls.Enable();
             _rigidbody = GetComponent<Rigidbody2D>();
 
         }
@@ -44,19 +44,19 @@ namespace Master.Scripts.Player
         private void OnEnable()
         {
             
-            _inputActions.GamePlay.Dash.performed += OnDash;
-            _inputActions.GamePlay.AimDash.performed += OnDashAim;
-            _inputActions.GamePlay.Shoot.performed += OnShoot;
-            _inputActions.GamePlay.AimShoot.performed += OnAimShoot;
+            _controls.GamePlay.Dash.performed += OnDash;
+            _controls.GamePlay.AimDash.performed += OnDashAim;
+            _controls.GamePlay.Shoot.performed += OnShoot;
+            _controls.GamePlay.AimShoot.performed += OnAimShoot;
 
         }
 
         private void OnDisable()
         {
-            _inputActions.GamePlay.Dash.performed -= OnDash;
-            _inputActions.GamePlay.AimDash.performed -= OnDashAim;
-            _inputActions.GamePlay.Shoot.performed -= OnShoot;
-            _inputActions.GamePlay.AimShoot.performed -= OnAimShoot;
+            _controls.GamePlay.Dash.performed -= OnDash;
+            _controls.GamePlay.AimDash.performed -= OnDashAim;
+            _controls.GamePlay.Shoot.performed -= OnShoot;
+            _controls.GamePlay.AimShoot.performed -= OnAimShoot;
         }
 
         private void Update()
