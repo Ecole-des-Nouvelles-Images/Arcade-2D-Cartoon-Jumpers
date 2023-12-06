@@ -30,13 +30,11 @@ namespace Master.Scripts.Camera
         private void OnEnable()
         {
             SurfaceHitbox.OnStandOnSurface += DragCameraUpward;
-            SurfaceHitbox.OnStandInAir += ResetCameraOffset;
         }
         
         private void OnDisable()
         {
             SurfaceHitbox.OnStandOnSurface -= DragCameraUpward;
-            SurfaceHitbox.OnStandInAir -= ResetCameraOffset;
         }
 
         private IEnumerator AdjustCameraOffset(float targetOffset)

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ff8e41e4fc4729af1289c4d30ff244, type: 3}
   m_Name: StandardDash
   m_EditorClassIdentifier: 
-  Power: 0
+  Power: 10
   Velocity: 80
   Cooldown: 1

@@ -6,23 +6,24 @@ namespace Charlie.Scripts.Player
     public class PlayerController
     {
         private readonly PlayerControls _controls;
-        private Rigidbody2D _rigidbody;
+        private readonly Rigidbody2D _rigidbody;
         private readonly Player _player;
         
-        // Temporary, should be controlled by UI
-        private Transform DashCursor => _player.AimingDashIndicator;
-        private Transform AimCursor => _player.AimingShootIndicator;
-        
+        private Transform DashCursor => _player.AimingDashIndicator; // Temporary, should be controlled by UI
+        private Transform AimCursor => _player.AimingShootIndicator; // Temporary, should be controlled by UI
+        private bool CanShoot => _player.Projectile.Capacity > 0;
+
         private Vector2 _aimDashDirection;
         private Vector2 _aimShootDirection;
-
         private float _dashRecoveryTimer = Mathf.NegativeInfinity;
-        private bool CanShoot => _player.Projectile.Capacity > 0;
-        
+
+        public Vector2 Velocity => _rigidbody.velocity;
+
         public PlayerController(Player ctx)
         {
             _controls = new PlayerControls();
             _player = ctx;
+            _rigidbody = _player.GetComponent<Rigidbody2D>();
         }
 
         public void ActivateInputMap()
