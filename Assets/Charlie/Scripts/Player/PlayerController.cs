@@ -3,61 +3,95 @@ using UnityEngine.InputSystem;
 
 namespace Charlie.Scripts.Player
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController
     {
-        public float DashForce = 10f;
-        public float DashCooldown = 2f;
-        
-        [Space(10)]
-        public Transform AimingIndicator;
-
-        private PlayerInputActions _inputActions;
+        private readonly PlayerControls _controls;
         private Rigidbody2D _rigidbody;
+        private readonly Player _player;
         
-        private Vector2 _aimDirection;
-        private float _lastDashTime = Mathf.NegativeInfinity;
-
-        private void Awake()
-        {
-            _rigidbody = GetComponent<Rigidbody2D>();
-            _inputActions = new PlayerInputActions();
-        }
-
-        private void Start()
-        {
-            _inputActions.Player.Enable();
-        }
+        // Temporary, should be controlled by UI
+        private Transform DashCursor => _player.AimingDashIndicator;
+        private Transform AimCursor => _player.AimingShootIndicator;
         
-        private void OnEnable()
+        private Vector2 _aimDashDirection;
+        private Vector2 _aimShootDirection;
+
+        private float _dashRecoveryTimer = Mathf.NegativeInfinity;
+        private bool CanShoot => _player.Projectile.Capacity > 0;
+        
+        public PlayerController(Player ctx)
         {
-            _inputActions.Player.Dash.performed += OnDash;
-            _inputActions.Player.Aim.performed += OnAim;
+            _controls = new PlayerControls();
+            _player = ctx;
         }
 
-        private void OnDisable()
+        public void ActivateInputMap()
         {
-            _inputActions.Player.Dash.performed -= OnDash;
-            _inputActions.Player.Aim.performed -= OnAim;
+            _controls.Enable();
         }
         
-        // Event Handlers
-
-        public void OnAim(InputAction.CallbackContext ctx)
+        public void ListenInput()
         {
-            _aimDirection = ctx.ReadValue<Vector2>();
-            float angle = Mathf.Atan2(_aimDirection.y, _aimDirection.x) * Mathf.Rad2Deg;
-            AimingIndicator.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            _controls.GamePlay.Dash.performed += OnDash;
+            _controls.GamePlay.AimDash.performed += OnDashAim;
+            _controls.GamePlay.Shoot.performed += OnShoot;
+            _controls.GamePlay.AimShoot.performed += OnAimShoot;
+        }
+
+        public void IgnoreInputs()
+        {
+            _controls.GamePlay.Dash.performed -= OnDash;
+            _controls.GamePlay.AimDash.performed -= OnDashAim;
+            _controls.GamePlay.Shoot.performed -= OnShoot;
+            _controls.GamePlay.AimShoot.performed -= OnAimShoot;
+        }
+        
+        // Event Handlers //
+
+        public void OnDashAim(InputAction.CallbackContext ctx)
+        {
+            _aimDashDirection = ctx.ReadValue<Vector2>();
+            float angle = Mathf.Atan2(_aimDashDirection.y, _aimDashDirection.x) * Mathf.Rad2Deg;
+            DashCursor.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        }
+        
+        public void OnAimShoot(InputAction.CallbackContext ctx)
+        {
+            _aimShootDirection = ctx.ReadValue<Vector2>();
+            float shootAngle = Mathf.Atan2(_aimShootDirection.y, _aimShootDirection.x) * Mathf.Rad2Deg;
+            AimCursor.rotation = Quaternion.Euler(new Vector3(0, 0, shootAngle));
         }
 
         public void OnDash(InputAction.CallbackContext ctx)
         {
-            if (!(Time.time - _lastDashTime > DashCooldown)) return;
+            if (!(Time.time - _dashRecoveryTimer > _player.Dash.Cooldown)) return;
 
-            if (_aimDirection == Vector2.zero) return;
+            if (_aimDashDirection == Vector2.zero) return;
             
             _rigidbody.velocity = Vector2.zero;
-            _rigidbody.AddForce(_aimDirection * DashForce, ForceMode2D.Impulse);
-            _lastDashTime = Time.time;
+            _rigidbody.AddForce(_aimDashDirection * _player.Dash.Velocity, ForceMode2D.Impulse);
+            _dashRecoveryTimer = Time.time;
+        }
+
+        public void OnShoot(InputAction.CallbackContext ctx)
+        {
+            if (!CanShoot) return;
+
+            if (_aimShootDirection == Vector2.zero) return;
+            
+            _rigidbody.velocity = Vector2.zero; // conserver le reset avant le tir ? 
+            _rigidbody.AddForce(-_aimShootDirection * _player.Projectile.Velocity, ForceMode2D.Impulse);
+            GameObject shotFired = Object.Instantiate(_player.Projectile.Prefab, _player.transform.position, Quaternion.identity);
+            Vector2 shootDirection = _aimShootDirection.normalized;
+            shotFired.GetComponent<Rigidbody2D>().AddForce(shootDirection * _player.Projectile.Velocity, ForceMode2D.Impulse);
+            _player.Projectile.Capacity--;
+        }
+        
+        // Other Methods //
+        
+        public void ResetDashCoolDown() // Methode pour reset le cooldown du dash ( à utiliser sur le script de l'ennemi ) 
+        {
+            _dashRecoveryTimer = -Mathf.Infinity; 
         }
     }
 }
