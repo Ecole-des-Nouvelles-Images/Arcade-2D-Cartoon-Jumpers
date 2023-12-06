@@ -4,13 +4,20 @@ using UnityEngine;
 namespace Alex.Scripts.Enemies
 {
     [CreateAssetMenu(fileName = "New Move Command", menuName = "Move Command")]
-    public class MoveCommand : ScriptableObject, IMoveCommand
+    public class MoveCommand : Command
     {
         public Vector2 _destination; // Renseigne la destination 
+        public float speed;
 
-        public Vector2 Execute(Transform transform)
+        public override void Execute(Enemy enemy)
         {
-            return _destination; // Renvoyer la destionation au controller de l'enemy, l'appliquer ici ne permet pas d'utiliser une boucle update pour le déplacement 
+            enemy.transform.Translate(_destination * Time.deltaTime);
+        }
+
+        public override bool IsFinished(Enemy enemy)
+        {
+            Vector2 startingPosition = Vector2.zero;
+            return Vector2.Distance(enemy.transform.position,startingPosition + _destination) < 0.01f;
         }
     }
 }

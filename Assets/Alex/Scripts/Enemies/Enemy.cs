@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Alex.Scripts.Enemies;
 using Alex.Scripts.Player;
 using UnityEngine;
 
@@ -8,44 +7,36 @@ namespace Alex.Scripts.Enemies
 {
     public abstract class Enemy : MonoBehaviour
     {
-        public List<MoveCommand> moveCommands;
+        
+        public List<Command> Commands;
         public float EnemySpeed = 5f;
         public float EnemyPower;
         //public abstract void Move(IMoveCommand moveCommand);
         public PlayerController Player;
-
-        private int currentMoveIndex = 0;
-        private bool isMoving = false;
-
-        private void Update()
-        {
-            if (!isMoving && currentMoveIndex < moveCommands.Count)
-            {
-                Move(moveCommands[currentMoveIndex]);
-                // !! Ajouter logique de fin
-                currentMoveIndex++;
+        
+        private int _currentCommandIndex;
+        private Command _currentCommand;
+        
+        private void Update() {
+            // Control to check if commands list is empty
+            if (Commands.Count == 0)
+                throw new Exception("Enemy " + name + " commands is empty");
+            // If no command then fetch first command
+            if (!_currentCommand) {
+                _currentCommand = Commands[0];
             }
-        }
-        public void Move(IMoveCommand moveCommand)
-        {
-            if (moveCommand != null)
-            {
-                isMoving = true;
-                Vector2 _destination = moveCommand.Execute(transform); // récupère la destination de l'instance du SO
-                Vector2 _direction = (_destination - (Vector2)transform.position);
-                transform.Translate(_direction * (EnemySpeed * Time.deltaTime));
+            // If current command is finished then get the next
+            if (_currentCommand.IsFinished(this)) {
+                _currentCommandIndex++;
+                // If index is higher than the number of elements
+                if (_currentCommandIndex >= Commands.Count) 
+                    _currentCommandIndex = 0;
+                // Fetch the next command
+                _currentCommand = Commands[_currentCommandIndex];
             }
-           
+            _currentCommand.Execute(this);
         }
-
-       /* private void Start()
-        {
-            foreach (MoveCommand moveCommand in moveCommands)
-            {
-                Move(moveCommand);
-            }
-        }
-*/
+        
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (!other.CompareTag("Player")) return; // ajouter la vérification isDashing
