@@ -1,6 +1,8 @@
 using System;
-using Charlie.Scripts.SO;
 using UnityEngine;
+
+using Charlie.Scripts.Camera;
+using Charlie.Scripts.SO;
 
 namespace Charlie.Scripts.Player
 {
@@ -18,9 +20,6 @@ namespace Charlie.Scripts.Player
         [Space(5)] [Header("Temporary indicators, should move to UI")]
         [Tooltip("Move to UI !!!")] public Transform AimingDashIndicator;
         [Tooltip("Move to UI !!!")] public Transform AimingShootIndicator;
-
-        [Space(5)]
-        [Range(0, 200)] [SerializeField] private float _velocityThreshold;
         
         private void OnValidate()
         {
@@ -50,6 +49,8 @@ namespace Charlie.Scripts.Player
         }
         public Dash Dash { get; private set; }
         public Projectile Projectile { get; private set; }
+
+        private float VelocityThreshold => CameraController.DeadzoneThreshold;
         
         // Minor permanent fields //
         
@@ -113,15 +114,15 @@ namespace Charlie.Scripts.Player
         {
             float currentVelocity = _controller.Velocity.y;
 
-            if (currentVelocity < -_velocityThreshold && _previousVelocity >= -_velocityThreshold) {
+            if (currentVelocity < -VelocityThreshold && _previousVelocity >= -VelocityThreshold) {
             
                 OnDirectionChange.Invoke(-1);
             }
-            else if ((currentVelocity >= -_velocityThreshold && currentVelocity <= _velocityThreshold) && 
-                     (_previousVelocity < -_velocityThreshold || _previousVelocity > _velocityThreshold)) {
+            else if ((currentVelocity >= -VelocityThreshold && currentVelocity <= VelocityThreshold) && 
+                     (_previousVelocity < -VelocityThreshold || _previousVelocity > VelocityThreshold)) {
                 OnDirectionChange.Invoke(0);
             }
-            else if (currentVelocity > _velocityThreshold && _previousVelocity <= _velocityThreshold) {
+            else if (currentVelocity > VelocityThreshold && _previousVelocity <= VelocityThreshold) {
                 OnDirectionChange.Invoke(1);
             }
             

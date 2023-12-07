@@ -1771,6 +1771,7 @@ MonoBehaviour:
   _offsetFall: 8
   _dragDurationUp: 50
   _dragDurationDown: 150
+  _deadzoneThreshold: 0.8
 --- !u!212 &7745873392240295272
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1889,7 +1890,6 @@ MonoBehaviour:
   _startingProjectileType: {fileID: 11400000, guid: d6701c3275625d94b99b7cdc8bc83847, type: 2}
   AimingDashIndicator: {fileID: 3475558924116928895}
   AimingShootIndicator: {fileID: 8706882965286347461}
-  _velocityThreshold: 0.8
 --- !u!61 &8650167672727669508
 BoxCollider2D:
   m_ObjectHideFlags: 0
