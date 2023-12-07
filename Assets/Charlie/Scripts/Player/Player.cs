@@ -9,22 +9,22 @@ namespace Charlie.Scripts.Player
         // Public inspector fields //
         
         [Header("Base Stats")]
-        [Range(0, 1000)] public int MaxHp;
+        [Range(0, 1000)] [SerializeField] private int _maxHp;
 
         [Header("Power Components")]
-        public DashSO StartingDashType;
-        public ProjectileSO StartingProjectileType;
+        [SerializeField] private DashSO _startingDashType;
+        [SerializeField] private ProjectileSO _startingProjectileType;
         
         [Space(5)] [Header("Temporary indicators, should move to UI")]
         [Tooltip("Move to UI !!!")] public Transform AimingDashIndicator;
         [Tooltip("Move to UI !!!")] public Transform AimingShootIndicator;
-        
+
         [Space(5)]
-        [Range(0, float.MaxValue)] public float 
+        [Range(0, 200)] [SerializeField] private float _velocityThreshold;
         
         private void OnValidate()
         {
-            MaxHp = Mathf.RoundToInt(MaxHp / 10f) * 10;
+            _maxHp = Mathf.RoundToInt(_maxHp / 10f) * 10;
         }
 
         // Important fields and properties //
@@ -67,8 +67,8 @@ namespace Charlie.Scripts.Player
         private void Awake()
         {
             _controller = new PlayerController(this);
-            CurrentDashType = StartingDashType;
-            CurrentProjectileType = StartingProjectileType;
+            CurrentDashType = _startingDashType;
+            CurrentProjectileType = _startingProjectileType;
         }
 
         private void Start()
@@ -113,20 +113,18 @@ namespace Charlie.Scripts.Player
         {
             float currentVelocity = _controller.Velocity.y;
 
-            switch (currentVelocity)
-            {
-                case 0 when _previousVelocity != 0:
-                    OnDirectionChange.Invoke(0);
-                    break;
-                case > 0 when _previousVelocity <= 0:
-                    OnDirectionChange.Invoke(1);
-                    break;
-                case < 0 when _previousVelocity >= 0:
-                    OnDirectionChange.Invoke(-1);
-                    break;
+            if (currentVelocity < -_velocityThreshold && _previousVelocity >= -_velocityThreshold) {
+            
+                OnDirectionChange.Invoke(-1);
             }
-
-            // Store the current velocity for the next frame
+            else if ((currentVelocity >= -_velocityThreshold && currentVelocity <= _velocityThreshold) && 
+                     (_previousVelocity < -_velocityThreshold || _previousVelocity > _velocityThreshold)) {
+                OnDirectionChange.Invoke(0);
+            }
+            else if (currentVelocity > _velocityThreshold && _previousVelocity <= _velocityThreshold) {
+                OnDirectionChange.Invoke(1);
+            }
+            
             _previousVelocity = currentVelocity;
         }
     }

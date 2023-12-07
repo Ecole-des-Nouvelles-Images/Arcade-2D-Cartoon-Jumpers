@@ -10,19 +10,15 @@ namespace Charlie.Scripts.Camera
     public class CameraController: MonoBehaviour
     {
         [Header("Vertical offset when climb or fall")]
-        public float OffsetUp;
-        public float OffsetFall;
+        [SerializeField] private float _offsetUp;
+        [SerializeField] private float _offsetFall;
         
-        [Space(5)] [Header("Duration of the linear interpolation")]
-        [Tooltip("Note: Time is NOT in seconds")]
-        public float DragDuration = 1f;
-        
-        [Space(5)]
-        [Tooltip("Delay before the upward drag")] public float StandingDelay = 2f;
-        [Tooltip("Threshold below which camera will not drag around")] public float VelocityThreshod;
+        [Space(5)] [Header("UNSCALED duration of the linear interpolation")]
+        [SerializeField] private float _dragDurationUp = 1f;
+        [SerializeField] private float _dragDurationDown = 1f;
         
         // ======================= //
-
+        
         private CinemachineVirtualCamera _vCam;
         private CinemachineFramingTransposer _body;
 
@@ -47,17 +43,16 @@ namespace Charlie.Scripts.Camera
         
         private void OnDirectionChange(int direction)
         {
-            Debug.Log($"Velocity changed to [{direction}]");
             switch (direction)
             {
                 case < 0 :
-                    SmoothOffsetToward(OffsetFall);
+                    SmoothOffsetToward(-_offsetFall);
                     break;
                 case 0 :
                     SmoothOffsetToward(0f);
                     break;
                 case > 0 :
-                    SmoothOffsetToward(OffsetUp);
+                    SmoothOffsetToward(_offsetUp);
                     break;
             }
         }
@@ -71,12 +66,13 @@ namespace Charlie.Scripts.Camera
         private IEnumerator LerpTrackingOffset(float targetOffset)
         {
             float t = 0f;
-            float initialOffset = _body.m_TrackedObjectOffset.y;
+            float duration = (targetOffset >= 0) ? _dragDurationUp : _dragDurationDown;
+            // float initialOffset = _body.m_TrackedObjectOffset.y;
 
             while (t < 1)
             {
-                _body.m_TrackedObjectOffset.y = Mathf.Lerp(initialOffset, targetOffset, t);
-                t += Time.deltaTime / DragDuration;
+                _body.m_TrackedObjectOffset.y = Mathf.Lerp(_body.m_TrackedObjectOffset.y , targetOffset, t);
+                t += Time.deltaTime / duration;
                 yield return null;
             }
         }
