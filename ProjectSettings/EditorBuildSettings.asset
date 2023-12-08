@@ -6,7 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Alex/Scenes/Prototype.unity
-    guid: c60d70d2207ef3046b3962dcff853328
+    path: Assets/Charlie/Scenes/Menu.unity
+    guid: 53953ef5803a96b49a0f07842de968a9
+  - enabled: 1
+    path: Assets/Charlie/Scenes/Intro.unity
+    guid: a1cb507b95ac56f40958b1bdddb4f178
+  - enabled: 1
+    path: Assets/Charlie/Scenes/GamePrototype.unity
+    guid: 9a7d74e05a7e1794a8f437237c379b48
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 876a1c8d994830442acc5e11834e1186, type: 2}
