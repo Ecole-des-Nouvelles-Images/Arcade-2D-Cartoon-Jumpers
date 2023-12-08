@@ -4,6 +4,9 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Alex/Scenes/Prototype.unity
+    guid: c60d70d2207ef3046b3962dcff853328
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 876a1c8d994830442acc5e11834e1186, type: 2}
