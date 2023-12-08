@@ -7,7 +7,6 @@ namespace Master.Scripts.Player
     public class SurfaceHitbox: MonoBehaviour
     {
         public static Action OnStandOnSurface;
-        public static Action OnStandInAir;
         
         public bool IsOnSurface { get; private set; }
         
@@ -27,7 +26,6 @@ namespace Master.Scripts.Player
 
             _objectCount++;
             IsOnSurface = true;
-            OnStandOnSurface.Invoke();
         }
         
         private void OnTriggerExit2D(Collider2D other)
@@ -39,7 +37,6 @@ namespace Master.Scripts.Player
             if (_objectCount == 0)
             {
                 IsOnSurface = false;
-                OnStandInAir.Invoke();
             }
         }
     }

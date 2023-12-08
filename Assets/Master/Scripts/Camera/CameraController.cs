@@ -1,73 +1,88 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using Cinemachine;
 
-using Master.Scripts.Player;
+using PlayerComponent = Master.Scripts.Player.Player;
 
 namespace Master.Scripts.Camera
 {
     [RequireComponent(typeof (CinemachineVirtualCamera))]
     public class CameraController: MonoBehaviour
     {
-        [Header("Vertical offset when target standing on a surface")]
-        public float OffsetY = 2f;
+        [Header("Vertical offset when climb or fall")]
+        [SerializeField] private float _offsetUp;
+        [SerializeField] private float _offsetFall;
         
-        [Space(5)] [Header("Duration of the linear interpolation")]
-        [Tooltip("Note: Time is NOT in seconds")]
-        public float DragDuration = 1f;
+        [Space(5)] [Header("Un-linear duration of the linear interpolation")]
+        [SerializeField] private float _dragDurationUp = 1f;
+        [SerializeField] private float _dragDurationDown = 1f;
         
-        [Space(5)] [Header("Delay before the upward drag")]
-        public float StandingDelay = 2f;
-
+        [Header("Velocity deadzone where the camera is centered on the Player")]
+        [Tooltip("Note: Include the negative value")]
+        [SerializeField] private float _deadzoneThreshold;
+        
+        // ======================= //
+        
         private CinemachineVirtualCamera _vCam;
+        private CinemachineFramingTransposer _body;
+
+        public static float DeadzoneThreshold { get; private set; }
 
         private void Awake()
         {
             _vCam = GetComponent<CinemachineVirtualCamera>();
+            
+            CinemachineComponentBase stageMode = _vCam.GetCinemachineComponent(CinemachineCore.Stage.Body);
+            if (stageMode is CinemachineFramingTransposer component)
+                _body = component;
+
+            DeadzoneThreshold = _deadzoneThreshold;
         }
 
         private void OnEnable()
         {
-            SurfaceHitbox.OnStandOnSurface += DragCameraUpward;
-            SurfaceHitbox.OnStandInAir += ResetCameraOffset;
+            PlayerComponent.OnDirectionChange += OnDirectionChange;
         }
         
         private void OnDisable()
         {
-            SurfaceHitbox.OnStandOnSurface -= DragCameraUpward;
-            SurfaceHitbox.OnStandInAir -= ResetCameraOffset;
+            PlayerComponent.OnDirectionChange -= OnDirectionChange;
+        }
+        
+        private void OnDirectionChange(int direction)
+        {
+            switch (direction)
+            {
+                case < 0 :
+                    SmoothOffsetToward(-_offsetFall);
+                    break;
+                case 0 :
+                    SmoothOffsetToward(0f);
+                    break;
+                case > 0 :
+                    SmoothOffsetToward(_offsetUp);
+                    break;
+            }
         }
 
-        private IEnumerator AdjustCameraOffset(float targetOffset)
+        private void SmoothOffsetToward(float targetOffset)
         {
-            CinemachineComponentBase stageMode = _vCam.GetCinemachineComponent(CinemachineCore.Stage.Body);
+            StopAllCoroutines();
+            StartCoroutine(LerpTrackingOffset(targetOffset));
+        }
+        
+        private IEnumerator LerpTrackingOffset(float targetOffset)
+        {
             float t = 0f;
+            float duration = (targetOffset >= 0) ? _dragDurationUp : _dragDurationDown;
+            // float initialOffset = _body.m_TrackedObjectOffset.y;
 
-            if (stageMode is not CinemachineFramingTransposer body)
-                throw new Exception("Error: Camera.body stage mode is not FramingTransposer or could not be getted");
-
-            if (targetOffset > 0f)
-                yield return new WaitForSeconds(StandingDelay);
-            
             while (t < 1)
             {
-                t += Time.deltaTime / DragDuration;
-                body.m_TrackedObjectOffset.y = Mathf.Lerp(body.m_TrackedObjectOffset.y, targetOffset, t);
+                _body.m_TrackedObjectOffset.y = Mathf.Lerp(_body.m_TrackedObjectOffset.y , targetOffset, t);
+                t += Time.deltaTime / duration;
                 yield return null;
             }
         }
-        
-        private void DragCameraUpward()
-        {
-            StopAllCoroutines();
-            StartCoroutine(AdjustCameraOffset(OffsetY));
-        }
-
-        private void ResetCameraOffset()
-        {
-            StopAllCoroutines();
-            StartCoroutine(AdjustCameraOffset(0f));
-        }
-    }
+    }   
 }
