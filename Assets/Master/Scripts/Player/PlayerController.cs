@@ -66,12 +66,15 @@ namespace Master.Scripts.Player
                 AvailableShots++;
                 _lastShotTime = Time.time;
             }
+            GetComponent<Animator>().SetFloat("Speed", _rigidbody.velocity.y); //Ajout
         }
         // Event Handlers
 
         public void OnDashAim(InputAction.CallbackContext ctx)
         {
             _aimDashDirection = ctx.ReadValue<Vector2>();
+            if (ctx.ReadValue<Vector2>().x < 0) transform.localScale = new Vector3(-0.6f, 0.6f, 0.6f); //Ajout
+            if (ctx.ReadValue<Vector2>().x > 0) transform.localScale = new Vector3(0.6f, 0.6f, 0.6f); //Ajout
             float angle = Mathf.Atan2(_aimDashDirection.y, _aimDashDirection.x) * Mathf.Rad2Deg;
             AimingDashIndicator.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         }
