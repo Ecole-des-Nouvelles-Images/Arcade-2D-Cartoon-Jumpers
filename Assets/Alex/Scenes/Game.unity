@@ -705,6 +705,58 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2070078369
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2070078371}
+  - component: {fileID: 2070078370}
+  m_Layer: 0
+  m_Name: SectionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2070078370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070078369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05afbe7d813b65742bfb1562cd2b2464, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sectionPrefabs:
+  - {fileID: 3652444751579973635, guid: c44de80559cb37d4c865f769a35dbb4d, type: 3}
+  - {fileID: 5333409907181803909, guid: 6bc318e75e04c6146adb80442fa62f2b, type: 3}
+  player: {fileID: 2352757767843849682}
+  sectionSize: 30
+  maxSectionsAhead: 3
+  maxSectionsBehind: 3
+  triggerPosition: 30
+--- !u!4 &2070078371
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070078369}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.809165, y: 11.543281, z: -0.46022883}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &133246817403438694
 GameObject:
   m_ObjectHideFlags: 0
@@ -1073,7 +1125,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2308200993352841938, guid: 27e7640dd6ea20949948303979e031c3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -24.999998
+      value: -24.99997
       objectReference: {fileID: 0}
     - target: {fileID: 2308200993352841938, guid: 27e7640dd6ea20949948303979e031c3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1933,3 +1985,4 @@ SceneRoots:
   - {fileID: 8070880465637935795}
   - {fileID: 711394286}
   - {fileID: 1310515419}
+  - {fileID: 2070078371}
