@@ -5,33 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="57ef39cd-bf24-4354-a0a2-806232ec07ae" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Cartoon-Jumper/.idea/indexLayout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Cartoon-Jumper/.idea/projectSettingsUpdater.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Cartoon-Jumper/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Cartoon-Jumpers/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Cartoon-Jumpers/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Charlie/Animations/Crossfade.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Charlie/Animations/Crossfade.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Charlie/Animations/Crossfade_End.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Charlie/Animations/Crossfade_End.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Charlie/Animations/Crossfade_Start.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Charlie/Animations/Crossfade_Start.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Cartoon-Jumpers/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Cartoon-Jumpers/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Charlie/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Charlie/Scenes/Game.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Charlie/Scenes/Intro.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Charlie/Scenes/Intro.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Charlie/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Charlie/Scenes/Menu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Environment/lvl1_jail.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Environment/lvl1_jail.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Scripts/Enemy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Scripts/Enemy/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Scripts/Internal/SingletonMonoBehavior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Scripts/Internal/SingletonMonoBehavior.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Scripts/Managers.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Charlie/Scripts/Managers.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Scripts/Managers/SceneLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Charlie/Scripts/Managers/SceneLoader.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Scripts/Managers/SceneLoader.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Charlie/Scripts/Managers/SceneLoader.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Scripts/Player/PlayerControllerOld.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Scripts/Player/PlayerControllerOld.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Settings/UniversalRP.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Settings/UniversalRP.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/UI/ShotCursor.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/UI/ShotCursor.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles.manifest" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles.manifest" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/2DAnimationSampleAssetBundles/skeleton.manifest" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/2DAnimationSampleAssetBundles/skeleton.manifest" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Charlie/Scripts/Camera/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Charlie/Scripts/Camera/CameraController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Charlie/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Charlie/Scripts/Player/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master/Data/Player/StandardProjectile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Data/Player/StandardProjectile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master/Physics/StandardBounce.physicsMaterial2D" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master/Physics/StandardBounce.physicsMaterial2D.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master/Prefabs/VCamMain.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Prefabs/VCamMain.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master/Scripts/Camera/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Scripts/Camera/CameraController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,31 +47,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev-Charlie&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "dev-Charlie",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "settings.sync",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\Shadow\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\Shadow\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\Shadow\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\c.boyer\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
+      "C:\\Users\\c.boyer\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
+      "C:\\Users\\c.boyer\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/Build\Cartoon-Jumper.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/Build/CameraSizeTest/Cartoon-Jumper.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="C:\Users\Shadow\LocalRepository\Cartoon-Jumpers\Build" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -149,6 +133,7 @@
       <workItem from="1702217846904" duration="339000" />
       <workItem from="1702218214247" duration="14700000" />
       <workItem from="1702235595137" duration="18536000" />
+      <workItem from="1702290467964" duration="3125000" />
     </task>
     <servers />
   </component>
@@ -166,14 +151,7 @@
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Charlie/Scripts/Managers/SceneLoader.cs</url>
           <line>48</line>
-          <properties documentPath="C:\Users\Shadow\LocalRepository\Cartoon-Jumpers\Assets\Charlie\Scripts\Managers\SceneLoader.cs" initialLine="46" containingFunctionPresentation="Method 'LoadNextScene'">
-            <startOffsets>
-              <option value="1600" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1601" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="C:\Users\Shadow\LocalRepository\Cartoon-Jumpers\Assets\Charlie\Scripts\Managers\SceneLoader.cs" initialLine="46" containingFunctionPresentation="Method 'LoadNextScene'" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
