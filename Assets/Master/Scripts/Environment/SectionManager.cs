@@ -10,10 +10,10 @@ public class SectionManager : MonoBehaviour
     public float sectionSize = 21f;
     public int maxSectionsAhead = 3;
     public int maxSectionsBehind = 3;
-    public float triggerPosition = 30; // Hauteur à laquelle activer la gestion des sections
+    public float triggerPosition = 30; // Hauteur à laquelle le joueur doit être pour activer OnReachedSection
 
     private Queue<GameObject> _activeSections = new Queue<GameObject>();
-    private bool _sectionManagementStarted = false; // Booléen pour déclencher la gestion des sections
+    private bool _sectionManagementStarted = false; // Booléen permet d'activer ou désactiver OnReachedSection
 
     private void Start()
     {
@@ -45,8 +45,9 @@ public class SectionManager : MonoBehaviour
     }
 
     public void OnSectionReached(GameObject sectionInstance)
-    {
-        if (_sectionManagementStarted)
+    {   
+        //  Verification que le joueur a passé les premieres sections et n'a pas déjà trigger cette section avant, 
+        if (_sectionManagementStarted && !sectionInstance.GetComponent<SectionColliderTrigger>().hasBeenTriggered )
         {
             Destroy(_activeSections.Dequeue());
 
@@ -60,5 +61,6 @@ public class SectionManager : MonoBehaviour
                 colliderTrigger.Initialize(this);
             }
         }
+        // ... Actuellement que 3 sections, besoin de 4 supplémentaire minimum et implémenter l'action du joueur qui descend trop bas. 
     }
 }

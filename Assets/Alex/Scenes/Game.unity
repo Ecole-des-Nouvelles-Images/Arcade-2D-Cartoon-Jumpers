@@ -738,7 +738,7 @@ MonoBehaviour:
   - {fileID: 3652444751579973635, guid: c44de80559cb37d4c865f769a35dbb4d, type: 3}
   - {fileID: 5333409907181803909, guid: 6bc318e75e04c6146adb80442fa62f2b, type: 3}
   player: {fileID: 2352757767843849682}
-  sectionSize: 30
+  sectionSize: 21
   maxSectionsAhead: 3
   maxSectionsBehind: 3
   triggerPosition: 30
