@@ -2,10 +2,11 @@ using System;
 using UnityEngine;
 using NaughtyAttributes;
 
-using Master.Scripts.Camera;
+// using Master.Scripts.Camera;
 using Master.Scripts.SO;
 using Dash = Master.Scripts.Player.Dash;
 using Projectile = Master.Scripts.Player.Projectile;
+using Charlie.Scripts.Camera;
 
 namespace Charlie.Scripts.Player
 {

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Master.Scripts.Internal
 {
-    public abstract class SingletonMonoBehavior<T> : MonoBehaviour where T : MonoBehaviour
+    public abstract class SingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBehaviour
     {
         private static T _instance;
 

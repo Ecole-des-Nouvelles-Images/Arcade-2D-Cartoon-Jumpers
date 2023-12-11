@@ -56,10 +56,7 @@ namespace Charlie.Scripts.Camera
                 case < 0 :
                     SmoothOffsetToward(-_offsetFall);
                     break;
-                case 0 :
-                    SmoothOffsetToward(0f);
-                    break;
-                case > 0 :
+                case >= 0 :
                     SmoothOffsetToward(_offsetUp);
                     break;
             }

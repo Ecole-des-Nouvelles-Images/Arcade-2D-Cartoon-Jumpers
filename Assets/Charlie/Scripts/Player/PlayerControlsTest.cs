@@ -123,7 +123,7 @@ namespace Charlie.Scripts.Player
                     ""id"": ""7c8ace37-081c-4c40-9927-dcde18c3de68"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press(pressPoint=1)"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -132,7 +132,7 @@ namespace Charlie.Scripts.Player
                     ""id"": ""155de992-98eb-4fc3-a872-cab880bb8c7e"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press(pressPoint=1)"",
                     ""initialStateCheck"": false
                 }
             ],

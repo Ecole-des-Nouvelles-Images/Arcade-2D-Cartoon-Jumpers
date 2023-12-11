@@ -11,7 +11,7 @@ namespace Editor
     {
         private SerializedProperty _reloadSceneOnOverflow;
         private SerializedProperty _transitionController;
-        private SerializedProperty _transitionDurationFallback;
+        private SerializedProperty _additionnalDuration;
         
         private int _currentSceneBuildIndex;
         private int _lastSceneBuildIndex;
@@ -22,7 +22,7 @@ namespace Editor
             _lastSceneBuildIndex = SceneManager.sceneCountInBuildSettings - 1;
             _reloadSceneOnOverflow = serializedObject.FindProperty("_reloadSceneOnOverflow");
             _transitionController = serializedObject.FindProperty("_transitionController");
-            _transitionDurationFallback = serializedObject.FindProperty("_transitionDurationFallback");
+            _additionnalDuration = serializedObject.FindProperty("_additionnalDuration");
         }
 
         public override void OnInspectorGUI()
@@ -38,7 +38,7 @@ namespace Editor
             }
             
             EditorGUILayout.PropertyField(_transitionController);
-            EditorGUILayout.PropertyField(_transitionDurationFallback);
+            EditorGUILayout.PropertyField(_additionnalDuration);
             
             serializedObject.ApplyModifiedProperties();
         }

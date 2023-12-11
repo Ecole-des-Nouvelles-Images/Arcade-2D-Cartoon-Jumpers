@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Text;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using NaughtyAttributes;
@@ -9,13 +8,12 @@ using Master.Scripts.Internal;
 
 namespace Charlie.Scripts.Managers
 {
-    public class SceneLoader: SingletonMonoBehavior<SceneLoader>
+    public class SceneLoader: SingletonMonoBehaviour<SceneLoader>
     {
         [SerializeField] private bool _reloadSceneOnOverflow;
-
-        [Dropdown("GetTransitionTypes")] 
+        
         [SerializeField] private Animator _transitionController;
-        [SerializeField] private float _transitionDurationFallback;
+        [SerializeField] private float _additionnalDuration = 0.5f; 
 
         private AnimationClip[] _runtimeClips;
 

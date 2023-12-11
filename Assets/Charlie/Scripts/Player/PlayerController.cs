@@ -1,9 +1,9 @@
 using System;
-using Charlie.Scripts.Managers;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
+
+using Charlie.Scripts.Managers;
 
 namespace Charlie.Scripts.Player
 {
@@ -97,12 +97,16 @@ namespace Charlie.Scripts.Player
 
         private void OnShoot(InputAction.CallbackContext ctx)
         {
-            if (!CanShoot) return;
+            if (!CanShoot)
+            {
+                Debug.Log("Cannot Shoot");
+                return;
+            }
 
             if (_aimShootDirection == Vector2.zero) return;
             
             _rigidbody.velocity = Vector2.zero; // conserver le reset avant le tir ? 
-            _rigidbody.AddForce(-_aimShootDirection * _player.Projectile.Velocity, ForceMode2D.Impulse);
+            _rigidbody.AddForce(-_aimShootDirection * _player.Projectile.RecoilVelocity, ForceMode2D.Impulse);
             GameObject shotFired = Object.Instantiate(_player.Projectile.Prefab, _player.transform.position, Quaternion.identity);
             Vector2 shootDirection = _aimShootDirection.normalized;
             

@@ -1488,18 +1488,6 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 8070880465637935795}
-    - target: {fileID: 7304875248466482589, guid: 3030c21de79f11e48b66cf4a4aa532da, type: 3}
-      propertyPath: m_BiasY
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7304875248466482589, guid: 3030c21de79f11e48b66cf4a4aa532da, type: 3}
-      propertyPath: m_DeadZoneHeight
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7304875248466482589, guid: 3030c21de79f11e48b66cf4a4aa532da, type: 3}
-      propertyPath: m_SoftZoneHeight
-      value: 0.2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
