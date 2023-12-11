@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
-namespace Charlie.Scripts.Internal
+namespace Master.Scripts.Internal
 {
     public abstract class SingletonMonoBehavior<T> : MonoBehaviour where T : MonoBehaviour
     {
@@ -29,12 +30,16 @@ namespace Charlie.Scripts.Internal
             if (_instance == null)
             {
                 _instance = this as T;
-                DontDestroyOnLoad(gameObject);
             }
             else
             {
                 Destroy(gameObject);
             }
+        }
+
+        protected virtual void OnDestroy()
+        {
+            _instance = null;
         }
     }
 }

@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Charlie/Scenes/Intro.unity
     guid: a1cb507b95ac56f40958b1bdddb4f178
   - enabled: 1
-    path: Assets/Charlie/Scenes/GamePrototype.unity
-    guid: 9a7d74e05a7e1794a8f437237c379b48
+    path: Assets/Charlie/Scenes/Game.unity
+    guid: 6405b5942e5c783449ba1d1fa8524dc4
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 876a1c8d994830442acc5e11834e1186, type: 2}
