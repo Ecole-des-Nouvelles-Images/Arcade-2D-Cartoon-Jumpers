@@ -737,11 +737,12 @@ MonoBehaviour:
   sectionPrefabs:
   - {fileID: 3652444751579973635, guid: c44de80559cb37d4c865f769a35dbb4d, type: 3}
   - {fileID: 5333409907181803909, guid: 6bc318e75e04c6146adb80442fa62f2b, type: 3}
+  UpgradeSectionPrefab: {fileID: 5333409907181803909, guid: da49341bae919d54c850c307af8c9e23, type: 3}
   player: {fileID: 2352757767843849682}
   sectionSize: 21
   maxSectionsAhead: 3
-  maxSectionsBehind: 3
-  triggerPosition: 30
+  maxSectionsBehind: 1
+  triggerPosition: 50
 --- !u!4 &2070078371
 Transform:
   m_ObjectHideFlags: 0

@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Object = UnityEngine.Object;
@@ -10,7 +12,7 @@ namespace Master.Scripts.Player
         private readonly PlayerControls _controls;
         private readonly Rigidbody2D _rigidbody;
         private readonly Player _player;
-        
+
         private Transform DashCursor => _player.AimingDashIndicator; // Temporary, should be controlled by UI
         private Transform AimCursor => _player.AimingShootIndicator; // Temporary, should be controlled by UI
         private bool CanShoot => _player.Projectile.Capacity > 0;
@@ -32,7 +34,7 @@ namespace Master.Scripts.Player
         {
             _controls.Enable();
         }
-        
+
         public void ListenInput()
         {
             _controls.GamePlay.Dash.performed += OnDash;
@@ -48,7 +50,7 @@ namespace Master.Scripts.Player
             _controls.GamePlay.Shoot.performed -= OnShoot;
             _controls.GamePlay.AimShoot.performed -= OnAimShoot;
         }
-        
+
         // Event Handlers //
 
         private void OnDashAim(InputAction.CallbackContext ctx)
@@ -71,7 +73,7 @@ namespace Master.Scripts.Player
             if (!CanDash) return;
 
             if (_aimDashDirection == Vector2.zero) return;
-            
+
             _rigidbody.velocity = Vector2.zero;
             _rigidbody.AddForce(_aimDashDirection * _player.Dash.Velocity, ForceMode2D.Impulse);
         }
@@ -81,34 +83,38 @@ namespace Master.Scripts.Player
             if (!CanShoot) return;
 
             if (_aimShootDirection == Vector2.zero) return;
-            
+
             _rigidbody.velocity = Vector2.zero; // conserver le reset avant le tir ? 
             _rigidbody.AddForce(-_aimShootDirection * _player.Projectile.Velocity, ForceMode2D.Impulse);
-            GameObject shotFired = Object.Instantiate(_player.Projectile.Prefab, _player.transform.position, Quaternion.identity);
+            GameObject shotFired = Object.Instantiate(_player.Projectile.Prefab, _player.transform.position,
+                Quaternion.identity);
             Vector2 shootDirection = _aimShootDirection.normalized;
-            
-            if (shotFired != null) shotFired.GetComponent<Rigidbody2D>().AddForce(shootDirection * _player.Projectile.Velocity, ForceMode2D.Impulse);
+
+            if (shotFired != null)
+                shotFired.GetComponent<Rigidbody2D>()
+                    .AddForce(shootDirection * _player.Projectile.Velocity, ForceMode2D.Impulse);
             else throw new Exception("Cannot Instantiate shots ammunitons");
-            
+
             _player.Projectile.Capacity--;
         }
-        
+
         // Other Methods //
 
         private void FlipHorizontalDirection(Vector2 targetDirection)
         {
             Vector3 currentDirection = _player.transform.localScale;
-            
+
             if (targetDirection.x < 0 && currentDirection.x > 0 || targetDirection.x > 0 && currentDirection.x < 0)
             {
                 currentDirection.x *= -1;
                 _player.transform.localScale = currentDirection;
             }
         }
-        
-        public void ResetDashCoolDown() // Methode pour reset le cooldown du dash ( à utiliser sur le script de l'ennemi ) 
+
+        public void
+            ResetDashCoolDown() // Methode pour reset le cooldown du dash ( à utiliser sur le script de l'ennemi ) 
         {
-            _player.DashRecoveryTimer = -Mathf.Infinity; 
+            _player.DashRecoveryTimer = -Mathf.Infinity;
         }
     }
 }
