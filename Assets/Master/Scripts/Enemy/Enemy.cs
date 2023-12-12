@@ -15,6 +15,7 @@ namespace Master.Scripts.Enemy
         public float EnemyPower;
         //public abstract void Move(IMoveCommand moveCommand);
         public PlayerController Player;
+        public bool HasCollidedWithPlayer { get; private set; }
         
         private int _currentCommandIndex;
         private CommandSO _currentCommand;
@@ -49,6 +50,8 @@ namespace Master.Scripts.Enemy
             
             Debug.Log("Enemy Killed, reset DashCoolDown");
             Player.ResetDashCoolDown();
+            HasCollidedWithPlayer = true;
+
             //Détruire l'ennemi 
         }
     }
