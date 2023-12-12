@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-using Master.Scripts.Player;
 using Master.Scripts.SO;
+using Master.Scripts.Player;
 
 namespace Master.Scripts.Enemy
 {

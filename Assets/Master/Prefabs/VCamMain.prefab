@@ -47,10 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ddeaca1ca673847a1c907bbe24688d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _offsetUp: 8
-  _offsetFall: 8
-  _dragDurationUp: 50
-  _dragDurationDown: 150
+  _offsetUp: 6
+  _offsetFall: 0
+  _dragDurationUp: 20
+  _dragDurationDown: 50
   _deadzoneThreshold: 0.8
 --- !u!114 &4521077621535868877
 MonoBehaviour:
@@ -174,13 +174,13 @@ MonoBehaviour:
   m_ScreenY: 0.5
   m_CameraDistance: 10
   m_DeadZoneWidth: 1
-  m_DeadZoneHeight: 0.2
+  m_DeadZoneHeight: 0
   m_DeadZoneDepth: 0
   m_UnlimitedSoftZone: 0
   m_SoftZoneWidth: 1
-  m_SoftZoneHeight: 0.5
+  m_SoftZoneHeight: 0.2
   m_BiasX: 0
-  m_BiasY: 0
+  m_BiasY: 0.5
   m_CenterOnActivate: 1
   m_GroupFramingMode: 2
   m_AdjustmentMode: 0

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="57ef39cd-bf24-4354-a0a2-806232ec07ae" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Cartoon-Jumpers/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Cartoon-Jumpers/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Charlie/Animations/Crossfade.overrideController" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Charlie/Animations/Crossfade.overrideController.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Charlie/Animations/SpikeSwipe.overrideController" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Charlie/Animations/SpikeSwipe.overrideController" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Charlie/Animations/SpikeSwipe_End.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Charlie/Animations/SpikeSwipe_End.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Charlie/Animations/SpikeSwipe_Start.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Charlie/Animations/SpikeSwipe_Start.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Charlie/Animations/TransitionController.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Charlie/Animations/TransitionController.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Charlie/Animations/TransitionController.controller.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Charlie/Animations/TransitionController.controller.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Charlie/Animations/Transition_End.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Charlie/Animations/Transition_End.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Charlie/Animations/Transition_Start.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Charlie/Animations/Transition_Start.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Charlie/PlayerControlsTest.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Charlie/PlayerControlsTest.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Charlie/Prefabs/SceneManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Charlie/Prefabs/SceneManager.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Charlie/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Charlie/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Charlie/Scenes/Game.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Charlie/Scenes/Game.unity.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Charlie/Scenes/Intro.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Charlie/Scenes/Intro.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Charlie/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Charlie/Scenes/Menu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Charlie/Scripts/Camera/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Charlie/Scripts/Camera/CameraController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Charlie/Scripts/Managers/SceneLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Charlie/Scripts/Managers/SceneLoader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Charlie/Scripts/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Charlie/Scripts/Player/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Charlie/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Charlie/Scripts/Player/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Charlie/Scripts/Player/PlayerControlsTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Charlie/Scripts/Player/PlayerControlsTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/SceneLoaderCustomInspector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/SceneLoaderCustomInspector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master/Scripts/Internal/SingletonMonoBehavior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Scripts/Internal/SingletonMonoBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master/Scripts/Internal/SingletonMonoBehavior.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Scripts/Internal/SingletonMonoBehaviour.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles.manifest" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles.manifest" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/2DAnimationSampleAssetBundles/skeleton.manifest" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/2DAnimationSampleAssetBundles/skeleton.manifest" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Charlie/Scripts/Player/Player.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/InputSystem/Editor/Internal/AdvancedDropdown/AdvancedDropdownGUI.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@14.0.8/Runtime/2D/Light2DManager.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2YuZbWKZNe2PzHABhsXJrCnKRSE" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "dev-Charlie",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "settings.sync",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\c.boyer\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
+      "C:\\Users\\c.boyer\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
+      "C:\\Users\\c.boyer\\AppData\\Local\\Symbols\\src"
+    ]
+  }
+}]]></component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/Build/CameraSizeTest/Cartoon-Jumper.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\Shadow\LocalRepository\Cartoon-Jumpers\Build" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.10f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\Shadow\LocalRepository\Cartoon-Jumpers -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\Shadow\LocalRepository\Cartoon-Jumpers" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.10f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\Shadow\LocalRepository\Cartoon-Jumpers -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\Shadow\LocalRepository\Cartoon-Jumpers" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="57ef39cd-bf24-4354-a0a2-806232ec07ae" name="Changes" comment="" />
+      <created>1701377507448</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1701377507448</updated>
+      <workItem from="1701377511780" duration="248000" />
+      <workItem from="1701377785625" duration="5469000" />
+      <workItem from="1701636800557" duration="717000" />
+      <workItem from="1701638687356" duration="590000" />
+      <workItem from="1701639306920" duration="7074000" />
+      <workItem from="1701647159933" duration="1099000" />
+      <workItem from="1701814259344" duration="7552000" />
+      <workItem from="1702217846904" duration="339000" />
+      <workItem from="1702218214247" duration="14700000" />
+      <workItem from="1702235595137" duration="18536000" />
+      <workItem from="1702290467964" duration="8468000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>
