@@ -394,6 +394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fe85a8e89c69414185912547454b616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enableTestMapInputs: 0
   _maxHp: 100
   _startingDashType: {fileID: 11400000, guid: dbef9fccaf5283f4da83cc5d4d14ff50, type: 2}
   _startingProjectileType: {fileID: 11400000, guid: f4c4353bdfaa1f04d9b97fc9b8af88fc, type: 2}
@@ -436,7 +437,7 @@ Rigidbody2D:
   m_LinearDrag: 6
   m_AngularDrag: 6
   m_GravityScale: 20
-  m_Material: {fileID: 6200000, guid: 6e3652e5a208a6443b2a07fc37d488ab, type: 2}
+  m_Material: {fileID: 6200000, guid: c6c35c0bcf7cdc74eb50d425bcf0cdca, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

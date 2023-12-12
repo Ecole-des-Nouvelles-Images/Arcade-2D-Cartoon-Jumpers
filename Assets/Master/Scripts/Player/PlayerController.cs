@@ -1,9 +1,9 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Object = UnityEngine.Object;
+
+using Master.Scripts.Managers;
 
 namespace Master.Scripts.Player
 {
@@ -12,6 +12,7 @@ namespace Master.Scripts.Player
         private readonly PlayerControls _controls;
         private readonly Rigidbody2D _rigidbody;
         private readonly Player _player;
+        private readonly bool _enableTestMap;
 
         private Transform DashCursor => _player.AimingDashIndicator; // Temporary, should be controlled by UI
         private Transform AimCursor => _player.AimingShootIndicator; // Temporary, should be controlled by UI
@@ -23,16 +24,20 @@ namespace Master.Scripts.Player
 
         public Vector2 Velocity => _rigidbody.velocity;
 
-        public PlayerController(Player ctx)
+        public PlayerController(Player ctx, bool enableTestMap)
         {
             _controls = new PlayerControls();
+            _enableTestMap = enableTestMap;
             _player = ctx;
             _rigidbody = _player.GetComponent<Rigidbody2D>();
         }
 
         public void ActivateInputMap()
         {
-            _controls.Enable();
+            _controls.GamePlay.Enable();
+            
+            if (_enableTestMap)
+                _controls.TestMap.Enable();
         }
 
         public void ListenInput()
@@ -41,6 +46,11 @@ namespace Master.Scripts.Player
             _controls.GamePlay.AimDash.performed += OnDashAim;
             _controls.GamePlay.Shoot.performed += OnShoot;
             _controls.GamePlay.AimShoot.performed += OnAimShoot;
+            
+            if (_enableTestMap) {
+                _controls.TestMap.NextScene.performed += OnNextScene;
+                _controls.TestMap.PrevScene.performed += OnPrevScene;
+            }
         }
 
         public void IgnoreInputs()
@@ -49,6 +59,11 @@ namespace Master.Scripts.Player
             _controls.GamePlay.AimDash.performed -= OnDashAim;
             _controls.GamePlay.Shoot.performed -= OnShoot;
             _controls.GamePlay.AimShoot.performed -= OnAimShoot;
+            
+            if (_enableTestMap) {
+                _controls.TestMap.NextScene.performed += OnNextScene;
+                _controls.TestMap.PrevScene.performed += OnPrevScene;
+            }
         }
 
         // Event Handlers //
@@ -78,7 +93,7 @@ namespace Master.Scripts.Player
             _rigidbody.AddForce(_aimDashDirection * _player.Dash.Velocity, ForceMode2D.Impulse);
         }
 
-        private void OnShoot(InputAction.CallbackContext ctx)
+        private void OnShoot(InputAction.CallbackContext ctx) // TODO: Debug cooldown/capacity
         {
             if (!CanShoot) return;
 
@@ -97,6 +112,18 @@ namespace Master.Scripts.Player
 
             _player.Projectile.Capacity--;
         }
+        
+        // Test Input Event Handlers //
+        
+        private void OnPrevScene(InputAction.CallbackContext ctx)
+        {
+            SceneLoader.Instance.LoadPreviousScene();
+        }
+
+        private void OnNextScene(InputAction.CallbackContext ctx)
+        {
+            SceneLoader.Instance.LoadNextScene();
+        }
 
         // Other Methods //
 
@@ -109,12 +136,6 @@ namespace Master.Scripts.Player
                 currentDirection.x *= -1;
                 _player.transform.localScale = currentDirection;
             }
-        }
-
-        public void
-            ResetDashCoolDown() // Methode pour reset le cooldown du dash ( à utiliser sur le script de l'ennemi ) 
-        {
-            _player.DashRecoveryTimer = -Mathf.Infinity;
         }
     }
 }

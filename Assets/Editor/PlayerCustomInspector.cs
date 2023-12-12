@@ -1,6 +1,7 @@
-using Charlie.Scripts.Player;
 using UnityEditor;
 using UnityEngine;
+
+using Master.Scripts.Player;
 
 namespace Editor
 {
