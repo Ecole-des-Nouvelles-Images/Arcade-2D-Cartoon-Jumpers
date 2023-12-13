@@ -88,6 +88,54 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "TestMap",
+            "id": "31e7379e-9ea0-47ef-89fa-bfecac056165",
+            "actions": [
+                {
+                    "name": "NextScene",
+                    "type": "Button",
+                    "id": "2c322f10-d58b-4fb0-a647-1952d9653d00",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PrevScene",
+                    "type": "Button",
+                    "id": "a2885bfe-8146-4fad-be50-3d4fc21b79a3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "8717b6b0-94ad-4f66-8167-dc6894fb580a",
+                    "path": "<Gamepad>/start",
+                    "interactions": "Press(pressPoint=1)",
+                    "processors": "",
+                    "groups": "GamePad",
+                    "action": "NextScene",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d07c52e1-481c-46b2-b102-59da44914a17",
+                    "path": "<Gamepad>/select",
+                    "interactions": "Press(pressPoint=1)",
+                    "processors": "",
+                    "groups": "GamePad",
+                    "action": "PrevScene",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

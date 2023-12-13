@@ -11,8 +11,10 @@ namespace Master.Scripts.Player
     {
         // Public inspector fields //
         
+        [SerializeField] private bool _enableTestMapInputs;
+        
         [Header("Base Stats")]
-        [Range(0, 1000)] [SerializeField] private int _maxHp;
+        [Range(0, 1000)] [SerializeField] private int _maxHp = 100;
 
         [Header("Power Components")]
         [SerializeField] private DashSO _startingDashType;
@@ -27,9 +29,14 @@ namespace Master.Scripts.Player
             _maxHp = Mathf.RoundToInt(_maxHp / 10f) * 10;
         }
 
-        // Important fields and properties //
+        // Events //
 
         public static Action<int> OnDirectionChange;
+        public static Action<Player> OnEnemyHit;
+        public static Action<Player> OnDamageTaken;
+        public static Action<Player> OnHealthChanged;
+        
+        // Important fields and properties //
         
         private PlayerController _controller;
         private Animator _animator;
@@ -51,16 +58,17 @@ namespace Master.Scripts.Player
         }
         public Dash Dash { get; private set; }
         public Projectile Projectile { get; private set; }
-
-        private float VelocityThreshold => CameraController.DeadzoneThreshold;
         
-        // Animation cached parameters //
+        // Other fields //
         
+        public int HealthPoint { get; set; }
+        
+        private static float VelocityThreshold => CameraController.VelocityThreshold;
         private static readonly int AnimationSpeed = Animator.StringToHash("Speed");
         
-        // Minor permanent fields //
-        
         public float DashRecoveryTimer { get; set; }
+        private bool IsDashing => _animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerDash");
+
         private float _projectileRecoveryTimer;
         private float _previousVelocity;
 
@@ -73,10 +81,11 @@ namespace Master.Scripts.Player
         
         private void Awake()
         {
-            _controller = new PlayerController(this);
+            _controller = new PlayerController(this, _enableTestMapInputs);
             _animator = GetComponent<Animator>();
             CurrentDashType = _startingDashType;
             CurrentProjectileType = _startingProjectileType;
+            HealthPoint = _maxHp;
         }
 
         private void Start()
@@ -103,6 +112,20 @@ namespace Master.Scripts.Player
             RecoverShots();
         }
 
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag("Enemy"))
+            {
+                if (IsDashing)
+                    OnEnemyHit.Invoke(this);
+                else
+                {
+                    OnDamageTaken.Invoke(this);
+                    OnHealthChanged.Invoke(this); // TODO
+                }
+            }
+        }
+
         // ======================== //
         
         private void RecoverShots()
@@ -117,13 +140,19 @@ namespace Master.Scripts.Player
 
             _projectileRecoveryTimer -= Time.deltaTime;
         }
+
+        public void ResetDash()
+        {
+            DashRecoveryTimer = -Mathf.Infinity;
+        }
         
-        private void UpdateVerticalDirection()
+        private void UpdateVerticalDirection() 
         {
             float currentVelocity = _controller.Velocity.y;
 
+            if (OnDirectionChange == null) return;
+
             if (currentVelocity < -VelocityThreshold && _previousVelocity >= -VelocityThreshold) {
-            
                 OnDirectionChange.Invoke(-1);
             }
             else if ((currentVelocity >= -VelocityThreshold && currentVelocity <= VelocityThreshold) && 

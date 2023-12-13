@@ -16,5 +16,5 @@ MonoBehaviour:
   Power: 5
   Cooldown: 1
   Capacity: 3
-  RecoilVelocity: 50
-  ProjectileVelocity: 80
+  RecoilVelocity: 15
+  ProjectileVelocity: 60

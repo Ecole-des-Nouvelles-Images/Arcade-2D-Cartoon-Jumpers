@@ -112,6 +112,54 @@ namespace Master.Scripts.Player
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""TestMap"",
+            ""id"": ""31e7379e-9ea0-47ef-89fa-bfecac056165"",
+            ""actions"": [
+                {
+                    ""name"": ""NextScene"",
+                    ""type"": ""Button"",
+                    ""id"": ""2c322f10-d58b-4fb0-a647-1952d9653d00"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PrevScene"",
+                    ""type"": ""Button"",
+                    ""id"": ""a2885bfe-8146-4fad-be50-3d4fc21b79a3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""8717b6b0-94ad-4f66-8167-dc6894fb580a"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": ""Press(pressPoint=1)"",
+                    ""processors"": """",
+                    ""groups"": ""GamePad"",
+                    ""action"": ""NextScene"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d07c52e1-481c-46b2-b102-59da44914a17"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": ""Press(pressPoint=1)"",
+                    ""processors"": """",
+                    ""groups"": ""GamePad"",
+                    ""action"": ""PrevScene"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -134,6 +182,10 @@ namespace Master.Scripts.Player
             m_GamePlay_Dash = m_GamePlay.FindAction("Dash", throwIfNotFound: true);
             m_GamePlay_AimShoot = m_GamePlay.FindAction("AimShoot", throwIfNotFound: true);
             m_GamePlay_Shoot = m_GamePlay.FindAction("Shoot", throwIfNotFound: true);
+            // TestMap
+            m_TestMap = asset.FindActionMap("TestMap", throwIfNotFound: true);
+            m_TestMap_NextScene = m_TestMap.FindAction("NextScene", throwIfNotFound: true);
+            m_TestMap_PrevScene = m_TestMap.FindAction("PrevScene", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -261,6 +313,60 @@ namespace Master.Scripts.Player
             }
         }
         public GamePlayActions @GamePlay => new GamePlayActions(this);
+
+        // TestMap
+        private readonly InputActionMap m_TestMap;
+        private List<ITestMapActions> m_TestMapActionsCallbackInterfaces = new List<ITestMapActions>();
+        private readonly InputAction m_TestMap_NextScene;
+        private readonly InputAction m_TestMap_PrevScene;
+        public struct TestMapActions
+        {
+            private @PlayerControls m_Wrapper;
+            public TestMapActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+            public InputAction @NextScene => m_Wrapper.m_TestMap_NextScene;
+            public InputAction @PrevScene => m_Wrapper.m_TestMap_PrevScene;
+            public InputActionMap Get() { return m_Wrapper.m_TestMap; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(TestMapActions set) { return set.Get(); }
+            public void AddCallbacks(ITestMapActions instance)
+            {
+                if (instance == null || m_Wrapper.m_TestMapActionsCallbackInterfaces.Contains(instance)) return;
+                m_Wrapper.m_TestMapActionsCallbackInterfaces.Add(instance);
+                @NextScene.started += instance.OnNextScene;
+                @NextScene.performed += instance.OnNextScene;
+                @NextScene.canceled += instance.OnNextScene;
+                @PrevScene.started += instance.OnPrevScene;
+                @PrevScene.performed += instance.OnPrevScene;
+                @PrevScene.canceled += instance.OnPrevScene;
+            }
+
+            private void UnregisterCallbacks(ITestMapActions instance)
+            {
+                @NextScene.started -= instance.OnNextScene;
+                @NextScene.performed -= instance.OnNextScene;
+                @NextScene.canceled -= instance.OnNextScene;
+                @PrevScene.started -= instance.OnPrevScene;
+                @PrevScene.performed -= instance.OnPrevScene;
+                @PrevScene.canceled -= instance.OnPrevScene;
+            }
+
+            public void RemoveCallbacks(ITestMapActions instance)
+            {
+                if (m_Wrapper.m_TestMapActionsCallbackInterfaces.Remove(instance))
+                    UnregisterCallbacks(instance);
+            }
+
+            public void SetCallbacks(ITestMapActions instance)
+            {
+                foreach (var item in m_Wrapper.m_TestMapActionsCallbackInterfaces)
+                    UnregisterCallbacks(item);
+                m_Wrapper.m_TestMapActionsCallbackInterfaces.Clear();
+                AddCallbacks(instance);
+            }
+        }
+        public TestMapActions @TestMap => new TestMapActions(this);
         private int m_GamePadSchemeIndex = -1;
         public InputControlScheme GamePadScheme
         {
@@ -276,6 +382,11 @@ namespace Master.Scripts.Player
             void OnDash(InputAction.CallbackContext context);
             void OnAimShoot(InputAction.CallbackContext context);
             void OnShoot(InputAction.CallbackContext context);
+        }
+        public interface ITestMapActions
+        {
+            void OnNextScene(InputAction.CallbackContext context);
+            void OnPrevScene(InputAction.CallbackContext context);
         }
     }
 }

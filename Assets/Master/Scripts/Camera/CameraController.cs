@@ -17,17 +17,17 @@ namespace Master.Scripts.Camera
         [SerializeField] private float _dragDurationUp = 1f;
         [SerializeField] private float _dragDurationDown = 1f;
         
-        [Header("Velocity deadzone where the camera is centered on the Player")]
+        [Header("Velocity thresholds where the camera is centered on the Player")]
         [Tooltip("Note: Include the negative value")]
-        [SerializeField] private float _deadzoneThreshold;
+        [SerializeField] private float _velocityThreshold;
+        
+        public static float VelocityThreshold { get; set; }
         
         // ======================= //
         
         private CinemachineVirtualCamera _vCam;
         private CinemachineFramingTransposer _body;
-
-        public static float DeadzoneThreshold { get; private set; }
-
+        
         private void Awake()
         {
             _vCam = GetComponent<CinemachineVirtualCamera>();
@@ -35,8 +35,6 @@ namespace Master.Scripts.Camera
             CinemachineComponentBase stageMode = _vCam.GetCinemachineComponent(CinemachineCore.Stage.Body);
             if (stageMode is CinemachineFramingTransposer component)
                 _body = component;
-
-            DeadzoneThreshold = _deadzoneThreshold;
         }
 
         private void OnEnable()
@@ -51,18 +49,10 @@ namespace Master.Scripts.Camera
         
         private void OnDirectionChange(int direction)
         {
-            switch (direction)
-            {
-                case < 0 :
-                    SmoothOffsetToward(-_offsetFall);
-                    break;
-                case 0 :
-                    SmoothOffsetToward(0f);
-                    break;
-                case > 0 :
-                    SmoothOffsetToward(_offsetUp);
-                    break;
-            }
+            if (direction < 0)
+                SmoothOffsetToward(-_offsetFall);
+            else
+                SmoothOffsetToward(_offsetUp);
         }
 
         private void SmoothOffsetToward(float targetOffset)
@@ -74,7 +64,7 @@ namespace Master.Scripts.Camera
         private IEnumerator LerpTrackingOffset(float targetOffset)
         {
             float t = 0f;
-            float duration = (targetOffset >= 0) ? _dragDurationUp : _dragDurationDown;
+            float duration = (targetOffset > 0) ? _dragDurationUp : _dragDurationDown;
             // float initialOffset = _body.m_TrackedObjectOffset.y;
 
             while (t < 1)
