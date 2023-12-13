@@ -1,12 +1,10 @@
 using UnityEngine;
-
 using Master.Scripts.Enemy;
 using EnemyComponent = Master.Scripts.Enemy.Enemy;
 
 namespace Master.Scripts.SO.Commands
 {
     [CreateAssetMenu(fileName = "ShootCommand", menuName = "New ShootCommand Command")]
-
     public class ShootCommand : CommandSO
     {
         [SerializeField] private GameObject projectilePrefab;
@@ -15,54 +13,59 @@ namespace Master.Scripts.SO.Commands
         [SerializeField] private float _shootingTriggerDistance;
         [SerializeField] private float _fireTime;
         private float nextFireTime;
-        
+
         public override void Setup(EnemyComponent enemy)
         {
+            EnemyCtx = enemy;
             enemy.Memory[(this, "_fireTimeOut")] = Time.time + _fireTime;
             nextFireTime = Time.time + 1f / fireRate;
-            GameObject playerObject = GameObject.FindWithTag("Player");
-            if (playerObject == null)
-            {
-                Debug.LogError("Player Not Found in the Scene");
-                return;
-            }
 
-            enemy.Memory[(this, "playerTransform")] = playerObject.transform;
+            enemy.Memory[(this, "playerTransform")] = enemy.PlayerReference.transform;
         }
 
-        public override void Execute(EnemyComponent enemy)
+        public override void Execute()
         {
-            Transform playerTransform = enemy.Memory[(this, "playerTransform")] as Transform;
+            Transform playerTransform = EnemyCtx.Memory[(this, "playerTransform")] as Transform;
             if (playerTransform == null)
             {
                 Debug.LogError("Player transform not found in memory");
                 return;
             }
 
-            float distanceToPlayer = Vector2.Distance(enemy.transform.position, playerTransform.position);
-            if (Time.time >= nextFireTime && distanceToPlayer <= _shootingTriggerDistance)
+            float distanceToPlayer = Vector2.Distance(EnemyCtx.transform.position, playerTransform.position);
+            if (fireRate != 0)
             {
-                Fire(enemy, playerTransform);
-                nextFireTime = Time.time + 1f / fireRate;
+                if (Time.time >= nextFireTime && distanceToPlayer <= _shootingTriggerDistance)
+                {
+                    Fire(EnemyCtx.PlayerReference.transform);
+                    nextFireTime = Time.time + 1f / fireRate;
+                }
+            }
+            else
+            {
+                Fire(EnemyCtx.PlayerReference.transform);
+                EnemyCtx.Memory[(this, "_fireTimeOut")] = 0f;
             }
         }
 
-        private void Fire(EnemyComponent enemy, Transform playerTransform)
+        private void Fire(Transform playerTransform)
         {
-           Vector2 position = enemy.transform.position;
+            Vector2 position = EnemyCtx.transform.position;
             GameObject projectile = Instantiate(projectilePrefab, position, Quaternion.identity);
             Vector2 fireDirection = ((Vector2)playerTransform.position - position).normalized;
             projectile.GetComponent<EnemyProjectile>().Initialize(fireDirection, firePower);
         }
-        public override bool IsFinished(EnemyComponent enemy)
+
+        public override bool IsFinished()
         {
-            float _fireTimeOut = (float)enemy.Memory[(this, "_fireTimeOut")];
+            float _fireTimeOut = (float)EnemyCtx.Memory[(this, "_fireTimeOut")];
             return Time.time >= _fireTimeOut;
         }
 
-        public override void CleanUp(EnemyComponent enemy)
+        public override void CleanUp()
         {
-            enemy.Memory.Remove((this, "_fireTimeOut"));
+            EnemyCtx.Memory.Remove((this, "_fireTimeOut"));
+            EnemyCtx.Memory.Remove((this, "_playerTransform"));
         }
     }
 }

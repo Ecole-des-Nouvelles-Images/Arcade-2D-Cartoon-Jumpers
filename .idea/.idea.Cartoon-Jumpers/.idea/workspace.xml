@@ -5,10 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="57ef39cd-bf24-4354-a0a2-806232ec07ae" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Cartoon-Jumpers/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Cartoon-Jumpers/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Alex/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Alex/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master/Data/Commands/ShootCommand.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Data/Commands/ShootCommand.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master/Prefabs/EnemyProjectile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Prefabs/EnemyProjectile.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Master/Scripts/Enemy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Scripts/Enemy/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master/Scripts/SO/CommandSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Scripts/SO/CommandSO.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Master/Scripts/SO/Commands/FollowCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Scripts/SO/Commands/FollowCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master/Scripts/SO/Commands/MoveCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Scripts/SO/Commands/MoveCommand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Master/Scripts/SO/Commands/ShootCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Scripts/SO/Commands/ShootCommand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Master/Scripts/SO/Commands/WaitCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Scripts/SO/Commands/WaitCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles.manifest" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles.manifest" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/2DAnimationSampleAssetBundles/skeleton.manifest" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/2DAnimationSampleAssetBundles/skeleton.manifest" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

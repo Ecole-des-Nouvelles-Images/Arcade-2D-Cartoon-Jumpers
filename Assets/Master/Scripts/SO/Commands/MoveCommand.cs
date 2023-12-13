@@ -11,28 +11,30 @@ namespace Master.Scripts.SO.Commands
         [SerializeField] private float _speed; // Add some speed to the Enemy's own. 
         
         private Vector2 _startingPosition;
-
-        public override void Setup(EnemyComponent enemy) {
-            enemy.Memory[(this, "startingPosition")] = (Vector2) enemy.transform.position;
+        
+        public override void Setup(EnemyComponent enemy)
+        {
+            EnemyCtx = enemy;
+            EnemyCtx.Memory[(this, "startingPosition")] = (Vector2) EnemyCtx.transform.position;
         }
         
-        public override void Execute(EnemyComponent enemy)
+        public override void Execute()
         {
-            if (_startingPosition == Vector2.zero) _startingPosition = enemy.transform.position;
+            if (_startingPosition == Vector2.zero) _startingPosition = EnemyCtx.transform.position;
             Vector2 direction = _destination.normalized; // si on ne normalise pas, il baisse la vitesse à l'approche de la destination sans jamais l'atteindre
-            enemy.transform.Translate(direction * ((enemy.EnemySpeed + _speed) * Time.deltaTime));
+            EnemyCtx.transform.Translate(direction * ((EnemyCtx.EnemySpeed + _speed) * Time.deltaTime));
         }
 
-        public override bool IsFinished(EnemyComponent enemy)
+        public override bool IsFinished()
         {
-            Vector2 startingPosition = (Vector2) enemy.Memory[(this, "startingPosition")];
+            Vector2 startingPosition = (Vector2) EnemyCtx.Memory[(this, "startingPosition")];
             Vector2 currentDestination = startingPosition + _destination;
-            float distance = Vector2.Distance(currentDestination, enemy.transform.position);
+            float distance = Vector2.Distance(currentDestination, EnemyCtx.transform.position);
             return distance <= 1f;
         }
 
-        public override void CleanUp(EnemyComponent enemy) {
-            enemy.Memory.Remove((this, "startingPosition"));
+        public override void CleanUp() {
+            EnemyCtx.Memory.Remove((this, "startingPosition"));
         }
     }
 }

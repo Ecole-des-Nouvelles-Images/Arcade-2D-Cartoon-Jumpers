@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using EnemyComponent = Master.Scripts.Enemy.Enemy;
+
 namespace Master.Scripts.SO.Commands
 {
     [CreateAssetMenu(fileName = "Command", menuName = "New waiting Command")]
@@ -11,23 +12,24 @@ namespace Master.Scripts.SO.Commands
 
         public override void Setup(EnemyComponent enemy)
         {
-            enemy.Memory[(this, "_timeOut")] = Time.time + _waitingTime;
+            EnemyCtx = enemy;
+            EnemyCtx.Memory[(this, "_timeOut")] = Time.time + _waitingTime;
         }
 
-        public override void Execute(EnemyComponent enemy)
+        public override void Execute()
         {
-            Debug.Log($"{enemy.name} is waiting");
+            Debug.Log($"{EnemyCtx.name} is waiting");
         }
 
-        public override bool IsFinished(EnemyComponent enemy)
+        public override bool IsFinished()
         {
-            float _timeOut = (float)enemy.Memory[(this, "_timeOut")];
+            float _timeOut = (float)EnemyCtx.Memory[(this, "_timeOut")];
             return Time.time >= _timeOut;
         }
 
-        public override void CleanUp(EnemyComponent enemy)
+        public override void CleanUp()
         {
-            enemy.Memory.Remove((this, "_timeOut"));
+            EnemyCtx.Memory.Remove((this, "_timeOut"));
         }
     }
 }

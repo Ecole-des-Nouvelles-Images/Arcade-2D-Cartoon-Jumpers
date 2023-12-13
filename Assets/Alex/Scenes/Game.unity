@@ -912,15 +912,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05afbe7d813b65742bfb1562cd2b2464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sectionPrefabs:
+  _sectionPrefabs:
   - {fileID: 3652444751579973635, guid: c44de80559cb37d4c865f769a35dbb4d, type: 3}
   - {fileID: 5333409907181803909, guid: 6bc318e75e04c6146adb80442fa62f2b, type: 3}
-  UpgradeSectionPrefab: {fileID: 5333409907181803909, guid: da49341bae919d54c850c307af8c9e23, type: 3}
-  player: {fileID: 2352757767843849682}
-  sectionSize: 21
-  maxSectionsAhead: 3
-  maxSectionsBehind: 1
-  triggerPosition: 50
+  _upgradeSectionPrefab: {fileID: 5333409907181803909, guid: da49341bae919d54c850c307af8c9e23, type: 3}
+  _player: {fileID: 2352757767843849682}
+  _sectionSize: 21
+  _maxSectionsAhead: 3
+  _maxSectionsBehind: 3
+  _triggerPosition: 30
 --- !u!4 &2070078371
 Transform:
   m_ObjectHideFlags: 0
@@ -1915,7 +1915,7 @@ MonoBehaviour:
   _offsetFall: 8
   _dragDurationUp: 50
   _dragDurationDown: 150
-  _deadzoneThreshold: 0.8
+  _velocityThreshold: 0
 --- !u!212 &7745873392240295272
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2029,6 +2029,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fe85a8e89c69414185912547454b616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enableTestMapInputs: 0
   _maxHp: 100
   _startingDashType: {fileID: 11400000, guid: dbef9fccaf5283f4da83cc5d4d14ff50, type: 2}
   _startingProjectileType: {fileID: 11400000, guid: f4c4353bdfaa1f04d9b97fc9b8af88fc, type: 2}
