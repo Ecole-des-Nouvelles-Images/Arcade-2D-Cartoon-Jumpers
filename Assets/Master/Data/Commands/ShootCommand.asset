@@ -9,8 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16cf2375d1774d446bc73a30361869cd, type: 3}
-  m_Name: FollowCommand
+  m_Script: {fileID: 11500000, guid: b2476e50e6d0b0945a4a2b5a1dd968aa, type: 3}
+  m_Name: ShootCommand
   m_EditorClassIdentifier: 
-  _speed: 20
-  _followingTriggerDistance: 20
+  projectilePrefab: {fileID: 1706836210364569650, guid: 47d331a0842c4b840ab060a1d83a0b8c, type: 3}
+  fireRate: 1
+  firePower: 10
+  _shootingTriggerDistance: 15
+  _fireTime: 5

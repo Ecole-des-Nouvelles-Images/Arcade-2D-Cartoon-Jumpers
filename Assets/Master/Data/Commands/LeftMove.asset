@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16cf2375d1774d446bc73a30361869cd, type: 3}
-  m_Name: FollowCommand
+  m_Script: {fileID: 11500000, guid: 9ec5404e62fe40b58dd90a78407f7371, type: 3}
+  m_Name: LeftMove
   m_EditorClassIdentifier: 
-  _speed: 20
-  _followingTriggerDistance: 20
+  _destination: {x: -5, y: 0}
+  _speed: 0

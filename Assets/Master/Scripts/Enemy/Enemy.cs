@@ -49,10 +49,10 @@ namespace Master.Scripts.Enemy
             if (!other.CompareTag("Player")) return; // ajouter la vérification isDashing
             
             Debug.Log("Enemy Killed, reset DashCoolDown");
-            Player.ResetDashCoolDown();
+            //Player.ResetDashCoolDown();
             HasCollidedWithPlayer = true;
 
-            //Détruire l'ennemi 
+            Destroy(gameObject);
         }
     }
 }
