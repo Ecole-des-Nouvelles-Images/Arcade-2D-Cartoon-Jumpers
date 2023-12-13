@@ -10,26 +10,25 @@ namespace Master.Scripts.Player
     public class PlayerController
     {
         private readonly PlayerControls _controls;
-        private readonly Rigidbody2D _rigidbody;
+        
         private readonly Player _player;
         private readonly bool _enableTestMap;
 
         private Transform DashCursor => _player.AimingDashIndicator; // Temporary, should be controlled by UI
         private Transform AimCursor => _player.AimingShootIndicator; // Temporary, should be controlled by UI
-        private bool CanShoot => _player.Projectile.Capacity > 0;
+        private bool CanShoot => _player.Weapon.Capacity > 0;
         private bool CanDash => Time.time - _player.DashRecoveryTimer > _player.Dash.Cooldown;
 
         private Vector2 _aimDashDirection;
         private Vector2 _aimShootDirection;
 
-        public Vector2 Velocity => _rigidbody.velocity;
+        public Vector2 Velocity => _player.Rigidbody.velocity;
 
         public PlayerController(Player ctx, bool enableTestMap)
         {
             _controls = new PlayerControls();
             _enableTestMap = enableTestMap;
             _player = ctx;
-            _rigidbody = _player.GetComponent<Rigidbody2D>();
         }
 
         public void ActivateInputMap()
@@ -89,8 +88,7 @@ namespace Master.Scripts.Player
 
             if (_aimDashDirection == Vector2.zero) return;
 
-            _rigidbody.velocity = Vector2.zero;
-            _rigidbody.AddForce(_aimDashDirection * _player.Dash.Velocity, ForceMode2D.Impulse);
+            _player.Dash.Perform(_player, _aimDashDirection);
         }
 
         private void OnShoot(InputAction.CallbackContext ctx) // TODO: Debug cooldown/capacity
@@ -99,18 +97,7 @@ namespace Master.Scripts.Player
 
             if (_aimShootDirection == Vector2.zero) return;
 
-            _rigidbody.velocity = Vector2.zero; // conserver le reset avant le tir ? 
-            _rigidbody.AddForce(-_aimShootDirection * _player.Projectile.Velocity, ForceMode2D.Impulse);
-            GameObject shotFired = Object.Instantiate(_player.Projectile.Prefab, _player.transform.position,
-                Quaternion.identity);
-            Vector2 shootDirection = _aimShootDirection.normalized;
-
-            if (shotFired != null)
-                shotFired.GetComponent<Rigidbody2D>()
-                    .AddForce(shootDirection * _player.Projectile.Velocity, ForceMode2D.Impulse);
-            else throw new Exception("Cannot Instantiate shots ammunitons");
-
-            _player.Projectile.Capacity--;
+            _player.Weapon.Shoot(_player, _aimShootDirection);
         }
         
         // Test Input Event Handlers //

@@ -1,28 +1,41 @@
-﻿using UnityEngine;
+using UnityEngine;
+
+using Master.Scripts.Common;
 
 namespace Master.Scripts.Player
 {
-    public class Projectile
+    public class Projectile: MonoBehaviour
     {
-        public GameObject Prefab;
-        
-        public int Power;
-        public float Cooldown;
-        public int MaxCapacity;
-        public float RecoilVelocity;
-        public float Velocity;
+        private Weapon _origin;
+        private Rigidbody2D _rb;
 
-        public int Capacity { get; set; }
+        private static Player _playerReference;
 
-        public Projectile(GameObject projectilePrefab, int power, float cooldown, int capacity, float recoilVelocity, float velocity)
+        public static Projectile Create(Player ctx, Vector3 position, Transform container)
         {
-            Prefab = projectilePrefab;
-            Power = power;
-            Cooldown = cooldown;
-            MaxCapacity = capacity;
-            Capacity = MaxCapacity;
-            RecoilVelocity = recoilVelocity;
-            Velocity = velocity;
+            _playerReference = ctx;
+            GameObject projectile = Instantiate(ctx.Weapon.Prefab, position, Quaternion.identity, container);
+            return projectile.GetComponent<Projectile>();
+        }
+
+        public void Prepare(Weapon ctx)
+        {
+            _origin = ctx;
+            _rb = GetComponent<Rigidbody2D>();
+        }
+
+        public void Fire(Vector2 direction)
+        {
+            _rb.AddForce(direction.normalized * _origin.ProjectileVelocity, ForceMode2D.Impulse);
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag("Enemy"))
+            {
+                Scripts.Player.Player.OnEnemyHit.Invoke(_playerReference, DmgType.Projectile);
+                Destroy(this.gameObject);
+            }
         }
     }
 }

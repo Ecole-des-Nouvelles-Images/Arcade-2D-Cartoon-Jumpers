@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
-using Master.Scripts.Player;
+using System.ComponentModel;
 using UnityEngine;
 
+using Master.Scripts.Common;
 using Master.Scripts.SO;
 using PlayerComponent = Master.Scripts.Player.Player;
 
@@ -19,6 +20,7 @@ namespace Master.Scripts.Enemy
         public float EnemySpeed = 5f;
         public int EnemyPower;
         public float MaxHP;
+
         
         public PlayerComponent PlayerReference { get; private set; }
 
@@ -28,6 +30,7 @@ namespace Master.Scripts.Enemy
 
         private float HealthPoint { get; set; }
 
+
         private void Awake()
         {
             PlayerReference = GameObject.Find("Player").GetComponent<PlayerComponent>();
@@ -36,13 +39,13 @@ namespace Master.Scripts.Enemy
 
         private void OnEnable()
         {
-            PlayerComponent.OnEnemyHit += OnHit;
+            PlayerComponent.OnEnemyHit += OnHit; // TODO : Event common to every ennemies. Revert logic towards player ?
             PlayerComponent.OnDamageTaken += DealDamage;
         }
 
         private void OnDisable()
         {
-            PlayerComponent.OnEnemyHit -= OnHit;
+            PlayerComponent.OnEnemyHit -= OnHit; // TODO : Event common to every ennemies. Revert logic towards player ?
             PlayerComponent.OnDamageTaken -= DealDamage;
         }
 
@@ -69,13 +72,28 @@ namespace Master.Scripts.Enemy
             _currentCommand.Execute();
         }
 
-        private void OnHit(PlayerComponent ctx) // TODO: Test
+        // Events Handlers //
+        
+        private void OnHit(PlayerComponent ctx, DmgType type) // TODO: Test
         {
-            HealthPoint -= ctx.Dash.Power;
-            ctx.ResetDash();
+            Debug.Log($"Enemy {this.gameObject.name} took damages");
+
+            if (type == DmgType.Dash) {
+                HealthPoint -= ctx.Dash.Power;
+                ctx.ResetDash();
+            }
+            else if (type == DmgType.Projectile) {
+                HealthPoint -= ctx.Weapon.Power;
+            }
+            else {
+                throw new InvalidEnumArgumentException($"Unimplemented {type.ToString()} damage type");
+            }
+            
+            if (HealthPoint <= 0)
+                Destroy(this.gameObject);
         }
 
-        private void DealDamage(PlayerComponent ctx) // TODO: Test
+        private void DealDamage(PlayerComponent ctx)
         {
             ctx.HealthPoint -= EnemyPower;
         }

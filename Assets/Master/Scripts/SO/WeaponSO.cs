@@ -1,13 +1,16 @@
-﻿using UnityEngine;
+﻿using Master.Scripts.Common;
+using UnityEngine;
 using Master.Scripts.Player;
+using UnityEditor;
 
 namespace Master.Scripts.SO
 {
     [CreateAssetMenu(menuName = "Player Action/New Projectile Type", fileName = "Projectile", order = 4)]
-    public class ProjectileSO: ScriptableObject
+    public class WeaponSO: ScriptableObject
     {
-        [Header("Projectile prefab")]
+        [Header("References")]
         public GameObject ProjectilePrefab;
+        public string ObjectContainerName;
         
         [Header("Base Stats")]
         public int Power;
@@ -18,9 +21,10 @@ namespace Master.Scripts.SO
         public float RecoilVelocity = 40f;
         public float ProjectileVelocity;
         
-        public Projectile ConstructProjectileObject()
+        public Weapon ConstructWeaponObject()
         {
-            return new Projectile(ProjectilePrefab, Power, Cooldown, Capacity, RecoilVelocity, ProjectileVelocity);
+            Transform projectileOrigin = GameObject.Find(ObjectContainerName).transform;
+            return new Weapon(ProjectilePrefab, Power, Cooldown, Capacity, RecoilVelocity, ProjectileVelocity, projectileOrigin);
         }
     }
 }
