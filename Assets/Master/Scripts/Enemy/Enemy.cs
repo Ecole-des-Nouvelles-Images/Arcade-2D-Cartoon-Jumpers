@@ -19,7 +19,8 @@ namespace Master.Scripts.Enemy
 
         private static readonly PlayerComponent Player;
         private int _currentCommandIndex;
-        private Comm        public bool HasCollidedWithPlayer { get; private set; }andSO _currentCommand;
+        private CommandSO _currentCommand;
+        public bool HasCollidedWithPlayer { get; private set; }
 
         private float HealthPoint { get; set; }
 

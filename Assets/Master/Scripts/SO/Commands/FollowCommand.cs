@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Numerics;
-using Master.Scripts.SO;
 using UnityEngine;
-using Vector2 = UnityEngine.Vector2;
+
+using EnemyComponent = Master.Scripts.Enemy.Enemy;
 
 namespace Master.Scripts.SO.Commands
 {
@@ -15,7 +12,7 @@ namespace Master.Scripts.SO.Commands
         private Vector2 _startingPosition;
         private Vector2 _destination;
 
-        public override void Setup(Enemy.Enemy enemy)
+        public override void Setup(EnemyComponent enemy)
         {
             enemy.Memory[(this, "startingPosition")] = (Vector2)enemy.transform.position;
             GameObject playerObject = GameObject.FindWithTag("Player");
@@ -28,7 +25,7 @@ namespace Master.Scripts.SO.Commands
             enemy.Memory[(this, "playerTransform")] = playerObject.transform;
         }
 
-        public override void Execute(Enemy.Enemy enemy)
+        public override void Execute(EnemyComponent enemy)
         {
             if (_startingPosition == Vector2.zero) _startingPosition = enemy.transform.position;
             Transform playerTransform = enemy.Memory[(this, "playerTransform")] as Transform;
@@ -47,7 +44,7 @@ namespace Master.Scripts.SO.Commands
             }
         }
 
-        public override bool IsFinished(Enemy.Enemy enemy)
+        public override bool IsFinished(EnemyComponent enemy)
         {
             Vector2 startingPosition = (Vector2)enemy.Memory[(this, "startingPosition")];
             Vector2 currentDestination = startingPosition + _destination;
@@ -56,7 +53,7 @@ namespace Master.Scripts.SO.Commands
             return enemy.HasCollidedWithPlayer;
         }
 
-        public override void CleanUp(Enemy.Enemy enemy)
+        public override void CleanUp(EnemyComponent enemy)
         {
             enemy.Memory.Remove((this, "startingPosition"));
 
