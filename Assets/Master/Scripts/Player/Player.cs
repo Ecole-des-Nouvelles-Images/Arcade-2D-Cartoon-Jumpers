@@ -148,7 +148,7 @@ namespace Master.Scripts.Player
                 Debug.Log("Trigger by projectile");
                 if (!IsDashing)
                 {
-                    OnDamageTakenFromProjectile.Invoke(this);
+                    OnDamageTakenFromProjectile?.Invoke(this);
                     OnHealthChanged.Invoke(this);
                 }
             }
