@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: ShootCommand
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 1706836210364569650, guid: 857691e076cbf5f45b0b84931853dbda, type: 3}
-  fireRate: 0
+  fireRate: 2
   firePower: 10
+  fireSpeed: 5
   _shootingTriggerDistance: 15
   _fireTime: 5

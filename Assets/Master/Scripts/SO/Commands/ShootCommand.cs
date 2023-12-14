@@ -9,7 +9,8 @@ namespace Master.Scripts.SO.Commands
     {
         [SerializeField] private GameObject projectilePrefab;
         [SerializeField] private float fireRate = 1f;
-        [SerializeField] private float firePower = 10f;
+        [SerializeField] private int firePower = 10;
+        [SerializeField] private float fireSpeed = 5f;
         [SerializeField] private float _shootingTriggerDistance;
         [SerializeField] private float _fireTime;
         private float nextFireTime;
@@ -20,12 +21,12 @@ namespace Master.Scripts.SO.Commands
             enemy.Memory[(this, "_fireTimeOut")] = Time.time + _fireTime;
             nextFireTime = Time.time + 1f / fireRate;
 
-            enemy.Memory[(this, "playerTransform")] = enemy.PlayerReference.transform;
+            enemy.Memory[(this, "_playerTransform")] = enemy.PlayerReference.transform;
         }
 
         public override void Execute()
         {
-            Transform playerTransform = EnemyCtx.Memory[(this, "playerTransform")] as Transform;
+            Transform playerTransform = EnemyCtx.Memory[(this, "_playerTransform")] as Transform;
             if (playerTransform == null)
             {
                 Debug.LogError("Player transform not found in memory");
@@ -53,7 +54,7 @@ namespace Master.Scripts.SO.Commands
             Vector2 position = EnemyCtx.transform.position;
             GameObject projectile = Instantiate(projectilePrefab, position, Quaternion.identity);
             Vector2 fireDirection = ((Vector2)playerTransform.position - position).normalized;
-            projectile.GetComponent<EnemyProjectile>().Initialize(fireDirection, firePower);
+            projectile.GetComponent<EnemyProjectile>().Initialize(fireDirection, firePower, fireSpeed);
         }
 
         public override bool IsFinished()

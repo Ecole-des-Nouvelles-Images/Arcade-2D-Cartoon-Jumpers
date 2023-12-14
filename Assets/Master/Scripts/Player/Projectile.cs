@@ -4,7 +4,7 @@ using Master.Scripts.Common;
 
 namespace Master.Scripts.Player
 {
-    public class Projectile: MonoBehaviour
+    public class Projectile : MonoBehaviour
     {
         private Weapon _origin;
         private Rigidbody2D _rb;

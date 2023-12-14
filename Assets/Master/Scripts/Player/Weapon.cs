@@ -1,8 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using Object = UnityEngine.Object;
-
-using Master.Scripts.Common;
 
 namespace Master.Scripts.Player
 {

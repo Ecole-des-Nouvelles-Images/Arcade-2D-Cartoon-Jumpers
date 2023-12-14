@@ -37,6 +37,7 @@ namespace Master.Scripts.Player
         public static Action<int> OnDirectionChange;
         public static Action<Player, DmgType> OnEnemyHit;
         public static Action<Player> OnDamageTaken;
+        public static Action<Player> OnDamageTakenFromProjectile;
         public static Action<Player> OnHealthChanged;
         
         // Important fields and properties //
@@ -140,6 +141,15 @@ namespace Master.Scripts.Player
                     {
                         Debug.Log("Player Wounded"); // TODO
                     }
+                }
+            }
+            else if (other.CompareTag("Projectile"))
+            {
+                Debug.Log("Trigger by projectile");
+                if (!IsDashing)
+                {
+                    OnDamageTakenFromProjectile.Invoke(this);
+                    OnHealthChanged.Invoke(this);
                 }
             }
         }
