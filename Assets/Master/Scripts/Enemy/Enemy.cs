@@ -12,19 +12,28 @@ namespace Master.Scripts.Enemy
     public abstract class Enemy : MonoBehaviour {
 
         public Dictionary<(CommandSO, string), object> Memory = new();
+        
+        [Header("Pattern")]
         public List<CommandSO> Commands;
+        
+        [Header("Statistics")]
         public float EnemySpeed = 5f;
         public int EnemyPower;
-
         public float MaxHP;
-        private float HealthPoint { get; set; }
+
         
-        private static readonly PlayerComponent Player;
-        private int _currentCommandIndex;
+        public PlayerComponent PlayerReference { get; private set; }
+
         private CommandSO _currentCommand;
-        
+        private int _currentCommandIndex;
+        public bool HasCollidedWithPlayer { get; private set; }
+
+        private float HealthPoint { get; set; }
+
+
         private void Awake()
         {
+            PlayerReference = GameObject.Find("Player").GetComponent<PlayerComponent>();
             HealthPoint = MaxHP;
         }
 
@@ -50,8 +59,8 @@ namespace Master.Scripts.Enemy
                 _currentCommand.Setup(this);
             }
             // If current command is finished then get the next
-            if (_currentCommand.IsFinished(this)) {
-                _currentCommand.CleanUp(this);
+            if (_currentCommand.IsFinished()) {
+                _currentCommand.CleanUp();
                 _currentCommandIndex++;
                 // If index is higher than the number of elements
                 if (_currentCommandIndex >= Commands.Count) 
@@ -60,7 +69,7 @@ namespace Master.Scripts.Enemy
                 _currentCommand = Commands[_currentCommandIndex];
                 _currentCommand.Setup(this);
             }
-            _currentCommand.Execute(this);
+            _currentCommand.Execute();
         }
 
         // Events Handlers //

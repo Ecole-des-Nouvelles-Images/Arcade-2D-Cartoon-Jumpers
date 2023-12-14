@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - Enemy
+  - Projectile
   layers:
   - Default
   - TransparentFX
@@ -48,7 +49,4 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 2625290659
-    locked: 0
-  - name: WorldSpaceUI
-    uniqueID: 4273059325
     locked: 0

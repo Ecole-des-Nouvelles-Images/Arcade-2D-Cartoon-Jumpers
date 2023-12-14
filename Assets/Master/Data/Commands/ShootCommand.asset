@@ -9,8 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ec5404e62fe40b58dd90a78407f7371, type: 3}
-  m_Name: DownMove
+  m_Script: {fileID: 11500000, guid: b2476e50e6d0b0945a4a2b5a1dd968aa, type: 3}
+  m_Name: ShootCommand
   m_EditorClassIdentifier: 
-  _destination: {x: 0, y: -5}
-  _speed: 0
+  projectilePrefab: {fileID: 1706836210364569650, guid: 857691e076cbf5f45b0b84931853dbda, type: 3}
+  fireRate: 2
+  firePower: 10
+  fireSpeed: 5
+  _shootingTriggerDistance: 15
+  _fireTime: 5
