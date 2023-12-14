@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 using Master.Scripts.Internal;
 using PlayerComponent = Master.Scripts.Player.Player;
@@ -13,6 +14,7 @@ namespace Master.Scripts.Managers
         [Header("References")]
         [SerializeField] private Slider _healthGaugeLeft;
         [SerializeField] private Slider _healthGaugeRight;
+        [SerializeField] private TMP_Text _scoreMeter;
 
         [Header("Animation durations")] 
         [SerializeField] private float _healthGaugeAnimTime;
@@ -34,11 +36,13 @@ namespace Master.Scripts.Managers
         private void OnEnable()
         {
             PlayerComponent.OnHealthChanged += UpdateHealthGauge;
+            PlayerComponent.OnScoreChanged += UpdateScoreMeter;
         }
 
         private void OnDisable()
         {
             PlayerComponent.OnHealthChanged -= UpdateHealthGauge;
+            PlayerComponent.OnScoreChanged -= UpdateScoreMeter;
         }
         
         // Events Handlers //
@@ -61,6 +65,11 @@ namespace Master.Scripts.Managers
                 t += Time.deltaTime / _healthGaugeAnimTime;
                 yield return null;
             }
+        }
+
+        private void UpdateScoreMeter(PlayerComponent ctx)
+        {
+            _scoreMeter.text = ctx.Score.ToString(@"000\.00 'm'"); // https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-numeric-format-strings
         }
     }
 }

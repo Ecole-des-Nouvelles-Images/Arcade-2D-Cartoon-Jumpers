@@ -12,6 +12,7 @@ namespace Editor
         private SerializedProperty _initialMaxHealth;
         private SerializedProperty _startingDashType;
         private SerializedProperty _startingWeaponType;
+        private SerializedProperty _scoreDenominator;
         private SerializedProperty _aimingDashIndicator;
         private SerializedProperty _aimingShootIndicator;
 
@@ -21,6 +22,7 @@ namespace Editor
             _initialMaxHealth = serializedObject.FindProperty("_initialMaxHealth");
             _startingDashType = serializedObject.FindProperty("_startingDashType");
             _startingWeaponType = serializedObject.FindProperty("_startingWeaponType");
+            _scoreDenominator = serializedObject.FindProperty("_scoreDenominator");
             _aimingDashIndicator = serializedObject.FindProperty("AimingDashIndicator");
             _aimingShootIndicator = serializedObject.FindProperty("AimingShootIndicator");
         }
@@ -43,6 +45,7 @@ namespace Editor
             EditorGUILayout.PropertyField(_initialMaxHealth);
             EditorGUILayout.PropertyField(_startingDashType);
             EditorGUILayout.PropertyField(_startingWeaponType);
+            EditorGUILayout.PropertyField(_scoreDenominator);
 
             EditorGUILayout.Space();
             

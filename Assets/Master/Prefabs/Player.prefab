@@ -399,6 +399,7 @@ MonoBehaviour:
   _woundedThreshold: 0
   _startingDashType: {fileID: 11400000, guid: dbef9fccaf5283f4da83cc5d4d14ff50, type: 2}
   _startingWeaponType: {fileID: 11400000, guid: f4c4353bdfaa1f04d9b97fc9b8af88fc, type: 2}
+  _scoreDenominator: 10
   AimingDashIndicator: {fileID: 6954240018050192931}
   AimingShootIndicator: {fileID: 4027023606080616601}
 --- !u!95 &2078749309466548479
