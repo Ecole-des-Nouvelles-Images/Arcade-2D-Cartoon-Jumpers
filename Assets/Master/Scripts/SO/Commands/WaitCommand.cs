@@ -18,7 +18,7 @@ namespace Master.Scripts.SO.Commands
 
         public override void Execute()
         {
-            Debug.Log($"{EnemyCtx.name} is waiting");
+            // animation d Idle 
         }
 
         public override bool IsFinished()
