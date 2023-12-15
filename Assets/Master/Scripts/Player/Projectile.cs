@@ -33,7 +33,7 @@ namespace Master.Scripts.Player
         {
             if (other.CompareTag("Enemy"))
             {
-                Scripts.Player.Player.OnEnemyHit.Invoke(_playerReference, DmgType.Projectile);
+                Player.OnEnemyHit.Invoke(_playerReference, DmgType.Projectile);
                 Destroy(this.gameObject);
             }
         }

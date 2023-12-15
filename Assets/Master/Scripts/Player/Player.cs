@@ -154,6 +154,15 @@ namespace Master.Scripts.Player
                     }
                 }
             }
+            else if (other.CompareTag("Projectile"))
+            {
+                Debug.Log("Trigger by projectile");
+                if (!IsDashing)
+                {
+                    OnDamageTakenFromProjectile?.Invoke(this);
+                    OnHealthChanged.Invoke(this);
+                }
+            }
         }
 
         // ======================== //
