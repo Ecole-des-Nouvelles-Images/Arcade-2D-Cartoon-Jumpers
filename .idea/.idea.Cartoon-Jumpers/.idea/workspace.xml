@@ -4,31 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57ef39cd-bf24-4354-a0a2-806232ec07ae" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Cartoon-Jumpers/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Cartoon-Jumpers/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Animation/Player/Player.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Animation/Player/Player.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Data/Commands/DownMove.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Data/Commands/DownMove.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Data/Commands/LeftMove.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Data/Commands/LeftMove.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Data/Commands/RightMove.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Data/Commands/RightMove.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Data/Commands/ShootCommand.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Data/Commands/ShootCommand.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Data/Commands/UpMove.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Data/Commands/UpMove.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Prefabs/Enemies/EyeEnemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Prefabs/Enemies/EyeEnemy.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Prefabs/EnemyProjectile.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Prefabs/EnemyProjectile.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Prefabs/FollowerEnemy.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Prefabs/FollowerEnemy.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Prefabs/Misc/Projectile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Prefabs/Misc/Projectile.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Scripts/Enemy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Scripts/Enemy/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Scripts/Enemy/EnemyProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Scripts/Enemy/EnemyProjectile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Scripts/Managers/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Scripts/Managers/UIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Scripts/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Scripts/Player/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Scripts/Player/Projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Scripts/Player/Projectile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Scripts/SO/Commands/FollowCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Scripts/SO/Commands/FollowCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Scripts/SO/Commands/MoveCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Scripts/SO/Commands/MoveCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Scripts/SO/Commands/ShootCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Scripts/SO/Commands/ShootCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles.manifest" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles.manifest" afterDir="false" />
-    </list>
+    <list default="true" id="57ef39cd-bf24-4354-a0a2-806232ec07ae" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -153,7 +129,7 @@
       <workItem from="1702290467964" duration="8468000" />
       <workItem from="1702551419673" duration="5479000" />
       <workItem from="1702637672291" duration="808000" />
-      <workItem from="1702645947085" duration="12981000" />
+      <workItem from="1702645947085" duration="13092000" />
     </task>
     <servers />
   </component>
