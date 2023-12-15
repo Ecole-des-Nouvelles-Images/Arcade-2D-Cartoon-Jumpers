@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 167137035604975119}
   - component: {fileID: 6281452181893755138}
   - component: {fileID: -6509582055454637450}
-  - component: {fileID: 7005676766960579177}
+  - component: {fileID: 727355104954828317}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Projectile
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -149,7 +149,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7005676766960579177
+--- !u!114 &727355104954828317
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,6 +158,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1706836210364569650}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b8483130b9445fdb77a09ddb799446d, type: 3}
+  m_Script: {fileID: 11500000, guid: aa0e869104dd41a59d7d878aae90fc5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

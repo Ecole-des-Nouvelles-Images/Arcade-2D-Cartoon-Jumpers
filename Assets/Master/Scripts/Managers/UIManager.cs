@@ -50,7 +50,7 @@ namespace Master.Scripts.Managers
         private void UpdateHealthGauge(PlayerComponent ctx)
         {
             float initialGaugeValue = HealthGaugeMaster;
-            float targetGaugeValue = (float) ctx.HealthPoint / ctx.MaxHealth;
+            float targetGaugeValue = (float) ctx.Health / ctx.MaxHealth;
 
             StartCoroutine(UpdateHealthGaugeCoroutine(initialGaugeValue, targetGaugeValue));
         }

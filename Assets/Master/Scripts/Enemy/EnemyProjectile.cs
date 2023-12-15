@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using EnemyComponent = Master.Scripts.Enemy.Enemy;
 using PlayerComponent = Master.Scripts.Player.Player;
@@ -8,37 +6,29 @@ namespace Master.Scripts.Enemy
 {
     public class EnemyProjectile : MonoBehaviour
     {
+        private EnemyComponent _origin;
+        
         private Vector2 _direction;
-        private float _speed;
-        private int _power;
-       
-        private void OnEnable()
+        private float _velocity;
+        
+        public void Initialize(EnemyComponent origin, Vector2 fireDirection, float velocity)
         {
-            PlayerComponent.OnDamageTakenFromProjectile += DealProjectileDamage;
-        }
-
-        private void OnDisable()
-        {
-            PlayerComponent.OnDamageTakenFromProjectile -= DealProjectileDamage;
-        }
-       public void Initialize(Vector2 fireDirection, int firePower, float fireSpeed)
-        {
+            _origin = origin;
             _direction = fireDirection;
-            _speed = fireSpeed;
-            _power = firePower;
+            _velocity = velocity;
         }
 
         private void Update()
         {
-            transform.Translate(_direction * (_speed * Time.deltaTime));
+            transform.Translate(_direction * (_velocity * Time.deltaTime));
         }
-        
-        
-        private void DealProjectileDamage(PlayerComponent ctx) // TODO: Test
+
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log($"Player damaged from Projectile");
-            ctx.HealthPoint -= _power;
-            Destroy(gameObject);
+            if (!other.CompareTag("Player")) return;
+            
+            _origin.OnAttack.Invoke(_origin.Power);
+            Destroy(this.gameObject);
         }
     }
 }

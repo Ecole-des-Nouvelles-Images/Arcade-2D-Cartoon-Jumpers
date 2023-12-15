@@ -9,11 +9,8 @@ namespace Master.Scripts.Player
         private Weapon _origin;
         private Rigidbody2D _rb;
 
-        private static Player _playerReference;
-
         public static Projectile Create(Player ctx, Vector3 position, Transform container)
         {
-            _playerReference = ctx;
             GameObject projectile = Instantiate(ctx.Weapon.Prefab, position, Quaternion.identity, container);
             return projectile.GetComponent<Projectile>();
         }
@@ -27,15 +24,6 @@ namespace Master.Scripts.Player
         public void Fire(Vector2 direction)
         {
             _rb.AddForce(direction.normalized * _origin.ProjectileVelocity, ForceMode2D.Impulse);
-        }
-
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.CompareTag("Enemy"))
-            {
-                Player.OnEnemyHit.Invoke(_playerReference, DmgType.Projectile);
-                Destroy(this.gameObject);
-            }
         }
     }
 }

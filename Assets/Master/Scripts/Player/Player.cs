@@ -1,10 +1,12 @@
 using System;
+using System.ComponentModel;
 using UnityEngine;
 
 using Master.Scripts.Camera;
 using Master.Scripts.Common;
 using Master.Scripts.Managers;
 using Master.Scripts.SO;
+using EnemyComponent = Master.Scripts.Enemy.Enemy;
 
 namespace Master.Scripts.Player
 {
@@ -42,9 +44,6 @@ namespace Master.Scripts.Player
         // Events //
 
         public static Action<int> OnDirectionChange;
-        public static Action<Player, DmgType> OnEnemyHit;
-        public static Action<Player> OnDamageTaken;
-        
         public static Action<Player> OnHealthChanged;
         public static Action<Player> OnScoreChanged;
         
@@ -75,7 +74,7 @@ namespace Master.Scripts.Player
         // Other fields //
         
         public int MaxHealth { get; private set; }
-        public int HealthPoint { get; set; }
+        public int Health { get; set; }
         
         public float Score { get; private set; }
         
@@ -83,7 +82,7 @@ namespace Master.Scripts.Player
         private static readonly int AnimationSpeed = Animator.StringToHash("Speed");
         
         public float DashRecoveryTimer { get; private set; }
-        private bool IsDashing => Animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerDash");
+        public bool IsDashing => Animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerDash");
 
         private float _projectileRecoveryTimer;
         private float _previousVelocity;
@@ -105,7 +104,7 @@ namespace Master.Scripts.Player
             CurrentWeaponType = _startingWeaponType;
 
             MaxHealth = _initialMaxHealth;
-            HealthPoint = MaxHealth;
+            Health = MaxHealth;
         }
 
         private void Start()
@@ -118,11 +117,13 @@ namespace Master.Scripts.Player
         private void OnEnable()
         {
             _controller.ListenInput();
+            EnemyComponent.OnAwake = OnEnemyAwakening;
         }
-
+        
         private void OnDisable()
         {
             _controller.IgnoreInputs();
+            EnemyComponent.OnAwake = OnEnemyAwakening;
         }
 
         private void Update()
@@ -131,38 +132,6 @@ namespace Master.Scripts.Player
             UpdateAnimation();
             RecoverShots();
             UpdateScore();
-        }
-
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.CompareTag("Enemy"))
-            {
-                if (IsDashing)
-                    OnEnemyHit.Invoke(this, DmgType.Dash);
-                else
-                {
-                    OnDamageTaken.Invoke(this);
-                    OnHealthChanged.Invoke(this);
-
-                    if (HealthPoint <= 0) {
-                        Debug.Log("Game Over");
-                        SceneLoader.Instance.LoadNextScene();
-                    }
-                    else if (HealthPoint / MaxHealth < _woundedThreshold)
-                    {
-                        Debug.Log("Player Wounded"); // TODO
-                    }
-                }
-            }
-            else if (other.CompareTag("Projectile"))
-            {
-                Debug.Log("Trigger by projectile");
-                if (!IsDashing)
-                {
-                    OnDamageTakenFromProjectile?.Invoke(this);
-                    OnHealthChanged.Invoke(this);
-                }
-            }
         }
 
         // ======================== //
@@ -185,6 +154,64 @@ namespace Master.Scripts.Player
             DashRecoveryTimer = -Mathf.Infinity;
         }
         
+        // New enemy event subscription //
+        
+        private void OnEnemyAwakening(EnemyComponent enemy)
+        {
+            enemy.OnHit += DealDamage;
+            enemy.OnAttack += TakeDamage;
+            enemy.OnKill += OnKill;
+        }
+
+        private void OnKill(EnemyComponent enemy)
+        {
+            enemy.OnHit -= DealDamage;
+            enemy.OnAttack -= TakeDamage;
+            enemy.OnKill -= OnKill;
+            
+            Destroy(enemy.gameObject);
+        }
+        
+        // Events Handlers //
+
+        private void DealDamage(DmgType type, EnemyComponent enemy)
+        {
+            Debug.Log($"Enemy {enemy.gameObject.name} took damages");
+
+            switch (type)
+            {
+                case DmgType.Dash:
+                    enemy.Health -= Dash.Power;
+                    ResetDash();
+                    break;
+                case DmgType.Projectile:
+                    enemy.Health -= Weapon.Power;
+                    break;
+                default:
+                    throw new InvalidEnumArgumentException($"Unimplemented {type.ToString()} damage type");
+            }
+            
+            if (enemy.Health <= 0)
+                enemy.OnKill.Invoke(enemy);
+        }
+
+        private void TakeDamage(int damages)
+        {
+            Health -= damages;
+            OnHealthChanged.Invoke(this);
+            
+            if (Health <= 0) {
+                Debug.Log("Game Over");
+                SceneLoader.Instance.LoadNextScene();
+            }
+            else if (Health / MaxHealth < _woundedThreshold)
+            {
+                Debug.Log("Player Wounded"); // TODO
+            }
+        }
+        
+        // Methods
+
         private void UpdateVerticalDirection() 
         {
             float currentVelocity = _controller.Velocity.y;
@@ -207,7 +234,7 @@ namespace Master.Scripts.Player
 
         private void UpdateAnimation()
         {
-            Animator.SetFloat(AnimationSpeed, _controller.Velocity.y);
+            Animator.SetFloat(AnimationSpeed, Rigidbody.velocity.y);
         }
         
         private void UpdateScore()

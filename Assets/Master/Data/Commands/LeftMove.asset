@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ec5404e62fe40b58dd90a78407f7371, type: 3}
   m_Name: LeftMove
   m_EditorClassIdentifier: 
-  _destination: {x: -5, y: 0}
+  _destination: {x: -10, y: 0}
   _speed: 0

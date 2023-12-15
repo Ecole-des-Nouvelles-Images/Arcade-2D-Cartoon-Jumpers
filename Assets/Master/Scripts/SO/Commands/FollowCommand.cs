@@ -41,7 +41,7 @@ namespace Master.Scripts.SO.Commands
             if (distanceToPlayer <= _followingTriggerDistance)
             {
                 Vector2 direction = (_destination - (Vector2)EnemyCtx.transform.position).normalized;
-                EnemyCtx.transform.Translate(direction * ((EnemyCtx.EnemySpeed + _speed) * Time.deltaTime));
+                EnemyCtx.transform.Translate(direction * ((EnemyCtx.Speed + _speed) * Time.deltaTime));
             }
         }
 

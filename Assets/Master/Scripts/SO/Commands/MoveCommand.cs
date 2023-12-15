@@ -23,7 +23,7 @@ namespace Master.Scripts.SO.Commands
             if (_startingPosition == Vector2.zero) _startingPosition = EnemyCtx.transform.position;
             Vector2 direction = _destination.normalized; 
             EnemyCtx.GetComponent<SpriteRenderer>().flipX = direction.x > 0;
-            EnemyCtx.transform.Translate(direction * ((EnemyCtx.EnemySpeed + _speed) * Time.deltaTime));
+            EnemyCtx.transform.Translate(direction * ((EnemyCtx.Speed + _speed) * Time.deltaTime));
         }
 
         public override bool IsFinished()
