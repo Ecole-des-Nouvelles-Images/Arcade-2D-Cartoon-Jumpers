@@ -6,28 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="57ef39cd-bf24-4354-a0a2-806232ec07ae" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Cartoon-Jumpers/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Cartoon-Jumpers/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Animation/Player/Player.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Animation/Player/Player.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Data/Commands/DownMove.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Data/Commands/DownMove.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Data/Commands/LeftMove.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Data/Commands/LeftMove.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Data/Commands/RightMove.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Data/Commands/RightMove.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Data/Commands/ShootCommand.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Data/Commands/ShootCommand.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Data/Commands/UpMove.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Data/Commands/UpMove.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Prefabs/Enemies/EyeEnemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Prefabs/Enemies/EyeEnemy.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Prefabs/EnemyProjectile.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Prefabs/EnemyProjectile.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Prefabs/FollowerEnemy.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Prefabs/FollowerEnemy.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Alex/VFX/Prefabs/vfx_graph_fire.vfx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Alex/VFX/Prefabs/vfx_graph_fire.vfx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Alex/VFX/Shader/FireShader.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Alex/VFX/Shader/FireShader.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Alex/VFX/VFX_Fire_Smoke.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master/Prefabs/Level/Section1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Prefabs/Level/Section1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master/Prefabs/Misc/Enemy_Projectile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Prefabs/Misc/Enemy_Projectile.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Master/Prefabs/Misc/Projectile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Prefabs/Misc/Projectile.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Scripts/Enemy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Scripts/Enemy/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Scripts/Enemy/EnemyProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Scripts/Enemy/EnemyProjectile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Scripts/Managers/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Scripts/Managers/UIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Scripts/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Scripts/Player/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Scripts/Player/Projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Scripts/Player/Projectile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Scripts/SO/Commands/FollowCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Scripts/SO/Commands/FollowCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Scripts/SO/Commands/MoveCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Scripts/SO/Commands/MoveCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Scripts/SO/Commands/ShootCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Scripts/SO/Commands/ShootCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master/Settings/UniversalRP.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Settings/UniversalRP.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Samples/2D Pixel Perfect/5.0.3/Sample Scenes and Extras/Scenes/Rule Tiles/Animated Ocean Tile/Atlas/Ocean.spriteatlas" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Samples/2D Pixel Perfect/5.0.3/Sample Scenes and Extras/Scenes/Rule Tiles/Animated Ocean Tile/Atlas/Ocean.spriteatlas" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Samples/2D Pixel Perfect/5.0.3/Sample Scenes and Extras/Scenes/Rule Tiles/Dungeon Tile/Atlas/Dungeon.spriteatlas" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Samples/2D Pixel Perfect/5.0.3/Sample Scenes and Extras/Scenes/Rule Tiles/Dungeon Tile/Atlas/Dungeon.spriteatlas" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles.manifest" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles.manifest" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/2DAnimationSampleAssetBundles/skeleton.manifest" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/2DAnimationSampleAssetBundles/skeleton.manifest" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,20 +60,21 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "dev-Charlie",
+    "git-widget-placeholder": "dev-Alexandre",
     "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "settings.sync",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
     "rider.external.source.directories": [
-      "C:\\Users\\c.boyer\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
-      "C:\\Users\\c.boyer\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
-      "C:\\Users\\c.boyer\\AppData\\Local\\Symbols\\src"
+      "C:\\Users\\a.renaux\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\a.renaux\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\a.renaux\\AppData\\Local\\Symbols\\src"
     ]
   }
 }]]></component>
@@ -121,10 +113,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="4228">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="4228" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -154,6 +146,7 @@
       <workItem from="1702551419673" duration="5479000" />
       <workItem from="1702637672291" duration="808000" />
       <workItem from="1702645947085" duration="12981000" />
+      <workItem from="1702739868734" duration="603000" />
     </task>
     <servers />
   </component>
