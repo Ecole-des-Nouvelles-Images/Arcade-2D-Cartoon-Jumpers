@@ -87,11 +87,6 @@ namespace Master.Scripts.Player
         private float _projectileRecoveryTimer;
         private float _previousVelocity;
 
-        private void OnGUI()
-        {
-            GUI.Label(new Rect(0, 30, 100, 100), "CurrentVelocity: " + _controller.Velocity);
-        }
-
         // ======================== //
         
         private void Awake()
@@ -160,14 +155,14 @@ namespace Master.Scripts.Player
         {
             enemy.OnHit += DealDamage;
             enemy.OnAttack += TakeDamage;
-            enemy.OnKill += OnKill;
+            enemy.OnKill += OnEnemyKill;
         }
 
-        private void OnKill(EnemyComponent enemy)
+        private void OnEnemyKill(EnemyComponent enemy)
         {
             enemy.OnHit -= DealDamage;
             enemy.OnAttack -= TakeDamage;
-            enemy.OnKill -= OnKill;
+            enemy.OnKill -= OnEnemyKill;
             
             Destroy(enemy.gameObject);
         }
