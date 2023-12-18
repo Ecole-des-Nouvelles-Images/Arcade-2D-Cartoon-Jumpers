@@ -4,9 +4,19 @@ using UnityEngine;
 namespace Master.Scripts.Environment
 {
 
+    
     public class InfiniteParallax : MonoBehaviour
     {
+        private enum Mode { Single = 1, Multiple = 2 }
+
+        [SerializeField] private Mode _mode;
         [SerializeField] private float _factor = 1.0f;
+        
+        // Mode : Single
+
+        private SpriteRenderer _background;
+        
+        // Mode : Multiple
     
         private Transform _camera;
         private SpriteRenderer _sr1;
@@ -38,6 +48,8 @@ namespace Master.Scripts.Environment
                 return _sr3;
             }
         }
+        
+        // Common properties
 
         public bool CameraIsInMiddle => _camera.position.y > Lowest.transform.position.y && _camera.position.y < Highest.transform.position.y;
     
@@ -49,6 +61,45 @@ namespace Master.Scripts.Environment
                 throw new NullReferenceException("Camera.main access is null !");
 
             _camera = UnityEngine.Camera.main.transform;
+            
+            switch (_mode)
+            {
+                case Mode.Single:
+                    SetupSingleFollow();
+                    break;
+                case Mode.Multiple:
+                    SetupMultipleLayers();
+                    break;
+                default:
+                    throw new Exception($"Unknow {_mode.ToString()} mode at object {name}");
+            }
+        }
+
+        private void Update()
+        {
+            float cameraDelta = _camera.position.y - _previousCameraPosition;
+
+            switch (_mode)
+            {
+                case Mode.Multiple:
+                    MoveSprite(_sr1, cameraDelta);
+                    MoveSprite(_sr2, cameraDelta);
+                    MoveSprite(_sr3, cameraDelta);
+                    break;
+                case Mode.Single:
+                    MoveSprite(_background, cameraDelta);
+                    break;
+                default:
+                    throw new Exception($"Unknow {_mode.ToString()} mode at object {name}");
+            }
+        
+            _previousCameraPosition = _camera.position.y;
+        }
+        
+        // Setup //
+
+        private void SetupMultipleLayers()
+        {
             _sr1 = transform.GetChild(0).GetComponent<SpriteRenderer>();
             _sr2 = transform.GetChild(1).GetComponent<SpriteRenderer>();
             _sr3 = transform.GetChild(2).GetComponent<SpriteRenderer>();
@@ -56,16 +107,12 @@ namespace Master.Scripts.Environment
             SetInitialPositions();
         }
 
-        private void Update()
+        private void SetupSingleFollow()
         {
-            float cameraDelta = _camera.position.y - _previousCameraPosition;
-
-            MoveSprite(_sr1, cameraDelta);
-            MoveSprite(_sr2, cameraDelta);
-            MoveSprite(_sr3, cameraDelta);
-        
-            _previousCameraPosition = _camera.position.y;
+            _background = transform.GetChild(0).GetComponent<SpriteRenderer>();
         }
+        
+        // Methods //
     
         private void SetInitialPositions()
         {
@@ -89,12 +136,14 @@ namespace Master.Scripts.Environment
             if (sr == Highest)
             {
                 srToMove = Lowest;
-                srToMove.transform.position = Highest.transform.position + new Vector3(0, SpriteHeight, 0);
+                Debug.Log($"Should reposition {srToMove.name}");
+                // srToMove.transform.position = Highest.transform.position + new Vector3(0, SpriteHeight, 0);
             }
             else if (sr == Lowest)
             {
                 srToMove = Highest;
-                srToMove.transform.position = Lowest.transform.position - new Vector3(0, SpriteHeight, 0);
+                Debug.Log($"Should reposition {srToMove.name}");
+                // srToMove.transform.position = Lowest.transform.position - new Vector3(0, SpriteHeight, 0);
             }
         }
     }

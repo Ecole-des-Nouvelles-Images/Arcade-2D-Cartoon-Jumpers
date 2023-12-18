@@ -171,8 +171,6 @@ namespace Master.Scripts.Player
 
         private void DealDamage(DmgType type, EnemyComponent enemy)
         {
-            Debug.Log($"Enemy {enemy.gameObject.name} took damages");
-
             switch (type)
             {
                 case DmgType.Dash:
