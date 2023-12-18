@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Wall
+  - Enemy
+  - Projectile
   layers:
   - Default
   - TransparentFX
@@ -45,6 +47,18 @@ TagManager:
   - name: Background
     uniqueID: 865720173
     locked: 0
+  - name: Parallax
+    uniqueID: 3449735791
+    locked: 0
+  - name: Props
+    uniqueID: 2119205001
+    locked: 0
+  - name: Player
+    uniqueID: 1774964207
+    locked: 0
   - name: Foreground
     uniqueID: 2625290659
+    locked: 0
+  - name: UI
+    uniqueID: 2123330221
     locked: 0

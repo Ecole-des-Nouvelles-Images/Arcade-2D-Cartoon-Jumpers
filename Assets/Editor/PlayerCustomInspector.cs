@@ -9,18 +9,20 @@ namespace Editor
     public class PlayerCustomInspector : UnityEditor.Editor
     {
         private SerializedProperty _enableTestMapInputs;
-        private SerializedProperty _maxHp;
+        private SerializedProperty _initialMaxHealth;
         private SerializedProperty _startingDashType;
-        private SerializedProperty _startingProjectileType;
+        private SerializedProperty _startingWeaponType;
+        private SerializedProperty _scoreDenominator;
         private SerializedProperty _aimingDashIndicator;
         private SerializedProperty _aimingShootIndicator;
 
         private void OnEnable()
         {
             _enableTestMapInputs = serializedObject.FindProperty("_enableTestMapInputs");
-            _maxHp = serializedObject.FindProperty("_maxHp");
+            _initialMaxHealth = serializedObject.FindProperty("_initialMaxHealth");
             _startingDashType = serializedObject.FindProperty("_startingDashType");
-            _startingProjectileType = serializedObject.FindProperty("_startingProjectileType");
+            _startingWeaponType = serializedObject.FindProperty("_startingWeaponType");
+            _scoreDenominator = serializedObject.FindProperty("_scoreDenominator");
             _aimingDashIndicator = serializedObject.FindProperty("AimingDashIndicator");
             _aimingShootIndicator = serializedObject.FindProperty("AimingShootIndicator");
         }
@@ -40,9 +42,10 @@ namespace Editor
             
             EditorGUILayout.Space();
             
-            EditorGUILayout.PropertyField(_maxHp);
+            EditorGUILayout.PropertyField(_initialMaxHealth);
             EditorGUILayout.PropertyField(_startingDashType);
-            EditorGUILayout.PropertyField(_startingProjectileType);
+            EditorGUILayout.PropertyField(_startingWeaponType);
+            EditorGUILayout.PropertyField(_scoreDenominator);
 
             EditorGUILayout.Space();
             

@@ -98,9 +98,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0967f773e0b74c76821c7b0f12df7f0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Commands: []
-  EnemySpeed: 5
-  EnemyPower: 10
+  _commands: []
+  _initialMaxHP: 20
+  _speed: 5
+  _power: 10
 --- !u!58 &6461199034378493153
 CircleCollider2D:
   m_ObjectHideFlags: 0

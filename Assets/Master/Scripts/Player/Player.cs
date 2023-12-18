@@ -1,8 +1,12 @@
 using System;
+using System.ComponentModel;
 using UnityEngine;
 
 using Master.Scripts.Camera;
+using Master.Scripts.Common;
+using Master.Scripts.Managers;
 using Master.Scripts.SO;
+using EnemyComponent = Master.Scripts.Enemy.Enemy;
 
 namespace Master.Scripts.Player
 {
@@ -14,11 +18,15 @@ namespace Master.Scripts.Player
         [SerializeField] private bool _enableTestMapInputs;
         
         [Header("Base Stats")]
-        [Range(0, 1000)] [SerializeField] private int _maxHp = 100;
+        [Range(0, 1000)] [SerializeField] private int _initialMaxHealth = 100;
+        [Range(0, 100)] [SerializeField] private int _woundedThreshold;
 
         [Header("Power Components")]
         [SerializeField] private DashSO _startingDashType;
-        [SerializeField] private ProjectileSO _startingProjectileType;
+        [SerializeField] private WeaponSO _startingWeaponType;
+
+        [Header("Score System")]
+        [SerializeField] private float _scoreDenominator = 10f;
         
         [Space(5)] [Header("Temporary indicators, should move to UI")]
         [Tooltip("Move to UI !!!")] public Transform AimingDashIndicator;
@@ -26,23 +34,27 @@ namespace Master.Scripts.Player
         
         private void OnValidate()
         {
-            _maxHp = Mathf.RoundToInt(_maxHp / 10f) * 10;
+            _initialMaxHealth = Mathf.RoundToInt(_initialMaxHealth / 10f) * 10;
+            if (_scoreDenominator == 0) {
+                _scoreDenominator = 1;
+                throw new DivideByZeroException("Trying to set Score Denominator to 0. Fallback to 1.");
+            }
         }
 
         // Events //
 
         public static Action<int> OnDirectionChange;
-        public static Action<Player> OnEnemyHit;
-        public static Action<Player> OnDamageTaken;
         public static Action<Player> OnHealthChanged;
+        public static Action<Player> OnScoreChanged;
         
         // Important fields and properties //
         
         private PlayerController _controller;
-        private Animator _animator;
-        
+        public Animator Animator { get; private set; }
+        public Rigidbody2D Rigidbody { get; private set; }
+
         private DashSO _currentDashType;
-        private ProjectileSO _currentProjectileType;
+        private WeaponSO _currentWeaponType;
 
         public DashSO CurrentDashType {
             set {
@@ -50,59 +62,63 @@ namespace Master.Scripts.Player
                 Dash = _currentDashType.ConstructDashObject();
             }
         }
-        public ProjectileSO CurrentProjectileType {
+        public WeaponSO CurrentWeaponType {
             set {
-                _currentProjectileType = value;
-                Projectile = _currentProjectileType.ConstructProjectileObject();
+                _currentWeaponType = value;
+                Weapon = _currentWeaponType.ConstructWeaponObject();
             }
         }
         public Dash Dash { get; private set; }
-        public Projectile Projectile { get; private set; }
+        public Weapon Weapon { get; private set; }
         
         // Other fields //
         
-        public int HealthPoint { get; set; }
+        public int MaxHealth { get; private set; }
+        public int Health { get; set; }
+        
+        public float Score { get; private set; }
         
         private static float VelocityThreshold => CameraController.VelocityThreshold;
         private static readonly int AnimationSpeed = Animator.StringToHash("Speed");
         
-        public float DashRecoveryTimer { get; set; }
-        private bool IsDashing => _animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerDash");
+        public float DashRecoveryTimer { get; private set; }
+        public bool IsDashing => Animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerDash");
 
         private float _projectileRecoveryTimer;
         private float _previousVelocity;
-
-        private void OnGUI()
-        {
-            GUI.Label(new Rect(0, 30, 100, 100), "CurrentVelocity: " + _controller.Velocity);
-        }
 
         // ======================== //
         
         private void Awake()
         {
             _controller = new PlayerController(this, _enableTestMapInputs);
-            _animator = GetComponent<Animator>();
+            Animator = GetComponent<Animator>();
+            Rigidbody = GetComponent<Rigidbody2D>();
+            
             CurrentDashType = _startingDashType;
-            CurrentProjectileType = _startingProjectileType;
-            HealthPoint = _maxHp;
+            CurrentWeaponType = _startingWeaponType;
+
+            MaxHealth = _initialMaxHealth;
+            Health = MaxHealth;
         }
 
         private void Start()
         {
             _controller.ActivateInputMap();
             // _dashRecoveryTimer = Dash.Cooldown;
-            _projectileRecoveryTimer = Projectile.Cooldown;
+            _projectileRecoveryTimer = Weapon.Cooldown;
         }
 
         private void OnEnable()
         {
             _controller.ListenInput();
+            EnemyComponent.OnAwake = OnEnemyAwakening;
         }
-
+        
         private void OnDisable()
         {
             _controller.IgnoreInputs();
+            EnemyComponent.OnAwake = OnEnemyAwakening;
         }
 
         private void Update()
@@ -110,31 +126,18 @@ namespace Master.Scripts.Player
             UpdateVerticalDirection();
             UpdateAnimation();
             RecoverShots();
-        }
-
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.CompareTag("Enemy"))
-            {
-                if (IsDashing)
-                    OnEnemyHit.Invoke(this);
-                else
-                {
-                    OnDamageTaken.Invoke(this);
-                    OnHealthChanged.Invoke(this); // TODO
-                }
-            }
+            UpdateScore();
         }
 
         // ======================== //
         
         private void RecoverShots()
         {
-            if (Projectile.Capacity == Projectile.MaxCapacity) return;
+            if (Weapon.Capacity == Weapon.MaxCapacity) return;
 
             if (_projectileRecoveryTimer <= 0f)
             {
-                Projectile.Capacity++;
+                Weapon.Capacity++;
                 _projectileRecoveryTimer = 0f;
             }
 
@@ -146,6 +149,64 @@ namespace Master.Scripts.Player
             DashRecoveryTimer = -Mathf.Infinity;
         }
         
+        // New enemy event subscription //
+        
+        private void OnEnemyAwakening(EnemyComponent enemy)
+        {
+            enemy.OnHit += DealDamage;
+            enemy.OnAttack += TakeDamage;
+            enemy.OnKill += OnEnemyKill;
+        }
+
+        private void OnEnemyKill(EnemyComponent enemy)
+        {
+            enemy.OnHit -= DealDamage;
+            enemy.OnAttack -= TakeDamage;
+            enemy.OnKill -= OnEnemyKill;
+            
+            Destroy(enemy.gameObject);
+        }
+        
+        // Events Handlers //
+
+        private void DealDamage(DmgType type, EnemyComponent enemy)
+        {
+            Debug.Log($"Enemy {enemy.gameObject.name} took damages");
+
+            switch (type)
+            {
+                case DmgType.Dash:
+                    enemy.Health -= Dash.Power;
+                    ResetDash();
+                    break;
+                case DmgType.Projectile:
+                    enemy.Health -= Weapon.Power;
+                    break;
+                default:
+                    throw new InvalidEnumArgumentException($"Unimplemented {type.ToString()} damage type");
+            }
+            
+            if (enemy.Health <= 0)
+                enemy.OnKill.Invoke(enemy);
+        }
+
+        private void TakeDamage(int damages)
+        {
+            Health -= damages;
+            OnHealthChanged.Invoke(this);
+            
+            if (Health <= 0) {
+                Debug.Log("Game Over");
+                SceneLoader.Instance.LoadNextScene();
+            }
+            else if (Health / MaxHealth < _woundedThreshold)
+            {
+                Debug.Log("Player Wounded"); // TODO
+            }
+        }
+        
+        // Methods
+
         private void UpdateVerticalDirection() 
         {
             float currentVelocity = _controller.Velocity.y;
@@ -168,7 +229,17 @@ namespace Master.Scripts.Player
 
         private void UpdateAnimation()
         {
-            _animator.SetFloat(AnimationSpeed, _controller.Velocity.y);
+            Animator.SetFloat(AnimationSpeed, Rigidbody.velocity.y);
+        }
+        
+        private void UpdateScore()
+        {
+            float currentHeight = transform.position.y / _scoreDenominator;
+
+            if (currentHeight < Score) return;
+            
+            Score = currentHeight;
+            OnScoreChanged.Invoke(this);
         }
     }
 }

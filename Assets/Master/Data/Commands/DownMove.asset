@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: DownMove
   m_EditorClassIdentifier: 
   _destination: {x: 0, y: -20}
-  speed: 0
+  _speed: 0

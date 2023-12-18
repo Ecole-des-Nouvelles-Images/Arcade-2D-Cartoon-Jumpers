@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2476e50e6d0b0945a4a2b5a1dd968aa, type: 3}
+  m_Name: ShootCommand
+  m_EditorClassIdentifier: 
+  _projectilePrefab: {fileID: 1706836210364569650, guid: 857691e076cbf5f45b0b84931853dbda, type: 3}
+  _velocity: 4
+  _triggerDistance: 20
