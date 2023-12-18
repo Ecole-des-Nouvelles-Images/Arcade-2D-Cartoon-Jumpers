@@ -72,7 +72,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _Color: {r: 0, g: 6.498019, b: 3.028406, a: 1}
+    - _Color: {r: 0, g: 8.474189, b: 3.9494007, a: 1}
     - _DashSpeed: {r: 42.36, g: 30.7, b: 0, a: 0}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}

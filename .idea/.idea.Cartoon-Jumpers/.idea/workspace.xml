@@ -6,13 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="57ef39cd-bf24-4354-a0a2-806232ec07ae" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Cartoon-Jumpers/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Cartoon-Jumpers/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Alex/VFX/Prefabs/Flame.psd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Alex/VFX/Prefabs/Flame.psd.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Alex/VFX/Prefabs/vfx_fire.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Alex/VFX/Prefabs/vfx_fire.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Alex/VFX/Prefabs/vfx_graph_fire.vfx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Alex/VFX/Prefabs/vfx_graph_fire.vfx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Prefabs/Misc/Projectile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Prefabs/Misc/Projectile.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Alex/Scenes/Game 2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Alex/Scenes/Game 2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Alex/VFX/Prefabs/Dash/DashMat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Alex/VFX/Prefabs/Dash/DashMat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Alex/VFX/Prefabs/Dash/DashVFX.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Alex/VFX/Prefabs/Dash/DashVFX.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/PlayerCustomInspector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/PlayerCustomInspector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master/Animation/Player/Idle/PlayerDash.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Animation/Player/Idle/PlayerDash.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master/Scripts/Player/Dash.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Scripts/Player/Dash.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master/Scripts/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Scripts/Player/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +26,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Master/Scripts/Enemy/Enemy_Shooter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Master/Scripts/Player/AnimationEvent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Master/Scripts/Player/ResetRotation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/InputSystem/Editor/Internal/AdvancedDropdown/AdvancedDropdownGUI.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@14.0.8/Runtime/Debugging/DebugUpdater.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@14.0.8/Runtime/2D/Light2DManager.cs" root0="SKIP_HIGHLIGHTING" />
@@ -139,7 +143,7 @@
       <workItem from="1702637672291" duration="808000" />
       <workItem from="1702645947085" duration="12981000" />
       <workItem from="1702739868734" duration="603000" />
-      <workItem from="1702893197502" duration="776000" />
+      <workItem from="1702893197502" duration="6267000" />
     </task>
     <servers />
   </component>
