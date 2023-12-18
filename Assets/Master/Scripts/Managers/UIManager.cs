@@ -69,7 +69,7 @@ namespace Master.Scripts.Managers
 
         private void UpdateScoreMeter(PlayerComponent ctx)
         {
-            _scoreMeter.text = ctx.Score.ToString(@"000\.00 'm'"); // https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-numeric-format-strings
+            _scoreMeter.text = ctx.Score.ToString("000.00 'm'"); // https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-numeric-format-strings
         }
     }
 }

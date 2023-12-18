@@ -51,7 +51,10 @@ namespace Master.Scripts.Enemy
             PlayerReference = GameObject.Find("Player").GetComponent<PlayerComponent>();
             MaxHealth = _initialMaxHP;
             Health = MaxHealth;
-            
+        }
+
+        private void Start()
+        {
             OnAwake.Invoke(this);
         }
 
