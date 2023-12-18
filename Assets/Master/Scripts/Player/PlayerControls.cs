@@ -64,6 +64,15 @@ namespace Master.Scripts.Player
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""47ac5c30-cc03-4f74-83fe-e54d44fd5204"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -108,6 +117,17 @@ namespace Master.Scripts.Player
                     ""processors"": """",
                     ""groups"": ""GamePad"",
                     ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6ba511eb-5277-43cd-9424-ad0daa5b8559"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GamePad"",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -182,6 +202,7 @@ namespace Master.Scripts.Player
             m_GamePlay_Dash = m_GamePlay.FindAction("Dash", throwIfNotFound: true);
             m_GamePlay_AimShoot = m_GamePlay.FindAction("AimShoot", throwIfNotFound: true);
             m_GamePlay_Shoot = m_GamePlay.FindAction("Shoot", throwIfNotFound: true);
+            m_GamePlay_Pause = m_GamePlay.FindAction("Pause", throwIfNotFound: true);
             // TestMap
             m_TestMap = asset.FindActionMap("TestMap", throwIfNotFound: true);
             m_TestMap_NextScene = m_TestMap.FindAction("NextScene", throwIfNotFound: true);
@@ -251,6 +272,7 @@ namespace Master.Scripts.Player
         private readonly InputAction m_GamePlay_Dash;
         private readonly InputAction m_GamePlay_AimShoot;
         private readonly InputAction m_GamePlay_Shoot;
+        private readonly InputAction m_GamePlay_Pause;
         public struct GamePlayActions
         {
             private @PlayerControls m_Wrapper;
@@ -259,6 +281,7 @@ namespace Master.Scripts.Player
             public InputAction @Dash => m_Wrapper.m_GamePlay_Dash;
             public InputAction @AimShoot => m_Wrapper.m_GamePlay_AimShoot;
             public InputAction @Shoot => m_Wrapper.m_GamePlay_Shoot;
+            public InputAction @Pause => m_Wrapper.m_GamePlay_Pause;
             public InputActionMap Get() { return m_Wrapper.m_GamePlay; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -280,6 +303,9 @@ namespace Master.Scripts.Player
                 @Shoot.started += instance.OnShoot;
                 @Shoot.performed += instance.OnShoot;
                 @Shoot.canceled += instance.OnShoot;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
 
             private void UnregisterCallbacks(IGamePlayActions instance)
@@ -296,6 +322,9 @@ namespace Master.Scripts.Player
                 @Shoot.started -= instance.OnShoot;
                 @Shoot.performed -= instance.OnShoot;
                 @Shoot.canceled -= instance.OnShoot;
+                @Pause.started -= instance.OnPause;
+                @Pause.performed -= instance.OnPause;
+                @Pause.canceled -= instance.OnPause;
             }
 
             public void RemoveCallbacks(IGamePlayActions instance)
@@ -382,6 +411,7 @@ namespace Master.Scripts.Player
             void OnDash(InputAction.CallbackContext context);
             void OnAimShoot(InputAction.CallbackContext context);
             void OnShoot(InputAction.CallbackContext context);
+            void OnPause(InputAction.CallbackContext context);
         }
         public interface ITestMapActions
         {

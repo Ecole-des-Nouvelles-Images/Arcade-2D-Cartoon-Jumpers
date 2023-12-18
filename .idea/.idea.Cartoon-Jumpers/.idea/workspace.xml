@@ -4,7 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57ef39cd-bf24-4354-a0a2-806232ec07ae" name="Changes" comment="" />
+    <list default="true" id="57ef39cd-bf24-4354-a0a2-806232ec07ae" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Cartoon-Jumpers/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Cartoon-Jumpers/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master/Animation/Player/Player.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Animation/Player/Player.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master/Environment/Wall_LeftEntry.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Environment/Wall_LeftEntry.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master/Environment/Wall_RightEntry.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Environment/Wall_RightEntry.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master/Player/PlayerControls.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Player/PlayerControls.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master/Prefabs/Level/WallSection.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master/Prefabs/Level/WallSection.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master/Prefabs/Level/Walls.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master/Prefabs/Level/Walls.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master/Scripts/Managers/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Scripts/Managers/UIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Scripts/Player/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master/Scripts/Player/PlayerControls.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Scripts/Player/PlayerControls.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master/Scripts/SO/Commands/ShootCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Scripts/SO/Commands/ShootCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles.manifest" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles.manifest" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +30,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Master/Scripts/Enemy/EnemyProjectile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Master/Scripts/Enemy/Enemy_Shooter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Master/Scripts/Environment/InfiniteParallax.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Master/Scripts/Player/Weapon.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Master/Scripts/SO/Commands/ShootCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/InputSystem/Editor/Internal/AdvancedDropdown/AdvancedDropdownGUI.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@14.0.8/Runtime/Debugging/DebugUpdater.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@14.0.8/Runtime/2D/Light2DManager.cs" root0="SKIP_HIGHLIGHTING" />
@@ -131,7 +151,7 @@
       <workItem from="1702821012667" duration="1711000" />
       <workItem from="1702840414298" duration="4341000" />
       <workItem from="1702848206765" duration="2532000" />
-      <workItem from="1702892557548" duration="5298000" />
+      <workItem from="1702892557548" duration="7956000" />
     </task>
     <servers />
   </component>
