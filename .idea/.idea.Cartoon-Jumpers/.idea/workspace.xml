@@ -6,19 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="57ef39cd-bf24-4354-a0a2-806232ec07ae" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Cartoon-Jumpers/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Cartoon-Jumpers/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Alex/VFX/Prefabs/vfx_graph_fire.vfx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Alex/VFX/Prefabs/vfx_graph_fire.vfx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Alex/VFX/Shader/FireShader.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Alex/VFX/Shader/FireShader.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Alex/VFX/VFX_Fire_Smoke.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Prefabs/Level/Section1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Prefabs/Level/Section1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Prefabs/Misc/Enemy_Projectile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Prefabs/Misc/Enemy_Projectile.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Alex/VFX/Prefabs/Flame.psd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Alex/VFX/Prefabs/Flame.psd.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Alex/VFX/Prefabs/vfx_fire.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Alex/VFX/Prefabs/vfx_fire.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Alex/VFX/Prefabs/vfx_graph_fire.vfx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Alex/VFX/Prefabs/vfx_graph_fire.vfx.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Master/Prefabs/Misc/Projectile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Prefabs/Misc/Projectile.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Master/Settings/UniversalRP.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master/Settings/UniversalRP.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/2D Pixel Perfect/5.0.3/Sample Scenes and Extras/Scenes/Rule Tiles/Animated Ocean Tile/Atlas/Ocean.spriteatlas" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Samples/2D Pixel Perfect/5.0.3/Sample Scenes and Extras/Scenes/Rule Tiles/Animated Ocean Tile/Atlas/Ocean.spriteatlas" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples/2D Pixel Perfect/5.0.3/Sample Scenes and Extras/Scenes/Rule Tiles/Dungeon Tile/Atlas/Dungeon.spriteatlas" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Samples/2D Pixel Perfect/5.0.3/Sample Scenes and Extras/Scenes/Rule Tiles/Dungeon Tile/Atlas/Dungeon.spriteatlas" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles.manifest" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/2DAnimationSampleAssetBundles/2DAnimationSampleAssetBundles.manifest" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/2DAnimationSampleAssetBundles/skeleton.manifest" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/2DAnimationSampleAssetBundles/skeleton.manifest" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,13 +23,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3b24cc7fa9794ed8ab04312c53e6dedd172c00/99/4911f495/Vector2.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/787acc3c9a4c471ba7d971300105af2446ac00/b3/2c4303c7/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Master/Scripts/Enemy/Enemy_Shooter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/InputSystem/Editor/Internal/AdvancedDropdown/AdvancedDropdownGUI.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@14.0.8/Runtime/Debugging/DebugUpdater.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@14.0.8/Runtime/2D/Light2DManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@14.0.8/Shaders/2D/Sprite-Lit-Default.shader" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Slider.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -72,15 +64,15 @@
   },
   "keyToStringList": {
     "rider.external.source.directories": [
-      "C:\\Users\\a.renaux\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\a.renaux\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\a.renaux\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
+      "C:\\Users\\a.renaux\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
       "C:\\Users\\a.renaux\\AppData\\Local\\Symbols\\src"
     ]
   }
 }]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/Build/CameraSizeTest/Cartoon-Jumper.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/Build/ProtoSize\Cartoon-Jumper.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="C:\Users\Shadow\LocalRepository\Cartoon-Jumpers\Build" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -147,6 +139,7 @@
       <workItem from="1702637672291" duration="808000" />
       <workItem from="1702645947085" duration="12981000" />
       <workItem from="1702739868734" duration="603000" />
+      <workItem from="1702893197502" duration="776000" />
     </task>
     <servers />
   </component>
