@@ -11,6 +11,9 @@ namespace Master.Scripts.Environment
 
         [SerializeField] private Mode _mode;
         [SerializeField] private float _factor = 1.0f;
+
+        [Header("Settings")]
+        [SerializeField] private float _heightCheckTolerance = 1f;
         
         // Mode : Single
 
@@ -27,10 +30,10 @@ namespace Master.Scripts.Environment
         public SpriteRenderer Lowest {
             get {
                 float minPosY = Mathf.Min(_sr1.transform.position.y, _sr2.transform.position.y, _sr3.transform.position.y);
-            
-                if (Math.Abs(minPosY - _sr1.transform.position.y) < 0)
+                
+                if (Math.Abs(minPosY - _sr1.transform.position.y) < _heightCheckTolerance)
                     return _sr1;
-                if (Math.Abs(minPosY - _sr2.transform.position.y) < 0)
+                if (Math.Abs(minPosY - _sr2.transform.position.y) < _heightCheckTolerance)
                     return _sr2;
             
                 return _sr3;
@@ -39,10 +42,10 @@ namespace Master.Scripts.Environment
         public SpriteRenderer Highest {
             get {
                 float maxPosY = Mathf.Max(_sr1.transform.position.y, _sr2.transform.position.y, _sr3.transform.position.y);
-            
-                if (Math.Abs(maxPosY - _sr1.transform.position.y) < 0)
+                
+                if (Math.Abs(maxPosY - _sr1.transform.position.y) < _heightCheckTolerance)
                     return _sr1;
-                if (Math.Abs(maxPosY - _sr2.transform.position.y) < 0)
+                if (Math.Abs(maxPosY - _sr2.transform.position.y) < _heightCheckTolerance)
                     return _sr2;
             
                 return _sr3;
@@ -116,10 +119,8 @@ namespace Master.Scripts.Environment
     
         private void SetInitialPositions()
         {
-            Vector3 initialPositionSr1 = _sr1.transform.position;
-
-            _sr2.transform.position = new Vector3(initialPositionSr1.x, initialPositionSr1.y + SpriteHeight, initialPositionSr1.z);
-            _sr3.transform.position = new Vector3(initialPositionSr1.x, initialPositionSr1.y - SpriteHeight, initialPositionSr1.z);
+            _sr3.transform.Translate(0, SpriteHeight, 0);
+            _sr1.transform.Translate(0, -SpriteHeight, 0);
         }
 
         private void MoveSprite(SpriteRenderer sr, float delta)
@@ -137,12 +138,18 @@ namespace Master.Scripts.Environment
             {
                 srToMove = Lowest;
                 Debug.Log($"Should reposition {srToMove.name}");
-                // srToMove.transform.position = Highest.transform.position + new Vector3(0, SpriteHeight, 0);
+                Vector3 position = srToMove.transform.position + new Vector3(0, SpriteHeight * 2, 0);
+                Instantiate(srToMove, position, Quaternion.identity, transform);
+                //srToMove.transform.Translate(0, SpriteHeight * 2, 0);
+                //srToMove.transform.position = Highest.transform.position + new Vector3(0, SpriteHeight, 0);
             }
             else if (sr == Lowest)
             {
                 srToMove = Highest;
                 Debug.Log($"Should reposition {srToMove.name}");
+                Vector3 position = srToMove.transform.position + new Vector3(0, -SpriteHeight * 2, 0);
+                Instantiate(srToMove, position, Quaternion.identity, transform);
+                //srToMove.transform.Translate(0, -SpriteHeight * 2, 0);
                 // srToMove.transform.position = Lowest.transform.position - new Vector3(0, SpriteHeight, 0);
             }
         }

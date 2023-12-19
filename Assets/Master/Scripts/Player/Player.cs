@@ -128,7 +128,25 @@ namespace Master.Scripts.Player
             RecoverShots();
             UpdateScore();
         }
+        
+        // New enemy event subscription //
+        
+        private void OnEnemyAwakening(EnemyComponent enemy)
+        {
+            enemy.OnHit += DealDamage;
+            enemy.OnAttack += TakeDamage;
+            enemy.OnKill += OnEnemyKill;
+        }
 
+        private void OnEnemyKill(EnemyComponent enemy)
+        {
+            enemy.OnHit -= DealDamage;
+            enemy.OnAttack -= TakeDamage;
+            enemy.OnKill -= OnEnemyKill;
+            
+            Destroy(enemy.gameObject);
+        }
+        
         // ======================== //
         
         private void RecoverShots()
@@ -147,24 +165,6 @@ namespace Master.Scripts.Player
         public void ResetDash()
         {
             DashRecoveryTimer = -Mathf.Infinity;
-        }
-        
-        // New enemy event subscription //
-        
-        private void OnEnemyAwakening(EnemyComponent enemy)
-        {
-            enemy.OnHit += DealDamage;
-            enemy.OnAttack += TakeDamage;
-            enemy.OnKill += OnEnemyKill;
-        }
-
-        private void OnEnemyKill(EnemyComponent enemy)
-        {
-            enemy.OnHit -= DealDamage;
-            enemy.OnAttack -= TakeDamage;
-            enemy.OnKill -= OnEnemyKill;
-            
-            Destroy(enemy.gameObject);
         }
         
         // Events Handlers //

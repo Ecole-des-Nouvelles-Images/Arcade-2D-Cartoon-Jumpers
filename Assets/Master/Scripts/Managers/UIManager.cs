@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 
 using Master.Scripts.Internal;
+using Unity.VisualScripting;
 using PlayerComponent = Master.Scripts.Player.Player;
 
 namespace Master.Scripts.Managers
@@ -21,10 +22,7 @@ namespace Master.Scripts.Managers
 
         [Header("Animation durations")] 
         [SerializeField] private float _healthGaugeAnimTime;
-        [SerializeField] private float _pauseScreenFadeTime;
-
-        [Header("Other animation properties")] 
-        [SerializeField] private float _pauseMenuOpacity;
+        [SerializeField] private float _pauseFadeTime;
 
         private float HealthGaugeMaster
         {
@@ -38,6 +36,25 @@ namespace Master.Scripts.Managers
                 _healthGaugeLeft.value = value;
                 _healthGaugeRight.value = value;
             }
+        }
+        private float PauseUIAlpha
+        {
+            get => _pauseUIRoot.alpha;
+            set => _pauseUIRoot.alpha = value;
+        }
+
+        private CanvasGroup _pauseUIRoot;
+
+        protected override void Awake()
+        {
+            base.Awake();
+            _pauseUIRoot = _pauseMenu.transform.GetChild(0).GetComponent<CanvasGroup>();
+        }
+
+        private void Start()
+        {
+            _pauseMenu.gameObject.SetActive(false);
+            PauseUIAlpha = 0;
         }
 
         private void OnEnable()
@@ -70,10 +87,17 @@ namespace Master.Scripts.Managers
         
         private void ShowPauseMenu(bool enable)
         {
-            if (!enable)
-            {
-                
+            StopCoroutine(FadePausePanelOutCoroutine());
+            StopCoroutine(FadePausePanelInCoroutine());
+            Debug.Log($"Called pause menu ! Should activate : {enable}");
+
+            if (!enable) {
+                StartCoroutine(FadePausePanelOutCoroutine());
+                return;
             }
+
+            _pauseMenu.gameObject.SetActive(true);
+            StartCoroutine(FadePausePanelInCoroutine());
         }
         
         // Animations Coroutines //
@@ -90,12 +114,38 @@ namespace Master.Scripts.Managers
             }
         }
 
-        private IEnumerator FadePausePanel(float opacityTarget)
+        private IEnumerator FadePausePanelInCoroutine()
         {
             float t = 0f;
-            float initialOpacity;
+            float initialOpacity = PauseUIAlpha;
+            float opacityTarget = 1;
 
-            yield return new WaitForSecondsRealtime(3);
+            while (t < 1)
+            {
+                PauseUIAlpha = Mathf.Lerp(initialOpacity, opacityTarget, t);
+                t += Time.unscaledDeltaTime / _pauseFadeTime;
+                yield return null;
+            }
+
+            if (opacityTarget == 0)
+                _pauseMenu.gameObject.SetActive(false);
+        }
+        
+        private IEnumerator FadePausePanelOutCoroutine()
+        {
+            float t = 0f;
+            float initialOpacity = PauseUIAlpha;
+            float opacityTarget = 0;
+
+            while (t < 1)
+            {
+                PauseUIAlpha = Mathf.Lerp(initialOpacity, opacityTarget, t);
+                t += Time.unscaledDeltaTime / _pauseFadeTime;
+                yield return null;
+            }
+
+            if (opacityTarget == 0)
+                _pauseMenu.gameObject.SetActive(false);
         }
     }
 }

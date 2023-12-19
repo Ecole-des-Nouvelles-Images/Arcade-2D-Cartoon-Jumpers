@@ -103,7 +103,7 @@ namespace Master.Scripts.Player
 
         private void OnPause(InputAction.CallbackContext ctx)
         {
-            GameManager.Instance.SetPause();
+            GameManager.SetPause();
         }
         
         // Test Input Event Handlers //

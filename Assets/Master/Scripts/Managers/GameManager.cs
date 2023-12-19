@@ -10,8 +10,13 @@ namespace Master.Scripts.Managers
         public static Action<bool> OnPause;
         
         public static bool IsPaused { get; set; }
-        
-        public void SetPause()
+
+        private void Start()
+        {
+            IsPaused = false;
+        }
+
+        public static void SetPause()
         {
             IsPaused = IsPaused == false;
             Time.timeScale = IsPaused ? 0 : 1;
