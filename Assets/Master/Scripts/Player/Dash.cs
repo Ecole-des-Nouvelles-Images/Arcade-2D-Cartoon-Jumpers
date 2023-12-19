@@ -21,6 +21,13 @@ namespace Master.Scripts.Player
         {
             ctx.Rigidbody.velocity = Vector2.zero;
             ctx.Rigidbody.AddForce(direction * ctx.Dash.Velocity, ForceMode2D.Impulse);
+            if (ctx.DashSounds.Length > 0) {
+                int randomIndex = Random.Range(0, ctx.DashSounds.Length);
+                ctx.AudioSource.clip = ctx.DashSounds[randomIndex];
+                ctx.AudioSource.Play();
+                
+            }
+            else Debug.Log($"Please Add sound in the Inspector/Player/DashSounds");
         }
     }
 }

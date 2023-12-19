@@ -14,8 +14,10 @@ namespace Master.Scripts.Player
     public class Player : MonoBehaviour
     {
         // Public inspector fields //
-        
         [SerializeField] private bool _enableTestMapInputs;
+
+        [Header("Sounds")] 
+        public AudioClip[] DashSounds;
         
         [Header("Base Stats")]
         [Range(0, 1000)] [SerializeField] private int _initialMaxHealth = 100;
@@ -52,6 +54,7 @@ namespace Master.Scripts.Player
         private PlayerController _controller;
         public Animator Animator { get; private set; }
         public Rigidbody2D Rigidbody { get; private set; }
+        public AudioSource AudioSource { get; private set; }
 
         private DashSO _currentDashType;
         private WeaponSO _currentWeaponType;
@@ -94,6 +97,8 @@ namespace Master.Scripts.Player
             _controller = new PlayerController(this, _enableTestMapInputs);
             Animator = GetComponent<Animator>();
             Rigidbody = GetComponent<Rigidbody2D>();
+            AudioSource = GetComponent<AudioSource>();
+            
             
             CurrentDashType = _startingDashType;
             CurrentWeaponType = _startingWeaponType;
