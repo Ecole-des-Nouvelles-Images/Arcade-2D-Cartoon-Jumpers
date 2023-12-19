@@ -1,7 +1,5 @@
 using UnityEngine;
 
-using Master.Scripts.Common;
-
 namespace Master.Scripts.Player
 {
     public class Projectile: MonoBehaviour
