@@ -5,7 +5,6 @@ using Master.Scripts.Player;
 
 namespace Editor
 {
-    [CustomEditor(typeof(Player))]
     public class PlayerCustomInspector : UnityEditor.Editor
     {
         private SerializedProperty _enableTestMapInputs;

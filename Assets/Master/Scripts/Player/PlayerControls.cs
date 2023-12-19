@@ -100,6 +100,17 @@ namespace Master.Scripts.Player
                 },
                 {
                     ""name"": """",
+                    ""id"": ""d298a3e7-1572-4de4-a8a0-a545c515efd1"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GamePad"",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""5ca61eb8-0df7-46f1-8437-bb72bf446e44"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
