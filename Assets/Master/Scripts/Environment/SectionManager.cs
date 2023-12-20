@@ -1,6 +1,5 @@
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -25,8 +24,9 @@ namespace Master.Scripts.Environment
         [SerializeField] private float _triggerPosition = 30; // Hauteur à laquelle le joueur doit être pour activer OnReachedSection
 
         // Properties
-        
-        private float SectionSize => _basePrefab.GetComponent<Section>().Size;
+
+        private const float SectionSize = 28.25f;
+        private int _bonusSectionDenominator;
 
         private readonly Queue<GameObject> _activeSections = new ();
         private int _sectionIndex = 1;
@@ -34,64 +34,57 @@ namespace Master.Scripts.Environment
 
         private void Start()
         {
+            _bonusSectionDenominator = Random.Range(_bonusZoneFrequencyMin, _bonusZoneFrequencyMax);
+            
             for (int i = 0; i < _maxSectionsAhead + _maxSectionsBehind; i++) {
+                Debug.Log("Should generate sections...");
                 GenerateSections();
             }
         }
 
         private void Update()
         {
-            if (!_sectionManagementStarted && _player.transform.position.y >= _triggerPosition)
-            {
-                Debug.Log($"Player went higher than triggerPosition");
-                _sectionManagementStarted = true;
-            }
         }
 
         private void GenerateSections()
         {
             Vector3 sectionPosition = new (0, SectionSize * _sectionIndex, 0);
             GameObject section;
-
-            if (_sectionIndex % _checkpointFrequency == 0) {
-                section = Instantiate(_checkpointPrefab, sectionPosition, Quaternion.identity, transform);
+            
+            if (_sectionIndex % _checkpointFrequency == 0)
+            {
+                section = Instantiate(_checkpointPrefab, transform, true);
+                section.transform.position = sectionPosition;
+                Debug.Log($"Section should be a {_checkpointPrefab.name} at : {sectionPosition}");
             }
-            else if (_sectionIndex % Random.Range(_bonusZoneFrequencyMin, _bonusZoneFrequencyMax) == 0 && _sectionIndex % _checkpointFrequency != 0 ) {
-                section = Instantiate(_bonusZonePrefabs[Random.Range(0, _bonusZonePrefabs.Count)], sectionPosition, Quaternion.identity, transform);
+            else if (_sectionIndex % _bonusSectionDenominator == 0 && _sectionIndex % _checkpointFrequency != 0 )
+            {
+                GameObject bonusSectionPrefab = _bonusZonePrefabs[Random.Range(0, _bonusZonePrefabs.Count)];
+                section = Instantiate(bonusSectionPrefab,transform, true);
+                section.transform.position = sectionPosition;
+                _bonusSectionDenominator = Random.Range(_bonusZoneFrequencyMin, _bonusZoneFrequencyMax);
+                Debug.Log($"Section should be a {bonusSectionPrefab.name} at : {sectionPosition}");
             }
             else
             {
-                section = Instantiate(_basePrefab, sectionPosition, Quaternion.identity, transform);
+                section = Instantiate(_basePrefab,transform, true);
+                section.transform.position = sectionPosition;
+                Debug.Log($"Section should be a {_basePrefab.name} at : {sectionPosition}");
             }
 
-            section.GetComponent<Section>().OnSectionEnter += OnSectionEnter;
-
-            _sectionIndex++;
-            if (_activeSections.Count == _maxSectionsAhead + _maxSectionsBehind + 1)
-            {
-                _activeSections.Enqueue(section);
-                Destroy(_activeSections.Dequeue());
+            try {
+                section.GetComponent<Section>().OnSectionEnter += OnSectionEnter;
+            }
+            catch {
+                throw new Exception("\"Section\" component missing on a section prefab");
             }
             
-            /* for (int i = 0; i < count; i++)
-            {
-                if (i < _maxSectionsAhead + _maxSectionsBehind)
-                {
-                    GameObject nextSectionPrefab = _sectionPrefabs[Random.Range(0, _sectionPrefabs.Length)];
-                    GameObject nextSection = Instantiate(nextSectionPrefab, new Vector3(0, i * _sectionSize, 0), Quaternion.identity, this.transform);
-                    _activeSections.Enqueue(nextSection);
-                    SectionColliderTrigger colliderTrigger = nextSection.AddComponent<SectionColliderTrigger>();
-                    colliderTrigger.Initialize(this);
-                }
-            } */
+            _sectionIndex++;
         }
 
         private void OnSectionEnter(Section obj)
         {
-            foreach (GameObject section in _activeSections)
-            {
-                
-            }
+            
         }
 
         /* public void OnSectionReached(GameObject sectionInstance)

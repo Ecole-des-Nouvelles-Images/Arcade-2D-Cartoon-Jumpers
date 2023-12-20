@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: StandardDash
   m_EditorClassIdentifier: 
   Power: 10
-  Velocity: 80
+  Velocity: 60
   Cooldown: 1
