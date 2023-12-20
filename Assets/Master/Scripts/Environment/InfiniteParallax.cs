@@ -7,6 +7,8 @@ namespace Master.Scripts.Environment
     {
         private enum Mode { Background = 1, Parallax = 2 }
 
+        public GameObject Player;
+
         [SerializeField] private Mode _mode;
         [SerializeField] private float _factor = 1.0f;
         
@@ -44,7 +46,7 @@ namespace Master.Scripts.Environment
             switch (_mode)
             {
                 case Mode.Background:
-                    transform.position = new Vector3(0, _camera.position.y, 0);
+                    transform.position = new Vector3(0, Player.transform.position.y, 0);
                     break;
                 case Mode.Parallax:
                     Vector2 offset = new (0, cameraDelta / _layerHeight * _factor);

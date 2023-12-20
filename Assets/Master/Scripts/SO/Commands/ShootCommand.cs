@@ -15,45 +15,44 @@ namespace Master.Scripts.SO.Commands
         [SerializeField] private float _velocity = 5f;
         [SerializeField] private float _triggerDistance;
 
-        public override void Setup(EnemyComponent enemy)
+        public override void Setup(EnemyComponent enemyComponent)
         {
-            EnemyCtx = enemy;
-            EnemyCtx.Memory[(this, "_hasShooted")] = false;
-            EnemyCtx.Memory[(this, "_playerTransform")] = enemy.PlayerReference.transform;
+            enemyComponent.Memory[(this, "_hasShooted")] = false;
+            enemyComponent.Memory[(this, "_playerTransform")] = enemyComponent.PlayerReference.transform;
         }
 
-        public override void Execute()
+        public override void Execute(EnemyComponent enemyComponent)
         {
-            Transform playerTransform = EnemyCtx.Memory[(this, "_playerTransform")] as Transform;
+            Transform playerTransform = enemyComponent.Memory[(this, "_playerTransform")] as Transform;
             if (playerTransform == null)
             {
                 Debug.LogError("Player transform not found in memory");
                 return;
             }
 
-            float distanceToPlayer = Vector2.Distance(EnemyCtx.transform.position, playerTransform.position);
+            float distanceToPlayer = Vector2.Distance(enemyComponent.transform.position, playerTransform.position);
             if (distanceToPlayer <= _triggerDistance) 
-                Fire(EnemyCtx.PlayerReference.transform);
+                Fire(enemyComponent, enemyComponent.PlayerReference.transform);
         }
 
-        private void Fire(Transform playerTransform)
+        private void Fire(EnemyComponent enemyComponent, Transform playerTransform)
         {
-            Vector2 position = EnemyCtx.transform.position;
+            Vector2 position = enemyComponent.transform.position;
             GameObject projectile = Instantiate(_projectilePrefab, position, Quaternion.identity);
             Vector2 fireDirection = ((Vector2)playerTransform.position - position).normalized;
-            projectile.GetComponent<EnemyProjectile>().Initialize(EnemyCtx, fireDirection, _velocity);
+            projectile.GetComponent<EnemyProjectile>().Initialize(enemyComponent, fireDirection, _velocity);
             
-            // EnemyCtx.Memory[(this, "_hasShooted")] = true;
+            // enemyComponent.Memory[(this, "_hasShooted")] = true;
         }
 
-        public override bool IsFinished()
+        public override bool IsFinished(EnemyComponent enemyComponent)
         {
             return true;
         }
 
-        public override void CleanUp()
+        public override void CleanUp(EnemyComponent enemyComponent)
         {
-            EnemyCtx.Memory.Clear();
+            enemyComponent.Memory.Clear();
         }
     }
 }

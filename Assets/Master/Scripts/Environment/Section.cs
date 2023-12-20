@@ -6,18 +6,21 @@ namespace Master.Scripts.Environment
     [RequireComponent(typeof (Collider2D))]
     public class Section : MonoBehaviour
     {
-        public Action<Section> OnSectionEnter;
+        [Header("Difficulty")]
+        public Difficulty Type;
+
+        private SectionManager _manager;
+
+        private void Awake()
+        {
+            _manager = transform.parent.GetComponent<SectionManager>();
+        }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (!other.CompareTag("Player")) return;
             
-            // OnSectionEnter.Invoke(this);
-        }
-
-        private void OnDestroy()
-        {
-            OnSectionEnter = null;
+            _manager.OnSectionEnter(this);
         }
     }
 }

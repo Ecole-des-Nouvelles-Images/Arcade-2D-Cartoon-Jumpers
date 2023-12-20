@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using EnemyComponent = Master.Scripts.Enemy.Enemy;
 
@@ -10,26 +8,25 @@ namespace Master.Scripts.SO.Commands
     {
         [SerializeField] private float _waitingTime;
 
-        public override void Setup(EnemyComponent enemy)
+        public override void Setup(EnemyComponent enemyComponent)
         {
-            EnemyCtx = enemy;
-            EnemyCtx.Memory[(this, "_timeOut")] = Time.time + _waitingTime;
+            enemyComponent.Memory[(this, "_timeOut")] = Time.time + _waitingTime;
         }
 
-        public override void Execute()
+        public override void Execute(EnemyComponent enemyComponent)
         {
             // animation d Idle 
         }
 
-        public override bool IsFinished()
+        public override bool IsFinished(EnemyComponent enemyComponent)
         {
-            float _timeOut = (float)EnemyCtx.Memory[(this, "_timeOut")];
+            float _timeOut = (float)enemyComponent.Memory[(this, "_timeOut")];
             return Time.time >= _timeOut;
         }
 
-        public override void CleanUp()
+        public override void CleanUp(EnemyComponent enemyComponent)
         {
-            EnemyCtx.Memory.Remove((this, "_timeOut"));
+            enemyComponent.Memory.Remove((this, "_timeOut"));
         }
     }
 }

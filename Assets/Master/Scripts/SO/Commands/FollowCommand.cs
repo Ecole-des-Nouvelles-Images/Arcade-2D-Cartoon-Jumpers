@@ -9,13 +9,14 @@ namespace Master.Scripts.SO.Commands
     {
         [SerializeField] private float _speed;
         [SerializeField] private float _followingTriggerDistance;
+        
+        //TODO PAS BIEN
         private Vector2 _startingPosition;
         private Vector2 _destination;
 
-        public override void Setup(EnemyComponent enemy)
+        public override void Setup(EnemyComponent enemyComponent)
         {
-            EnemyCtx = enemy;
-            EnemyCtx.Memory[(this, "startingPosition")] = (Vector2)EnemyCtx.transform.position;
+            enemyComponent.Memory[(this, "startingPosition")] = (Vector2)enemyComponent.transform.position;
             GameObject playerObject = GameObject.FindWithTag("Player");
             if (playerObject == null)
             {
@@ -23,13 +24,13 @@ namespace Master.Scripts.SO.Commands
                 return;
             }
 
-            EnemyCtx.Memory[(this, "playerTransform")] = playerObject.transform;
+            enemyComponent.Memory[(this, "playerTransform")] = playerObject.transform;
         }
 
-        public override void Execute()
+        public override void Execute(EnemyComponent enemyComponent)
         {
-            if (_startingPosition == Vector2.zero) _startingPosition = EnemyCtx.transform.position;
-            Transform playerTransform = EnemyCtx.Memory[(this, "playerTransform")] as Transform;
+            if (_startingPosition == Vector2.zero) _startingPosition = enemyComponent.transform.position;
+            Transform playerTransform = enemyComponent.Memory[(this, "playerTransform")] as Transform;
             if (playerTransform == null)
             {
                 Debug.LogError("Player transform not found in memory");
@@ -37,26 +38,26 @@ namespace Master.Scripts.SO.Commands
             }
 
             _destination = playerTransform.position;
-            float distanceToPlayer = Vector2.Distance(EnemyCtx.transform.position, _destination);
+            float distanceToPlayer = Vector2.Distance(enemyComponent.transform.position, _destination);
             if (distanceToPlayer <= _followingTriggerDistance)
             {
-                Vector2 direction = (_destination - (Vector2)EnemyCtx.transform.position).normalized;
-                EnemyCtx.transform.Translate(direction * ((EnemyCtx.Speed + _speed) * Time.deltaTime));
+                Vector2 direction = (_destination - (Vector2)enemyComponent.transform.position).normalized;
+                enemyComponent.transform.Translate(direction * ((enemyComponent.Speed + _speed) * Time.deltaTime));
             }
         }
 
-        public override bool IsFinished()
+        public override bool IsFinished(EnemyComponent enemyComponent)
         {
-            Vector2 startingPosition = (Vector2)EnemyCtx.Memory[(this, "startingPosition")];
+            Vector2 startingPosition = (Vector2)enemyComponent.Memory[(this, "startingPosition")];
             Vector2 currentDestination = startingPosition + _destination;
-            float distance = Vector2.Distance(currentDestination, EnemyCtx.transform.position);
+            float distance = Vector2.Distance(currentDestination, enemyComponent.transform.position);
 
-            return EnemyCtx.HasCollidedWithPlayer;
+            return enemyComponent.HasCollidedWithPlayer;
         }
 
-        public override void CleanUp()
+        public override void CleanUp(EnemyComponent enemyComponent)
         {
-            EnemyCtx.Memory.Remove((this, "startingPosition"));
+            enemyComponent.Memory.Remove((this, "startingPosition"));
 
         }
     }
