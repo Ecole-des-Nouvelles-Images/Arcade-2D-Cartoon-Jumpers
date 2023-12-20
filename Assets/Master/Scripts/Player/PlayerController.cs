@@ -45,6 +45,7 @@ namespace Master.Scripts.Player
             _controls.GamePlay.AimDash.performed += OnDashAim;
             _controls.GamePlay.Shoot.performed += OnShoot;
             _controls.GamePlay.AimShoot.performed += OnAimShoot;
+            _controls.GamePlay.Pause.performed += OnPause;
             
             if (_enableTestMap) {
                 _controls.TestMap.NextScene.performed += OnNextScene;
@@ -98,6 +99,11 @@ namespace Master.Scripts.Player
             if (_aimShootDirection == Vector2.zero) return;
 
             _player.Weapon.Shoot(_player, _aimShootDirection);
+        }
+
+        private void OnPause(InputAction.CallbackContext ctx)
+        {
+            GameManager.SetPause();
         }
         
         // Test Input Event Handlers //

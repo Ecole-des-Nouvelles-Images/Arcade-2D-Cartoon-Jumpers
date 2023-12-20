@@ -56,6 +56,7 @@ namespace Master.Scripts.Enemy
         private void Start()
         {
             OnAwake.Invoke(this);
+            Debug.Log("Ennemy created and initialized");
         }
 
         private void Update() {
@@ -83,7 +84,6 @@ namespace Master.Scripts.Enemy
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log($">> Enemy {gameObject.name} triggered with tagged object : {other.tag}");
             switch (other.tag)
             {
                 case "Player":

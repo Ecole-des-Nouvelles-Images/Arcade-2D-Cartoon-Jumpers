@@ -27,7 +27,7 @@ namespace Master.Scripts.Enemy
         {
             if (!other.CompareTag("Player")) return;
             
-            _origin.OnAttack.Invoke(_origin.Power);
+            _origin.OnAttack?.Invoke(_origin.Power);
             Destroy(this.gameObject);
         }
     }
