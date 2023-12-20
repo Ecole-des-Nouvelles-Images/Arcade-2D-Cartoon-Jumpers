@@ -8,13 +8,10 @@ namespace Master.Scripts.SO
     [Serializable]
     public abstract class CommandSO : ScriptableObject
     {
-        protected EnemyComponent EnemyCtx { get; set; }
-
-        public abstract void Setup(EnemyComponent enemy);
-        public abstract void Execute();
-        public abstract bool IsFinished();
-        public abstract void CleanUp();
+        
+        public abstract void Setup(EnemyComponent enemyComponent);
+        public abstract void Execute(EnemyComponent enemyComponent);
+        public abstract bool IsFinished(EnemyComponent enemyComponent);
+        public abstract void CleanUp(EnemyComponent enemyComponent);
     }
 }
-
-

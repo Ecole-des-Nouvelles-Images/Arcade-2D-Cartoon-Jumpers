@@ -10,32 +10,29 @@ namespace Master.Scripts.SO.Commands
         [SerializeField] private Vector2 _destination; // Renseigne la destination 
         [SerializeField] private float _speed; // Add some speed to the Enemy's own. 
         
-        private Vector2 _startingPosition;
-        
-        public override void Setup(EnemyComponent enemy)
+        public override void Setup(EnemyComponent enemyComponent)
         {
-            EnemyCtx = enemy;
-            EnemyCtx.Memory[(this, "startingPosition")] = (Vector2) EnemyCtx.transform.position;
+            enemyComponent.Memory[(this, "enemyComponent")] = enemyComponent;
+            enemyComponent.Memory[(this, "startingPosition")] = (Vector2) enemyComponent.transform.position;
         }
         
-        public override void Execute()
+        public override void Execute(EnemyComponent enemyComponent)
         {
-            if (_startingPosition == Vector2.zero) _startingPosition = EnemyCtx.transform.position;
             Vector2 direction = _destination.normalized; 
-            EnemyCtx.GetComponent<SpriteRenderer>().flipX = direction.x > 0;
-            EnemyCtx.transform.Translate(direction * ((EnemyCtx.Speed + _speed) * Time.deltaTime));
+            enemyComponent.SpriteRenderer.flipX = direction.x > 0;
+            enemyComponent.transform.Translate(direction * ((enemyComponent.Speed + _speed) * Time.deltaTime));
         }
 
-        public override bool IsFinished()
+        public override bool IsFinished(EnemyComponent enemyComponent)
         {
-            _startingPosition = (Vector2) EnemyCtx.Memory[(this, "startingPosition")];
-            Vector2 currentDestination = _startingPosition + _destination;
-            float distance = Vector2.Distance(currentDestination, EnemyCtx.transform.position);
+            Vector2 startingPosition = (Vector2) enemyComponent.Memory[(this, "startingPosition")];
+            Vector2 currentDestination = startingPosition + _destination;
+            float distance = Vector2.Distance(currentDestination, enemyComponent.transform.position);
             return distance <= 1f;
         }
 
-        public override void CleanUp() {
-            EnemyCtx.Memory.Remove((this, "startingPosition"));
+        public override void CleanUp(EnemyComponent enemyComponent) {
+            enemyComponent.Memory.Remove((this, "startingPosition"));
         }
     }
 }

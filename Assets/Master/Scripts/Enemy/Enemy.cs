@@ -22,7 +22,7 @@ namespace Master.Scripts.Enemy
         [SerializeField] private int _power;
 
         // Properties
-        
+        public SpriteRenderer SpriteRenderer { get; private set; }
         public PlayerComponent PlayerReference { get; private set; }
         public bool HasCollidedWithPlayer { get; private set; }
 
@@ -48,6 +48,7 @@ namespace Master.Scripts.Enemy
         
         private void Awake()
         {
+            SpriteRenderer = GetComponent<SpriteRenderer>();
             PlayerReference = GameObject.Find("Player").GetComponent<PlayerComponent>();
             MaxHealth = _initialMaxHP;
             Health = MaxHealth;
@@ -62,15 +63,15 @@ namespace Master.Scripts.Enemy
         private void Update() {
             // Control to check if commands list is empty
             if (_commands.Count == 0)
-                throw new Exception("Enemy " + name + " commands is empty");
+                throw new WarningException("Enemy " + name + " commands is empty");
             // If no command then fetch first command
             if (!_currentCommand) {
                 _currentCommand = _commands[0];
                 _currentCommand.Setup(this);
             }
             // If current command is finished then get the next
-            if (_currentCommand.IsFinished()) {
-                _currentCommand.CleanUp();
+            if (_currentCommand.IsFinished(this)) {
+                _currentCommand.CleanUp(this);
                 _currentCommandIndex++;
                 // If index is higher than the number of elements
                 if (_currentCommandIndex >= _commands.Count) 
@@ -79,7 +80,7 @@ namespace Master.Scripts.Enemy
                 _currentCommand = _commands[_currentCommandIndex];
                 _currentCommand.Setup(this);
             }
-            _currentCommand.Execute();
+            _currentCommand.Execute(this);
         }
 
         private void OnTriggerEnter2D(Collider2D other)
