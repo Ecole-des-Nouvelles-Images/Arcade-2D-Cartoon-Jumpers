@@ -19,7 +19,7 @@ namespace Master.Scripts.Camera
         
         [Header("Velocity thresholds where the camera is centered on the Player")]
         [Tooltip("Note: Include the negative value")]
-        [SerializeField] private float _velocityThreshold;
+        [SerializeField] private float _fallThreshold;
         
         public static float VelocityThreshold { get; set; }
         
@@ -50,9 +50,13 @@ namespace Master.Scripts.Camera
         private void OnDirectionChange(int direction)
         {
             if (direction < 0)
+            {
                 SmoothOffsetToward(-_offsetFall);
+            }
             else
+            {
                 SmoothOffsetToward(_offsetUp);
+            }
         }
 
         private void SmoothOffsetToward(float targetOffset)

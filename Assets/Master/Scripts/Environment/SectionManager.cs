@@ -9,7 +9,7 @@ namespace Master.Scripts.Environment
     {
         [Header("References")]
         [SerializeField] private GameObject _player;
-        [SerializeField] private GameObject _startSection;
+        [SerializeField] private List<GameObject> _initialSections;
         [SerializeField] private GameObject _checkpointPrefab;
         [SerializeField] private GameObject _rootPrefab;
         [SerializeField] private List<GameObject> _basePrefabs;
@@ -45,7 +45,11 @@ namespace Master.Scripts.Environment
         private void Start()
         {
             _bonusSectionDenominator = Random.Range(_bonusZoneFrequencyMin, _bonusZoneFrequencyMax);
-            _activeSections.Enqueue(_startSection);
+
+            foreach (GameObject section in _initialSections)
+            {
+                _activeSections.Enqueue(section);
+            }
             
             for (int i = 0; i < _initialSectionsAhead; i++) {
                 _activeSections.Enqueue(GenerateSection());
@@ -61,6 +65,8 @@ namespace Master.Scripts.Environment
             Vector3 sectionPosition = new (0, SectionSize * _sectionIndex, 0);
             GameObject section;
             
+            _sectionIndex++;
+            
             if (_sectionIndex % _checkpointFrequency == 0)
             {
                 section = Instantiate(_checkpointPrefab, transform, true);
@@ -73,34 +79,10 @@ namespace Master.Scripts.Environment
             }
             else
             {
-                List<GameObject> availablePrefabs;
-
-                switch (_sectionIndex)
-                {
-                    case > 1 and <= 3:
-                        availablePrefabs = GetSectionPrefabsByDifficulty(Difficulty.Chill);
-                        break;
-                    case <= 10:
-                        availablePrefabs = GetSectionPrefabsByDifficulty(Difficulty.Easy);
-                        break;
-                    default:
-                        availablePrefabs = new List<GameObject> { _rootPrefab };
-                        Debug.LogWarning("Instanciated empty Root prefab section");
-                        break;
-                }
-                
-                if (availablePrefabs.Count == 0) Debug.Log("availablePrefabs is empty");
-                else
-                {
-                    Debug.Log($"Current item count in list in : {availablePrefabs.Count}");
-                }
-                GameObject prefabToUse = availablePrefabs[Random.Range(0, availablePrefabs.Count)];
-                section = Instantiate(prefabToUse, transform, true);
+                section = GetRandomNormalSection();
             }
             
             section.transform.position = sectionPosition;
-            
-            _sectionIndex++;
             return section;
         }
 
@@ -109,6 +91,28 @@ namespace Master.Scripts.Environment
             return _basePrefabs.Where(prefab => prefab.GetComponent<Section>().Type == type).ToList();
         }
 
+        private GameObject GetRandomNormalSection()
+        {
+            List<GameObject> availablePrefabs;
+
+            switch (_sectionIndex)
+            {
+                case > 1 and <= 3:
+                    availablePrefabs = GetSectionPrefabsByDifficulty(Difficulty.Chill);
+                    break;
+                case > 3:
+                    availablePrefabs = GetSectionPrefabsByDifficulty(Difficulty.Easy);
+                    break;
+                default:
+                    availablePrefabs = new List<GameObject> { _rootPrefab };
+                    Debug.LogWarning("Instanciated empty Root prefab section");
+                    break;
+            }
+                
+            GameObject prefabToUse = availablePrefabs[Random.Range(0, availablePrefabs.Count)];
+            return Instantiate(prefabToUse, transform, true);
+        }
+        
         public void OnSectionEnter(Section obj)
         {
             if (_activeSections.Count == _maxSectionAlive)
