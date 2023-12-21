@@ -19986,6 +19986,7 @@ GameObject:
   - component: {fileID: 2257636676110391576}
   - component: {fileID: 5894158932232588363}
   - component: {fileID: 5143567082655511087}
+  - component: {fileID: 2081491476759706662}
   m_Layer: 6
   m_Name: PlayerWithCursors
   m_TagString: Player
@@ -20404,6 +20405,14 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!81 &2081491476759706662
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8212452575676777253}
+  m_Enabled: 1
 --- !u!1001 &1276653969982935487
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20446,15 +20455,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 81942475804040436, guid: 47efe22cfa2976e47903e23534dc1845, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.0424267
+      value: 1.0001295
       objectReference: {fileID: 0}
     - target: {fileID: 81942475804040436, guid: 47efe22cfa2976e47903e23534dc1845, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.0424267
+      value: 1.0001295
       objectReference: {fileID: 0}
     - target: {fileID: 81942475804040436, guid: 47efe22cfa2976e47903e23534dc1845, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.0424267
+      value: 1.0001295
       objectReference: {fileID: 0}
     - target: {fileID: 81942475804040436, guid: 47efe22cfa2976e47903e23534dc1845, type: 3}
       propertyPath: m_LocalPosition.x

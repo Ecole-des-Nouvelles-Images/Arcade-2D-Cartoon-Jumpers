@@ -181,6 +181,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7187961140414116966, guid: fa57ee578c609a349bd7258dcfd57f84, type: 3}
   m_PrefabInstance: {fileID: 1685313499}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &93916153 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5143567082655511087, guid: fa57ee578c609a349bd7258dcfd57f84, type: 3}
+  m_PrefabInstance: {fileID: 1685313499}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &196876639
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,7 +804,6 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420033}
   - component: {fileID: 519420031}
-  - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   - component: {fileID: 519420034}
   m_Layer: 0
@@ -809,14 +813,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &519420029
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
 --- !u!114 &519420030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2130,6 +2126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _musicSource: {fileID: 1595041312}
+  PlayerSource: {fileID: 93916153}
   _maximumVolume: 0.3
 --- !u!4 &1595041314
 Transform:
@@ -2165,6 +2162,18 @@ PrefabInstance:
     - target: {fileID: 1194729587871583563, guid: fa57ee578c609a349bd7258dcfd57f84, type: 3}
       propertyPath: m_LocalScale.z
       value: 1.0101714
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143567082655511087, guid: fa57ee578c609a349bd7258dcfd57f84, type: 3}
+      propertyPath: m_Pitch
+      value: -1.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143567082655511087, guid: fa57ee578c609a349bd7258dcfd57f84, type: 3}
+      propertyPath: MaxDistance
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143567082655511087, guid: fa57ee578c609a349bd7258dcfd57f84, type: 3}
+      propertyPath: rolloffMode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5674010284861527753, guid: fa57ee578c609a349bd7258dcfd57f84, type: 3}
       propertyPath: m_Camera
