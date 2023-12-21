@@ -80,5 +80,12 @@ namespace Master.Scripts.Camera
                 yield return null;
             }
         }
+
+        public void DisablePlayerTracking()
+        {
+            StopAllCoroutines();
+            PlayerComponent.OnDirectionChange -= OnDirectionChange;
+            _body = null;
+        }
     }   
 }

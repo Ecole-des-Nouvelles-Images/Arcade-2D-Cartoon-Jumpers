@@ -62,14 +62,15 @@ namespace Master.Scripts.Managers
         private void OnEnable()
         {
             GameManager.OnPause += ShowPauseMenu;
+            GameManager.OnScoreChanged += UpdateScoreMeter;
             PlayerComponent.OnHealthChanged += UpdateHealthGauge;
-            PlayerComponent.OnScoreChanged += UpdateScoreMeter;
         }
         
         private void OnDisable()
         {
+            GameManager.OnPause -= ShowPauseMenu;
+            GameManager.OnScoreChanged -= UpdateScoreMeter;
             PlayerComponent.OnHealthChanged -= UpdateHealthGauge;
-            PlayerComponent.OnScoreChanged -= UpdateScoreMeter;
         }
         
         // Events Handlers //
@@ -82,9 +83,9 @@ namespace Master.Scripts.Managers
             StartCoroutine(UpdateHealthGaugeCoroutine(initialGaugeValue, targetGaugeValue));
         }
 
-        private void UpdateScoreMeter(PlayerComponent ctx)
+        private void UpdateScoreMeter(float score)
         {
-            _scoreMeter.text = ctx.Score.ToString("000.00 'm'"); // https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-numeric-format-strings
+            _scoreMeter.text = score.ToString("000.00 'm'"); // https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-numeric-format-strings
         }
         
         private void ShowPauseMenu(bool enable)
