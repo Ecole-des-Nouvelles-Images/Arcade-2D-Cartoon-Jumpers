@@ -515,6 +515,58 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 5894158932232588363, guid: fa57ee578c609a349bd7258dcfd57f84, type: 3}
+      propertyPath: m_Time
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5894158932232588363, guid: fa57ee578c609a349bd7258dcfd57f84, type: 3}
+      propertyPath: m_SortingLayer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5894158932232588363, guid: fa57ee578c609a349bd7258dcfd57f84, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1774964207
+      objectReference: {fileID: 0}
+    - target: {fileID: 5894158932232588363, guid: fa57ee578c609a349bd7258dcfd57f84, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5894158932232588363, guid: fa57ee578c609a349bd7258dcfd57f84, type: 3}
+      propertyPath: m_ApplyActiveColorSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5894158932232588363, guid: fa57ee578c609a349bd7258dcfd57f84, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 85fdeab3e3372684b9cbfb008005c5ae, type: 2}
+    - target: {fileID: 5894158932232588363, guid: fa57ee578c609a349bd7258dcfd57f84, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 85fdeab3e3372684b9cbfb008005c5ae, type: 2}
+    - target: {fileID: 5894158932232588363, guid: fa57ee578c609a349bd7258dcfd57f84, type: 3}
+      propertyPath: m_Parameters.colorGradient.atime1
+      value: 3855
+      objectReference: {fileID: 0}
+    - target: {fileID: 5894158932232588363, guid: fa57ee578c609a349bd7258dcfd57f84, type: 3}
+      propertyPath: m_Parameters.colorGradient.atime2
+      value: 8674
+      objectReference: {fileID: 0}
+    - target: {fileID: 5894158932232588363, guid: fa57ee578c609a349bd7258dcfd57f84, type: 3}
+      propertyPath: m_Parameters.colorGradient.atime3
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 5894158932232588363, guid: fa57ee578c609a349bd7258dcfd57f84, type: 3}
+      propertyPath: m_Parameters.colorGradient.key2.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5894158932232588363, guid: fa57ee578c609a349bd7258dcfd57f84, type: 3}
+      propertyPath: m_Parameters.colorGradient.m_NumAlphaKeys
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5894158932232588363, guid: fa57ee578c609a349bd7258dcfd57f84, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
+      value: 0.6944237
+      objectReference: {fileID: 0}
     - target: {fileID: 6365991021748266751, guid: fa57ee578c609a349bd7258dcfd57f84, type: 3}
       propertyPath: ExternalForcesModule.influenceList.Array.data[0]
       value: 
