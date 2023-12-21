@@ -186,6 +186,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4863700525414714282}
     m_Modifications:
+    - target: {fileID: 1965929228453099386, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 798f6336e4d94ef4d909f4b0a02488e6, type: 3}
+    - target: {fileID: 1965929228453099386, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965929228453099386, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965929228453099386, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3353774669508745350, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.17
@@ -227,6 +243,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3544945150558600953, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
+      propertyPath: AttackSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 49208819692268843855addc9b30ade9, type: 3}
+    - target: {fileID: 3544945150558600953, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
       propertyPath: _commands.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: 32fd28867ae221046b2c230c06c430d6, type: 2}
@@ -234,6 +254,10 @@ PrefabInstance:
       propertyPath: _commands.Array.data[2]
       value: 
       objectReference: {fileID: 11400000, guid: 32fd28867ae221046b2c230c06c430d6, type: 2}
+    - target: {fileID: 6554307364940298908, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: bd2ba0e44db67b84ca9ef9e3733c7bb4, type: 2}
     - target: {fileID: 6897151928724700931, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
       propertyPath: m_Name
       value: ShootEnemy
@@ -256,6 +280,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4863700525414714282}
     m_Modifications:
+    - target: {fileID: 1965929228453099386, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f67811858b5df8540ab76c2e18f41a6d, type: 3}
+    - target: {fileID: 1965929228453099386, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965929228453099386, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965929228453099386, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3353774669508745350, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -324,6 +364,10 @@ PrefabInstance:
       propertyPath: _commands.Array.data[1]
       value: 
       objectReference: {fileID: 11400000, guid: e7f1b2f266be5c84f923e86deea7da78, type: 2}
+    - target: {fileID: 6554307364940298908, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 0995f6dfa16b4e74ea74f7bece7cebf4, type: 2}
     - target: {fileID: 6897151928724700931, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
       propertyPath: m_Name
       value: FlyEnemy
@@ -470,6 +514,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4863700525414714282}
     m_Modifications:
+    - target: {fileID: 1965929228453099386, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 798f6336e4d94ef4d909f4b0a02488e6, type: 3}
+    - target: {fileID: 1965929228453099386, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965929228453099386, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965929228453099386, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3353774669508745350, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.94
@@ -511,6 +571,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3544945150558600953, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
+      propertyPath: AttackSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 49208819692268843855addc9b30ade9, type: 3}
+    - target: {fileID: 3544945150558600953, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
       propertyPath: _commands.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -526,6 +590,10 @@ PrefabInstance:
       propertyPath: _commands.Array.data[3]
       value: 
       objectReference: {fileID: 11400000, guid: 32fd28867ae221046b2c230c06c430d6, type: 2}
+    - target: {fileID: 6554307364940298908, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: bd2ba0e44db67b84ca9ef9e3733c7bb4, type: 2}
     - target: {fileID: 6897151928724700931, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
       propertyPath: m_Name
       value: ShootEnemy
@@ -548,6 +616,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4863700525414714282}
     m_Modifications:
+    - target: {fileID: 1965929228453099386, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f67811858b5df8540ab76c2e18f41a6d, type: 3}
+    - target: {fileID: 1965929228453099386, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965929228453099386, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965929228453099386, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3353774669508745350, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.74
@@ -600,6 +684,10 @@ PrefabInstance:
       propertyPath: _commands.Array.data[1]
       value: 
       objectReference: {fileID: 11400000, guid: e7f1b2f266be5c84f923e86deea7da78, type: 2}
+    - target: {fileID: 6554307364940298908, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 0995f6dfa16b4e74ea74f7bece7cebf4, type: 2}
     - target: {fileID: 6897151928724700931, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
       propertyPath: m_Name
       value: FlyEnemy
@@ -622,6 +710,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4863700525414714282}
     m_Modifications:
+    - target: {fileID: 1965929228453099386, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4b7c769a949df5c4390792a242edee1d, type: 3}
+    - target: {fileID: 1965929228453099386, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965929228453099386, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965929228453099386, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3353774669508745350, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.87
@@ -670,6 +774,10 @@ PrefabInstance:
       propertyPath: _commands.Array.data[3]
       value: 
       objectReference: {fileID: 11400000, guid: cab116ef2c2dd8245b3431c0afea6142, type: 2}
+    - target: {fileID: 6554307364940298908, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: f211fb4a05e65594f9e55cf4ab4025bf, type: 2}
     - target: {fileID: 6897151928724700931, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
       propertyPath: m_Name
       value: FrogEnemy

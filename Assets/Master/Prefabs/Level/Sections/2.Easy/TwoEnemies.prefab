@@ -313,12 +313,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 3661275303713004943}
     m_Modifications:
     - target: {fileID: 1965929228453099386, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f67811858b5df8540ab76c2e18f41a6d, type: 3}
+    - target: {fileID: 1965929228453099386, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965929228453099386, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
       propertyPath: m_Color.g
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1965929228453099386, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
       propertyPath: m_Color.r
-      value: 0.9386786
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1965929228453099386, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
       propertyPath: m_SortingLayer
@@ -388,6 +396,10 @@ PrefabInstance:
       propertyPath: _commands.Array.data[3]
       value: 
       objectReference: {fileID: 11400000, guid: cab116ef2c2dd8245b3431c0afea6142, type: 2}
+    - target: {fileID: 6554307364940298908, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 0995f6dfa16b4e74ea74f7bece7cebf4, type: 2}
     - target: {fileID: 6897151928724700931, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
       propertyPath: m_Name
       value: flyEnemy
@@ -539,12 +551,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 3661275303713004943}
     m_Modifications:
     - target: {fileID: 1965929228453099386, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4b7c769a949df5c4390792a242edee1d, type: 3}
+    - target: {fileID: 1965929228453099386, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965929228453099386, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
       propertyPath: m_Color.g
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1965929228453099386, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
       propertyPath: m_Color.r
-      value: 0.9386786
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1965929228453099386, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
       propertyPath: m_SortingLayer
@@ -606,6 +626,10 @@ PrefabInstance:
       propertyPath: _commands.Array.data[1]
       value: 
       objectReference: {fileID: 11400000, guid: e7f1b2f266be5c84f923e86deea7da78, type: 2}
+    - target: {fileID: 6554307364940298908, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: f211fb4a05e65594f9e55cf4ab4025bf, type: 2}
     - target: {fileID: 6897151928724700931, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
       propertyPath: m_Name
       value: 'FrogEnemy '
