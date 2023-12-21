@@ -19986,7 +19986,6 @@ GameObject:
   - component: {fileID: 2257636676110391576}
   - component: {fileID: 5894158932232588363}
   - component: {fileID: 5143567082655511087}
-  - component: {fileID: 2081491476759706662}
   m_Layer: 6
   m_Name: PlayerWithCursors
   m_TagString: Player
@@ -20088,7 +20087,6 @@ MonoBehaviour:
   _woundedThreshold: 0
   _startingDashType: {fileID: 11400000, guid: dbef9fccaf5283f4da83cc5d4d14ff50, type: 2}
   _startingWeaponType: {fileID: 11400000, guid: f4c4353bdfaa1f04d9b97fc9b8af88fc, type: 2}
-  _scoreDenominator: 10
 --- !u!95 &6639195251911049339
 Animator:
   serializedVersion: 5
@@ -20405,14 +20403,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!81 &2081491476759706662
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8212452575676777253}
-  m_Enabled: 1
 --- !u!1001 &1276653969982935487
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20455,15 +20445,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 81942475804040436, guid: 47efe22cfa2976e47903e23534dc1845, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.0001295
+      value: 1.0206543
       objectReference: {fileID: 0}
     - target: {fileID: 81942475804040436, guid: 47efe22cfa2976e47903e23534dc1845, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.0001295
+      value: 1.0206543
       objectReference: {fileID: 0}
     - target: {fileID: 81942475804040436, guid: 47efe22cfa2976e47903e23534dc1845, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.0001295
+      value: 1.0206543
       objectReference: {fileID: 0}
     - target: {fileID: 81942475804040436, guid: 47efe22cfa2976e47903e23534dc1845, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20532,6 +20522,30 @@ PrefabInstance:
     - target: {fileID: 7180688228771345680, guid: 47efe22cfa2976e47903e23534dc1845, type: 3}
       propertyPath: m_Color.a
       value: 0.13725491
+      objectReference: {fileID: 0}
+    - target: {fileID: 8491655086082485094, guid: 47efe22cfa2976e47903e23534dc1845, type: 3}
+      propertyPath: m_ScaleAtRest.x
+      value: 1.0101714
+      objectReference: {fileID: 0}
+    - target: {fileID: 8491655086082485094, guid: 47efe22cfa2976e47903e23534dc1845, type: 3}
+      propertyPath: m_ScaleAtRest.y
+      value: 1.0101714
+      objectReference: {fileID: 0}
+    - target: {fileID: 8491655086082485094, guid: 47efe22cfa2976e47903e23534dc1845, type: 3}
+      propertyPath: m_ScaleAtRest.z
+      value: 1.0101714
+      objectReference: {fileID: 0}
+    - target: {fileID: 8491655086082485094, guid: 47efe22cfa2976e47903e23534dc1845, type: 3}
+      propertyPath: m_ScaleOffset.x
+      value: 0.7107631
+      objectReference: {fileID: 0}
+    - target: {fileID: 8491655086082485094, guid: 47efe22cfa2976e47903e23534dc1845, type: 3}
+      propertyPath: m_ScaleOffset.y
+      value: 0.7107631
+      objectReference: {fileID: 0}
+    - target: {fileID: 8491655086082485094, guid: 47efe22cfa2976e47903e23534dc1845, type: 3}
+      propertyPath: m_ScaleOffset.z
+      value: 0.7107631
       objectReference: {fileID: 0}
     - target: {fileID: 8491655086082485094, guid: 47efe22cfa2976e47903e23534dc1845, type: 3}
       propertyPath: m_Sources.Array.size

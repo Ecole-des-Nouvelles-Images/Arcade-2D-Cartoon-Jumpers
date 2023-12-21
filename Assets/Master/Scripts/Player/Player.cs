@@ -29,23 +29,18 @@ namespace Master.Scripts.Player
         [SerializeField] private DashSO _startingDashType;
         [SerializeField] private WeaponSO _startingWeaponType;
 
-        [Header("Score System")]
-        [SerializeField] private float _scoreDenominator = 10f;
+       
         
         private void OnValidate()
         {
             _initialMaxHealth = Mathf.RoundToInt(_initialMaxHealth / 10f) * 10;
-            if (_scoreDenominator == 0) {
-                _scoreDenominator = 1;
-                throw new DivideByZeroException("Trying to set Score Denominator to 0. Fallback to 1.");
-            }
         }
 
         // Events //
 
         public static Action<int> OnDirectionChange;
         public static Action<Player> OnHealthChanged;
-        public static Action<Player> OnScoreChanged;
+
         
         // Important fields and properties //
         
@@ -76,8 +71,6 @@ namespace Master.Scripts.Player
         
         public int MaxHealth { get; private set; }
         public int Health { get; set; }
-        
-        public float Score { get; private set; }
         
         private static float VelocityThreshold => CameraController.VelocityThreshold;
         private static readonly int AnimationSpeed = Animator.StringToHash("Speed");
@@ -129,7 +122,11 @@ namespace Master.Scripts.Player
             UpdateVerticalDirection();
             UpdateAnimation();
             RecoverShots();
-            UpdateScore();
+        }
+
+        public void DisableInputs()
+        {
+            _controller.IgnoreInputs();
         }
         
         // New enemy event subscription //
@@ -231,16 +228,6 @@ namespace Master.Scripts.Player
         private void UpdateAnimation()
         {
             Animator.SetFloat(AnimationSpeed, Rigidbody.velocity.y);
-        }
-        
-        private void UpdateScore()
-        {
-            float currentHeight = transform.position.y / _scoreDenominator;
-
-            if (currentHeight < Score) return;
-            
-            Score = currentHeight;
-            OnScoreChanged.Invoke(this);
         }
     }
 }

@@ -11,13 +11,13 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Camera
+  - 
   - Water
   - UI
   - Player
   - Walls
   - Enemies
-  - Death
+  - Camera
   - 
   - 
   - 
