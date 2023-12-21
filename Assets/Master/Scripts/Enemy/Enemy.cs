@@ -54,6 +54,8 @@ namespace Master.Scripts.Enemy
         public Animator Animator;
         // AudioSource
         public AudioSource AudioSource;
+
+        private static readonly int AttackTrigger = Animator.StringToHash("AttackTrigger");
         // Methods
         
         private void Awake()
@@ -118,6 +120,7 @@ namespace Master.Scripts.Enemy
                 OnHit.Invoke(DmgType.Dash, this);
             }
             else {
+                Animator.SetTrigger(AttackTrigger);
                 OnAttack.Invoke(this.Power);
             }
         }
