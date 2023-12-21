@@ -12,6 +12,11 @@ namespace Master.Scripts.Enemy
     public abstract class Enemy : MonoBehaviour
     {
         public static Action<Enemy> OnAwake;
+
+        [Header("Sounds")] 
+        public AudioClip AttackSound;
+
+        public AudioClip IdleSound;
         
         [Header("Pattern")]
         [SerializeField] private List<CommandSO> _commands;
@@ -24,6 +29,7 @@ namespace Master.Scripts.Enemy
         // Properties
         public SpriteRenderer SpriteRenderer { get; private set; }
         public PlayerComponent PlayerReference { get; private set; }
+        
         public bool HasCollidedWithPlayer { get; private set; }
 
         public float MaxHealth { get; private set; }
@@ -44,6 +50,10 @@ namespace Master.Scripts.Enemy
         private CommandSO _currentCommand;
         private int _currentCommandIndex;
         
+        // Animator
+        public Animator Animator;
+        // AudioSource
+        public AudioSource AudioSource;
         // Methods
         
         private void Awake()
@@ -52,6 +62,8 @@ namespace Master.Scripts.Enemy
             PlayerReference = GameObject.Find("Player").GetComponent<PlayerComponent>();
             MaxHealth = _initialMaxHP;
             Health = MaxHealth;
+            Animator = GetComponent<Animator>();
+            AudioSource = GetComponent<AudioSource>();
         }
 
         private void Start()

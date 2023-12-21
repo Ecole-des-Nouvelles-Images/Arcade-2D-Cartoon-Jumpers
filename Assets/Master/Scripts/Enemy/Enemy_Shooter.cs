@@ -8,5 +8,9 @@ namespace Master.Scripts.Enemy
     public class Enemy_Shooter : Enemy
     {
         
+        public void ResetShooting()
+        {
+            Animator.SetBool("IsShooting", false);
+        }
     }
 }
