@@ -359,7 +359,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: f47ead14b53eda149b5c1d2bdf230e0c, type: 2}
     - target: {fileID: 6897151928724700931, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
       propertyPath: m_Name
-      value: Enemy
+      value: FlyEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -557,7 +557,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 9a644667842fef245bfbab4c454591b4, type: 2}
     - target: {fileID: 6897151928724700931, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
       propertyPath: m_Name
-      value: Enemy (1)
+      value: FlyEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -627,7 +627,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: cab116ef2c2dd8245b3431c0afea6142, type: 2}
     - target: {fileID: 6897151928724700931, guid: 49ebb17689faca449921dbe96f823f36, type: 3}
       propertyPath: m_Name
-      value: Enemy
+      value: FrogEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
