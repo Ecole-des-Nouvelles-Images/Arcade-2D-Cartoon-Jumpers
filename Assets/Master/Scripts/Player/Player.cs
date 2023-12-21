@@ -7,6 +7,7 @@ using Master.Scripts.Common;
 using Master.Scripts.Managers;
 using Master.Scripts.SO;
 using EnemyComponent = Master.Scripts.Enemy.Enemy;
+using Random = UnityEngine.Random;
 
 namespace Master.Scripts.Player
 {
@@ -16,12 +17,13 @@ namespace Master.Scripts.Player
         // Public inspector fields //
         [SerializeField] private bool _enableTestMapInputs;
 
-        [Header("Sounds")]  // Could be in the Dashes and Weapons's SO ?
-        public AudioClip[] DashSounds; 
+        [Header("Sounds")] // Could be in the Dashes and Weapons's SO ?
+        public AudioClip[] DashSounds;
 
         public AudioClip[] WeaponSounds;
-        
-        [Header("Base Stats")]
+        public AudioClip[] PlayerHitSounds;
+
+    [Header("Base Stats")]
         [Range(0, 1000)] [SerializeField] private int _initialMaxHealth = 100;
         [Range(0, 100)] [SerializeField] private int _woundedThreshold;
 
@@ -40,6 +42,7 @@ namespace Master.Scripts.Player
 
         public static Action<int> OnDirectionChange;
         public static Action<Player> OnHealthChanged;
+        public static Action<Player> OnPlayerDamaged;
 
         
         // Important fields and properties //
@@ -191,7 +194,17 @@ namespace Master.Scripts.Player
         private void TakeDamage(int damages)
         {
             Health -= damages;
+            if (PlayerHitSounds.Length > 0)
+            {
+                int randomIndex = Random.Range(0, PlayerHitSounds.Length);
+                AudioSource.clip = PlayerHitSounds[randomIndex];
+                AudioSource.Play();
+            }
+
             OnHealthChanged.Invoke(this);
+            OnPlayerDamaged.Invoke(this);
+            
+            
             
             if (Health <= 0) {
                 Debug.Log("Game Over");

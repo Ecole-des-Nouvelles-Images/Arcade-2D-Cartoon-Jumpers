@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 
 using Master.Scripts.Internal;
+using UnityEngine.Rendering;
 using PlayerComponent = Master.Scripts.Player.Player;
 
 namespace Master.Scripts.Managers
@@ -17,10 +18,12 @@ namespace Master.Scripts.Managers
         [SerializeField] private Slider _healthGaugeLeft;
         [SerializeField] private Slider _healthGaugeRight;
         [SerializeField] private TMP_Text _scoreMeter;
+        [SerializeField] private Canvas _playerDamaged; // Applique une couleur en alpha réduit pour signaler le dégat;
 
         [Header("Animation durations")] 
         [SerializeField] private float _healthGaugeAnimTime;
         [SerializeField] private float _pauseFadeTime;
+        [SerializeField] private float _playerDamagedPanelTime;
 
         [Header("Cursors for Player")]
         public Transform DashCursor;
@@ -64,6 +67,7 @@ namespace Master.Scripts.Managers
             GameManager.OnPause += ShowPauseMenu;
             GameManager.OnScoreChanged += UpdateScoreMeter;
             PlayerComponent.OnHealthChanged += UpdateHealthGauge;
+            PlayerComponent.OnPlayerDamaged += ShowPlayerDamagedPanel; // Abonnement a l action reçue a chaque fois que le player reçoit des dégats
         }
         
         private void OnDisable()
@@ -71,6 +75,7 @@ namespace Master.Scripts.Managers
             GameManager.OnPause -= ShowPauseMenu;
             GameManager.OnScoreChanged -= UpdateScoreMeter;
             PlayerComponent.OnHealthChanged -= UpdateHealthGauge;
+            PlayerComponent.OnPlayerDamaged -= ShowPlayerDamagedPanel;
         }
         
         // Events Handlers //
@@ -101,6 +106,12 @@ namespace Master.Scripts.Managers
 
             _pauseMenu.gameObject.SetActive(true);
             StartCoroutine(FadePausePanelInCoroutine());
+        }
+
+        private void ShowPlayerDamagedPanel(PlayerComponent ctx)
+        {
+            StartCoroutine(PlayerDamagedCoroutine());
+            return;
         }
         
         // Animations Coroutines //
@@ -149,6 +160,18 @@ namespace Master.Scripts.Managers
 
             if (opacityTarget == 0)
                 _pauseMenu.gameObject.SetActive(false);
+        }
+
+        IEnumerator PlayerDamagedCoroutine() // Coroutine pour le canvas de dégats
+        {
+            float t = 0f;
+            while (t < 1)
+            {
+                _playerDamaged.gameObject.SetActive(true);
+                t += Time.unscaledDeltaTime / _playerDamagedPanelTime;
+                yield return null;
+            }
+            _playerDamaged.gameObject.SetActive(false);
         }
     }
 }
