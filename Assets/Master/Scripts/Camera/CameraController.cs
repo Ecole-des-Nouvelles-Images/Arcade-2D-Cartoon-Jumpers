@@ -13,15 +13,15 @@ namespace Master.Scripts.Camera
         [SerializeField] private float _offsetUp;
         [SerializeField] private float _offsetFall;
         
-        [Space(5)] [Header("Un-linear duration of the linear interpolation")]
+        [Space(5)] [Header("Un-linear duration of the interpolation")]
         [SerializeField] private float _dragDurationUp = 1f;
         [SerializeField] private float _dragDurationDown = 1f;
         
-        [Header("Velocity thresholds where the camera is centered on the Player")]
+        [Header("Velocity threshold where the camera is centered on the Player")]
         [Tooltip("Note: Include the negative value")]
-        [SerializeField] private float _fallThreshold;
+        [SerializeField] private float _velocityThreshold;
         
-        public static float VelocityThreshold { get; set; }
+        public static float VelocityThreshold { get; private set; }
         
         // ======================= //
         
@@ -35,6 +35,8 @@ namespace Master.Scripts.Camera
             CinemachineComponentBase stageMode = _vCam.GetCinemachineComponent(CinemachineCore.Stage.Body);
             if (stageMode is CinemachineFramingTransposer component)
                 _body = component;
+
+            VelocityThreshold = _velocityThreshold;
         }
 
         private void OnEnable()

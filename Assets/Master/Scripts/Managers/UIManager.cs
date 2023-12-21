@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using TMPro;
 
 using Master.Scripts.Internal;
-using Unity.VisualScripting;
 using PlayerComponent = Master.Scripts.Player.Player;
 
 namespace Master.Scripts.Managers
@@ -18,11 +17,14 @@ namespace Master.Scripts.Managers
         [SerializeField] private Slider _healthGaugeLeft;
         [SerializeField] private Slider _healthGaugeRight;
         [SerializeField] private TMP_Text _scoreMeter;
-        
 
         [Header("Animation durations")] 
         [SerializeField] private float _healthGaugeAnimTime;
         [SerializeField] private float _pauseFadeTime;
+
+        [Header("Cursors for Player")]
+        public Transform DashCursor;
+        public Transform AimLine;
 
         private float HealthGaugeMaster
         {
