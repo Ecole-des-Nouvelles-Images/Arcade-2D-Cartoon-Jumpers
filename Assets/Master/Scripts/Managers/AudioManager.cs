@@ -8,9 +8,12 @@ namespace Master.Scripts.Managers
     {
         [Header("References")]
         [SerializeField] private AudioSource _musicSource;
+        [SerializeField] private AudioSource PlayerSource;
+
         
         [Header("Settings")]
         [SerializeField] [Range(0, 1)] private float _maximumVolume;
+
 
         private AudioClip _pendingAudioClip;
 

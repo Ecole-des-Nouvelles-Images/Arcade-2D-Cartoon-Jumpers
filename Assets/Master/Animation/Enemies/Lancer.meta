@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Marine/Scenes/Game_old.unity.meta
+guid: df771366307376d439cf6e6e16eed7b0
+========
 guid: e335f28cf2d688b4f9c564a0b029df66
 folderAsset: yes
+>>>>>>>> 5671e63b6e3c55b74c884c9b6f8e51eabb3ab5d6:Assets/Master/Animation/Enemies/Lancer.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
