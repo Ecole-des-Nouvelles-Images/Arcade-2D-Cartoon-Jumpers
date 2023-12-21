@@ -32,10 +32,6 @@ namespace Master.Scripts.Player
         [Header("Score System")]
         [SerializeField] private float _scoreDenominator = 10f;
         
-        [Space(5)] [Header("Temporary indicators, should move to UI")]
-        [Tooltip("Move to UI !!!")] public Transform AimingDashIndicator;
-        [Tooltip("Move to UI !!!")] public Transform AimingShootIndicator;
-        
         private void OnValidate()
         {
             _initialMaxHealth = Mathf.RoundToInt(_initialMaxHealth / 10f) * 10;

@@ -69,7 +69,6 @@ namespace Master.Scripts.Enemy
         private void Start()
         {
             OnAwake.Invoke(this);
-            Debug.Log("Ennemy created and initialized");
         }
 
         private void Update() {
