@@ -16,8 +16,10 @@ namespace Master.Scripts.Player
         // Public inspector fields //
         [SerializeField] private bool _enableTestMapInputs;
 
-        [Header("Sounds")] 
-        public AudioClip[] DashSounds;
+        [Header("Sounds")]  // Could be in the Dashes and Weapons's SO ?
+        public AudioClip[] DashSounds; 
+
+        public AudioClip[] WeaponSounds;
         
         [Header("Base Stats")]
         [Range(0, 1000)] [SerializeField] private int _initialMaxHealth = 100;

@@ -167,6 +167,65 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "UIMenu",
+            "id": "e3e37d02-9e81-448c-9da7-b41e6d50a815",
+            "actions": [
+                {
+                    "name": "Point",
+                    "type": "Value",
+                    "id": "119931b0-2186-4a40-b901-232e772efdfe",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Click",
+                    "type": "Button",
+                    "id": "b660e3e4-fc2a-4cd2-a0cb-baa726201ed1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "909a7901-32b5-4898-a3ca-6c1f637c5569",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamePad",
+                    "action": "Point",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "75cdd527-05d1-4d1f-ade2-05005f247422",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Point",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3212dfcf-1f3a-44a9-be3b-71c1592158c9",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

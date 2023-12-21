@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Master.Scripts.Player
 {
@@ -40,6 +41,13 @@ namespace Master.Scripts.Player
             if (projectile != null) {
                 projectile.Prepare(playerCtx.Weapon);
                 projectile.Fire(direction.normalized);
+                if (playerCtx.WeaponSounds.Length > 0) {
+                    int randomIndex = Random.Range(0, playerCtx.WeaponSounds.Length);
+                    playerCtx.AudioSource.clip = playerCtx.WeaponSounds[randomIndex];
+                    playerCtx.AudioSource.Play();
+                
+                }
+                else Debug.Log($"Please Add sound in the Inspector/Player/DashSounds");
             }
             else
                 throw new Exception("Cannot Instantiate shots ammunitons");

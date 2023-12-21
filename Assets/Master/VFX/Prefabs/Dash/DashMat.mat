@@ -40,6 +40,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _DashAlphaTex:
+        m_Texture: {fileID: 2800000, guid: 4a853a08ab175d44c88e74b984d785b8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -49,6 +53,14 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_f8d5087a00514760a7483baf220f9dda_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 4a853a08ab175d44c88e74b984d785b8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture3D_f41659be07d94755b8521157678f3d58_Texture_1_Texture3D:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -66,11 +78,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _BorderEdgeSmoothness: 1.96
-    - _BorderThickness: 9.2
+    - _BorderEdgeSmoothness: 1.05
+    - _BorderThickness: 9.11
     - _EnableExternalAlpha: 0
-    - _LaserEdgeSmoothness: 16.95
-    - _LaserThickness: 4.9
+    - _LaserEdgeSmoothness: 5.23
+    - _LaserThickness: 1.2
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:

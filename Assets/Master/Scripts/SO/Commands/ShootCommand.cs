@@ -32,15 +32,24 @@ namespace Master.Scripts.SO.Commands
 
             float distanceToPlayer = Vector2.Distance(enemyComponent.transform.position, playerTransform.position);
             if (distanceToPlayer <= _triggerDistance) 
+            {
+                enemyComponent.Animator.SetBool("IsShooting",true); 
                 Fire(enemyComponent, enemyComponent.PlayerReference.transform);
+            }
         }
 
         private void Fire(EnemyComponent enemyComponent, Transform playerTransform)
         {
             Vector2 position = enemyComponent.transform.position;
-            GameObject projectile = Instantiate(_projectilePrefab, position, Quaternion.identity);
             Vector2 fireDirection = ((Vector2)playerTransform.position - position).normalized;
+            float angle = Mathf.Atan2(fireDirection.y, fireDirection.x) * Mathf.Rad2Deg;
+            GameObject projectile =
+                Instantiate(_projectilePrefab, position, Quaternion.AngleAxis(angle, Vector3.forward));
             projectile.GetComponent<EnemyProjectile>().Initialize(enemyComponent, fireDirection, _velocity);
+            enemyComponent.AudioSource.clip = enemyComponent.AttackSound;
+            enemyComponent.AudioSource.Play();
+                
+            
             
             // enemyComponent.Memory[(this, "_hasShooted")] = true;
         }

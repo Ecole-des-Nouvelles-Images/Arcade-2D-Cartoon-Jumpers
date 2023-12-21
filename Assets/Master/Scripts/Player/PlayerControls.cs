@@ -191,6 +191,65 @@ namespace Master.Scripts.Player
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""UIMenu"",
+            ""id"": ""e3e37d02-9e81-448c-9da7-b41e6d50a815"",
+            ""actions"": [
+                {
+                    ""name"": ""Point"",
+                    ""type"": ""Value"",
+                    ""id"": ""119931b0-2186-4a40-b901-232e772efdfe"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Click"",
+                    ""type"": ""Button"",
+                    ""id"": ""b660e3e4-fc2a-4cd2-a0cb-baa726201ed1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""909a7901-32b5-4898-a3ca-6c1f637c5569"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GamePad"",
+                    ""action"": ""Point"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""75cdd527-05d1-4d1f-ade2-05005f247422"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Point"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3212dfcf-1f3a-44a9-be3b-71c1592158c9"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -218,6 +277,10 @@ namespace Master.Scripts.Player
             m_TestMap = asset.FindActionMap("TestMap", throwIfNotFound: true);
             m_TestMap_NextScene = m_TestMap.FindAction("NextScene", throwIfNotFound: true);
             m_TestMap_PrevScene = m_TestMap.FindAction("PrevScene", throwIfNotFound: true);
+            // UIMenu
+            m_UIMenu = asset.FindActionMap("UIMenu", throwIfNotFound: true);
+            m_UIMenu_Point = m_UIMenu.FindAction("Point", throwIfNotFound: true);
+            m_UIMenu_Click = m_UIMenu.FindAction("Click", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -407,6 +470,60 @@ namespace Master.Scripts.Player
             }
         }
         public TestMapActions @TestMap => new TestMapActions(this);
+
+        // UIMenu
+        private readonly InputActionMap m_UIMenu;
+        private List<IUIMenuActions> m_UIMenuActionsCallbackInterfaces = new List<IUIMenuActions>();
+        private readonly InputAction m_UIMenu_Point;
+        private readonly InputAction m_UIMenu_Click;
+        public struct UIMenuActions
+        {
+            private @PlayerControls m_Wrapper;
+            public UIMenuActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+            public InputAction @Point => m_Wrapper.m_UIMenu_Point;
+            public InputAction @Click => m_Wrapper.m_UIMenu_Click;
+            public InputActionMap Get() { return m_Wrapper.m_UIMenu; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(UIMenuActions set) { return set.Get(); }
+            public void AddCallbacks(IUIMenuActions instance)
+            {
+                if (instance == null || m_Wrapper.m_UIMenuActionsCallbackInterfaces.Contains(instance)) return;
+                m_Wrapper.m_UIMenuActionsCallbackInterfaces.Add(instance);
+                @Point.started += instance.OnPoint;
+                @Point.performed += instance.OnPoint;
+                @Point.canceled += instance.OnPoint;
+                @Click.started += instance.OnClick;
+                @Click.performed += instance.OnClick;
+                @Click.canceled += instance.OnClick;
+            }
+
+            private void UnregisterCallbacks(IUIMenuActions instance)
+            {
+                @Point.started -= instance.OnPoint;
+                @Point.performed -= instance.OnPoint;
+                @Point.canceled -= instance.OnPoint;
+                @Click.started -= instance.OnClick;
+                @Click.performed -= instance.OnClick;
+                @Click.canceled -= instance.OnClick;
+            }
+
+            public void RemoveCallbacks(IUIMenuActions instance)
+            {
+                if (m_Wrapper.m_UIMenuActionsCallbackInterfaces.Remove(instance))
+                    UnregisterCallbacks(instance);
+            }
+
+            public void SetCallbacks(IUIMenuActions instance)
+            {
+                foreach (var item in m_Wrapper.m_UIMenuActionsCallbackInterfaces)
+                    UnregisterCallbacks(item);
+                m_Wrapper.m_UIMenuActionsCallbackInterfaces.Clear();
+                AddCallbacks(instance);
+            }
+        }
+        public UIMenuActions @UIMenu => new UIMenuActions(this);
         private int m_GamePadSchemeIndex = -1;
         public InputControlScheme GamePadScheme
         {
@@ -428,6 +545,11 @@ namespace Master.Scripts.Player
         {
             void OnNextScene(InputAction.CallbackContext context);
             void OnPrevScene(InputAction.CallbackContext context);
+        }
+        public interface IUIMenuActions
+        {
+            void OnPoint(InputAction.CallbackContext context);
+            void OnClick(InputAction.CallbackContext context);
         }
     }
 }
