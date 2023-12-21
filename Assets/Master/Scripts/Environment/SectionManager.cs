@@ -26,7 +26,7 @@ namespace Master.Scripts.Environment
         
         private void OnValidate()
         {
-            if (_initialSectionsAhead + 1 > _maxSectionAlive)
+            if (_initialSectionsAhead + _initialSections.Count > _maxSectionAlive)
             {
                 _initialSectionsAhead = _maxSectionAlive - 1;
                 Debug.LogWarning("SectionManager: Unable to initialize more sections than the maximum sections alive");

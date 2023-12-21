@@ -14,8 +14,8 @@ namespace Master.Scripts.Player
         private readonly Player _player;
         private readonly bool _enableTestMap;
 
-        private Transform DashCursor => _player.AimingDashIndicator; // Temporary, should be controlled by UI
-        private Transform AimCursor => _player.AimingShootIndicator; // Temporary, should be controlled by UI
+        private Transform DashCursor => UIManager.Instance.DashCursor; // Temporary, should be controlled by UI
+        private Transform AimCursor => UIManager.Instance.AimLine; // Temporary, should be controlled by UI
         private bool CanShoot => _player.Weapon.Capacity > 0;
         private bool CanDash => Time.time - _player.DashRecoveryTimer > _player.Dash.Cooldown;
 
@@ -72,15 +72,15 @@ namespace Master.Scripts.Player
         {
             _aimDashDirection = ctx.ReadValue<Vector2>();
             FlipHorizontalDirection(_aimDashDirection);
-            float angle = Mathf.Atan2(_aimDashDirection.y, _aimDashDirection.x) * Mathf.Rad2Deg;
-            DashCursor.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            float angle = Mathf.Atan2(-_aimDashDirection.y, -_aimDashDirection.x) * Mathf.Rad2Deg;
+            DashCursor.localRotation = Quaternion.Euler(new Vector3(0, 0, angle));
         }
 
         private void OnAimShoot(InputAction.CallbackContext ctx)
         {
             _aimShootDirection = ctx.ReadValue<Vector2>();
-            float shootAngle = Mathf.Atan2(_aimShootDirection.y, _aimShootDirection.x) * Mathf.Rad2Deg;
-            AimCursor.rotation = Quaternion.Euler(new Vector3(0, 0, shootAngle));
+            float shootAngle = Mathf.Atan2(-_aimShootDirection.y, -_aimShootDirection.x) * Mathf.Rad2Deg;
+            AimCursor.localRotation = Quaternion.Euler(new Vector3(0, 0, shootAngle));
         }
 
         private void OnDash(InputAction.CallbackContext ctx)

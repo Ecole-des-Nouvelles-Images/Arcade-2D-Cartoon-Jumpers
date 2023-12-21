@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Master/Prefabs/Level/Elements/Plateformes_large.prefab.meta
 guid: c072b43078ffa074c91abc4fa54f3861
 PrefabImporter:
+========
+guid: acdb0501805b1854dad3fbc87953ac3b
+folderAsset: yes
+DefaultImporter:
+>>>>>>>> 5fdadec09a219879e1572dea79332c650fa9ef2a:Assets/Master/Enemies/Lancer.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
