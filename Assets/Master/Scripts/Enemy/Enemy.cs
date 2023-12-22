@@ -124,5 +124,9 @@ namespace Master.Scripts.Enemy
                 OnAttack.Invoke(this.Power);
             }
         }
+        public void ResetShooting()
+        {
+            Animator.SetBool("IsShooting", false);
+        }
     }
 }
