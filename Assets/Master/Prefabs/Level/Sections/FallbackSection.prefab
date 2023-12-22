@@ -126,9 +126,49 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1201594834906971661, guid: 82ba51681870a924c9614c64e3e9560a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1201594834906971661, guid: 82ba51681870a924c9614c64e3e9560a, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1218428310736845107, guid: 82ba51681870a924c9614c64e3e9560a, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     - target: {fileID: 1755676245758675245, guid: 82ba51681870a924c9614c64e3e9560a, type: 3}
       propertyPath: m_Name
       value: WallSection
+      objectReference: {fileID: 0}
+    - target: {fileID: 3011704363292518987, guid: 82ba51681870a924c9614c64e3e9560a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3011704363292518987, guid: 82ba51681870a924c9614c64e3e9560a, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 4761609639750916008, guid: 82ba51681870a924c9614c64e3e9560a, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778588070788239510, guid: 82ba51681870a924c9614c64e3e9560a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778588070788239510, guid: 82ba51681870a924c9614c64e3e9560a, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 8878742778479707344, guid: 82ba51681870a924c9614c64e3e9560a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8878742778479707344, guid: 82ba51681870a924c9614c64e3e9560a, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
