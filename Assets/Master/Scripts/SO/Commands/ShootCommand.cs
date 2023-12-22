@@ -46,11 +46,14 @@ namespace Master.Scripts.SO.Commands
             GameObject projectile =
                 Instantiate(_projectilePrefab, position, Quaternion.AngleAxis(angle, Vector3.forward));
             projectile.GetComponent<EnemyProjectile>().Initialize(enemyComponent, fireDirection, _velocity);
-            enemyComponent.AudioSource.clip = enemyComponent.AttackSound;
-            enemyComponent.AudioSource.Play();
-                
-            
-            
+            if (enemyComponent.AttackSound.Length > 0)
+            {
+                int randomIndex = Random.Range(0, enemyComponent.AttackSound.Length);
+                enemyComponent.AudioSource.clip = enemyComponent.AttackSound[randomIndex];
+                enemyComponent.AudioSource.Play();
+            }
+
+
             // enemyComponent.Memory[(this, "_hasShooted")] = true;
         }
 
