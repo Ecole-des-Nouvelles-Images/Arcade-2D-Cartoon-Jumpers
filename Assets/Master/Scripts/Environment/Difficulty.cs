@@ -9,6 +9,5 @@ namespace Master.Scripts.Environment
         Medium,
         Challenging,
         Difficult,
-        Overwhelming,
     }
 }

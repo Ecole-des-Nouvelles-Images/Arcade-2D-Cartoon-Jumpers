@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _musicSource: {fileID: 2252557116793318831}
   PlayerSource: {fileID: 0}
-  _maximumVolume: 0
+  _maximumVolume: 0.622
 --- !u!82 &2252557116793318831
 AudioSource:
   m_ObjectHideFlags: 0

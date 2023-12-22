@@ -97,7 +97,6 @@ namespace Master.Scripts.Managers
         {
             StopCoroutine(FadePausePanelOutCoroutine());
             StopCoroutine(FadePausePanelInCoroutine());
-            Debug.Log($"Called pause menu ! Should activate : {enable}");
 
             if (!enable) {
                 StartCoroutine(FadePausePanelOutCoroutine());

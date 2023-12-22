@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8149502724068534647}
   - component: {fileID: 1417566301752757050}
-  - component: {fileID: 8278955982579416603}
+  - component: {fileID: 5134412650721428442}
+  - component: {fileID: 4818239758224262294}
   m_Layer: 0
   m_Name: Plateformes_small
   m_TagString: Untagged
@@ -74,18 +75,18 @@ SpriteRenderer:
   m_SortingLayerID: -1669676637
   m_SortingLayer: 6
   m_SortingOrder: -1
-  m_Sprite: {fileID: -1172755926, guid: efea5e5580741f047ad2cf7cf6125058, type: 3}
+  m_Sprite: {fileID: 2093480410, guid: efea5e5580741f047ad2cf7cf6125058, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.13, y: 1.88}
+  m_Size: {x: 3.13, y: 1.97}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &8278955982579416603
+--- !u!60 &5134412650721428442
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,64 +122,114 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.13, y: 1.88}
-    newSize: {x: 3.13, y: 1.88}
+    oldSize: {x: 3.13, y: 1.97}
+    newSize: {x: 3.13, y: 1.97}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.955, y: -0.29999998}
-      - {x: 0.98499995, y: -0.28}
-      - {x: 1.145, y: -0.099999994}
-      - {x: 1.395, y: -0.06}
-      - {x: 1.4649999, y: 0.04}
-      - {x: 1.5649999, y: 0.28}
-      - {x: 1.5649999, y: 0.42}
-      - {x: 1.545, y: 0.53999996}
-      - {x: 1.495, y: 0.59999996}
-      - {x: 1.3249999, y: 0.68}
-      - {x: 1.155, y: 0.69}
-      - {x: 1.115, y: 0.76}
-      - {x: 0.84499997, y: 0.78999996}
-      - {x: 0.60499996, y: 0.89}
-      - {x: -0.405, y: 0.89}
-      - {x: -0.48499998, y: 0.84999996}
-      - {x: -0.835, y: 0.84}
-      - {x: -0.97499996, y: 0.78}
-      - {x: -1.385, y: 0.76}
-      - {x: -1.545, y: 0.61}
-      - {x: -1.555, y: 0.58}
-      - {x: -1.555, y: 0.5}
-      - {x: -1.395, y: 0.22}
-      - {x: -1.3349999, y: 0}
-      - {x: -1.245, y: -0.16}
-      - {x: -1.095, y: -0.19999999}
-      - {x: -1.025, y: -0.19}
-      - {x: -0.91499996, y: -0.11}
-      - {x: -0.78499997, y: -0.14999999}
-      - {x: -0.695, y: -0.24}
-      - {x: -0.775, y: -0.32999998}
-      - {x: -0.765, y: -0.37}
-      - {x: -0.73499995, y: -0.38}
-      - {x: -0.60499996, y: -0.34}
-      - {x: -0.745, y: -0.62}
-      - {x: -0.705, y: -0.69}
-      - {x: -0.695, y: -0.69}
-      - {x: -0.685, y: -0.68}
-      - {x: -0.575, y: -0.63}
-      - {x: -0.42499998, y: -0.59999996}
-      - {x: -0.385, y: -0.53999996}
-      - {x: -0.36499998, y: -0.35999998}
-      - {x: -0.36499998, y: -0.47}
-      - {x: -0.305, y: -0.62}
-      - {x: -0.24499999, y: -0.59999996}
-      - {x: -0.21499999, y: -0.45999998}
-      - {x: -0.13499999, y: -0.56}
-      - {x: 0.065, y: -0.69}
-      - {x: 0.375, y: -0.69}
-      - {x: 0.48499998, y: -0.51}
-      - {x: 0.72499996, y: -0.32}
-      - {x: 0.875, y: -0.21}
-  m_UseDelaunayMesh: 0
+    - - {x: 0.98499995, y: -0.175}
+      - {x: 1.145, y: 0.005}
+      - {x: 1.395, y: 0.044999998}
+      - {x: 1.4649999, y: 0.145}
+      - {x: 1.5649999, y: 0.385}
+      - {x: 1.5649999, y: 0.525}
+      - {x: 1.545, y: 0.645}
+      - {x: 1.495, y: 0.705}
+      - {x: 1.3249999, y: 0.78499997}
+      - {x: 1.155, y: 0.79499996}
+      - {x: 1.115, y: 0.865}
+      - {x: 0.84499997, y: 0.895}
+      - {x: 0.625, y: 0.98499995}
+      - {x: -0.415, y: 0.98499995}
+      - {x: -0.48499998, y: 0.955}
+      - {x: -0.835, y: 0.945}
+      - {x: -0.97499996, y: 0.885}
+      - {x: -1.385, y: 0.865}
+      - {x: -1.545, y: 0.715}
+      - {x: -1.555, y: 0.685}
+      - {x: -1.555, y: 0.60499996}
+      - {x: -1.395, y: 0.325}
+      - {x: -1.3349999, y: 0.105}
+      - {x: -1.245, y: -0.055}
+      - {x: -1.095, y: -0.095}
+      - {x: -1.025, y: -0.085}
+      - {x: -0.91499996, y: -0.005}
+      - {x: -0.78499997, y: -0.044999998}
+      - {x: -0.695, y: -0.13499999}
+      - {x: -0.775, y: -0.225}
+      - {x: -0.765, y: -0.265}
+      - {x: -0.73499995, y: -0.275}
+      - {x: -0.60499996, y: -0.235}
+      - {x: -0.745, y: -0.515}
+      - {x: -0.715, y: -0.585}
+      - {x: -0.685, y: -0.585}
+      - {x: -0.575, y: -0.525}
+      - {x: -0.42499998, y: -0.49499997}
+      - {x: -0.385, y: -0.435}
+      - {x: -0.36499998, y: -0.255}
+      - {x: -0.375, y: -0.36499998}
+      - {x: -0.33499998, y: -0.45499998}
+      - {x: -0.305, y: -0.515}
+      - {x: -0.24499999, y: -0.49499997}
+      - {x: -0.21499999, y: -0.355}
+      - {x: -0.13499999, y: -0.445}
+      - {x: -0.035, y: -0.525}
+      - {x: 0.074999996, y: -0.585}
+      - {x: 0.375, y: -0.585}
+      - {x: 0.48499998, y: -0.405}
+      - {x: 0.875, y: -0.105}
+      - {x: 0.955, y: -0.195}
+  m_UseDelaunayMesh: 1
+--- !u!114 &4818239758224262294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7573321292866797354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ComponentVersion: 1
+  m_LightType: 3
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.35
+  m_Color: {r: 0.1254902, g: 0.9568628, b: 0.5803922, a: 1}
+  m_Intensity: 3
+  m_LightVolumeIntensity: 1
+  m_LightVolumeIntensityEnabled: 0
+  m_ApplyToSortingLayers: 000000006dd799336fca9ecd8980507ed5e45f26a3c17a9cad728f7e
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowIntensityEnabled: 0
+  m_ShadowIntensity: 0.75
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_LocalBounds:
+    m_Center: {x: 0, y: -0.00000011920929, z: 0}
+    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 3
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}

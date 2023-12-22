@@ -119,17 +119,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Plateformes_small
+      name: Plateforme_Small
       rect:
         serializedVersion: 2
-        x: 139
-        y: 249
+        x: 86
+        y: 115
         width: 313
-        height: 188
+        height: 197
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad98279686199a6478731bb9b9e7f258
-      internalID: -1172755926
+      spriteID: 11f29b2c9be5fc14a850b1f6c5e0b0de
+      internalID: 2093480410
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Plateformes_large
+      name: Plateforme_Large
       rect:
         serializedVersion: 2
-        x: 754
-        y: 210
-        width: 471
-        height: 257
+        x: 701
+        y: 65
+        width: 473
+        height: 283
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,8 +171,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f368fd79f81b1f440a5969c5dadfaafb
-      internalID: 223966481
+      spriteID: 08ec48c5937ed1246bc18e123222d6aa
+      internalID: 665456532
       vertices: []
       indices: 
       edges: []
@@ -175,8 +188,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Plateformes_large: 223966481
-      Plateformes_small: -1172755926
+      Plateforme_Large: 665456532
+      Plateforme_Small: 2093480410
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

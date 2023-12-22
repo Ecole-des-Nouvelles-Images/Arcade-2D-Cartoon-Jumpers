@@ -100,8 +100,20 @@ namespace Master.Scripts.Environment
                 case > 1 and <= 3:
                     availablePrefabs = GetSectionPrefabsByDifficulty(Difficulty.Chill);
                     break;
-                case > 3:
+                case < 6 :
                     availablePrefabs = GetSectionPrefabsByDifficulty(Difficulty.Easy);
+                    break;
+                case < 11 :
+                    availablePrefabs = GetSectionPrefabsByDifficulty(Difficulty.Manageable);
+                    break;
+                case < 15 :
+                    availablePrefabs = GetSectionPrefabsByDifficulty(Difficulty.Medium);
+                    break;
+                case < 21 :
+                    availablePrefabs = GetSectionPrefabsByDifficulty(Difficulty.Challenging);
+                    break;
+                case >= 22:
+                    availablePrefabs = GetSectionPrefabsByDifficulty(Difficulty.Difficult);
                     break;
                 default:
                     availablePrefabs = new List<GameObject> { _rootPrefab };
