@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
@@ -36,6 +37,8 @@ namespace Master.Scripts.Enemy
         public float Health { get; set; }
         public float Speed => _speed;
         public int Power => _power;
+
+        private Color _initialColor;
         
         // Individual events
 
@@ -71,6 +74,7 @@ namespace Master.Scripts.Enemy
         private void Start()
         {
             OnAwake.Invoke(this);
+            _initialColor = SpriteRenderer.color;
         }
 
         private void Update() {
@@ -106,11 +110,21 @@ namespace Master.Scripts.Enemy
                 
                 case "Projectile":
                     OnHit.Invoke(DmgType.Projectile, this);
+                    StartCoroutine(ProjectileFeedbackCoroutine(new Color(236, 94, 33, 255), 1));
                     break;
             }
         }
         
         // Utils //
+        
+        private IEnumerator ProjectileFeedbackCoroutine(Color targetColor, float duration)
+        {
+            SpriteRenderer.color = targetColor;
+
+            yield return new WaitForSeconds(duration);
+
+            SpriteRenderer.color = _initialColor;
+        }
 
         private void HandlePlayerState(GameObject ctx)
         {

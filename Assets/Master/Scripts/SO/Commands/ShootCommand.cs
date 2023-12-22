@@ -43,11 +43,12 @@ namespace Master.Scripts.SO.Commands
             Vector2 position = enemyComponent.transform.position;
             Vector2 fireDirection = ((Vector2)playerTransform.position - position).normalized;
             float angle = Mathf.Atan2(fireDirection.y, fireDirection.x) * Mathf.Rad2Deg;
-            GameObject projectile =
-                Instantiate(_projectilePrefab, position, Quaternion.AngleAxis(angle, Vector3.forward));
+            GameObject projectile = Instantiate(_projectilePrefab, position, Quaternion.AngleAxis(angle, Vector3.forward));
             projectile.GetComponent<EnemyProjectile>().Initialize(enemyComponent, fireDirection, _velocity);
+            
             enemyComponent.AudioSource.clip = enemyComponent.AttackSound;
-            enemyComponent.AudioSource.Play();
+            if (enemyComponent.AudioSource.clip != null)
+                enemyComponent.AudioSource.Play();
                 
             
             

@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using Master.Scripts.Managers;
 using UnityEngine;
 
@@ -29,14 +31,20 @@ namespace Master.Scripts.Player
 
         private void OnTriggerEnter2D(Collider2D col)
         {
-          // sur quelle collision détruire le projectile ?
-          if(col == CompareTag("Wall") || col == CompareTag("Enemy")) ProjectileHit();
+            if(col.CompareTag("Wall")) {
+                Destroy(this.gameObject);
+            } 
+            else if (col.CompareTag("Enemy")) {
+                ProjectileHit(col);
+            }
         }
 
-        public void ProjectileHit()
+        public void ProjectileHit(Collider2D ctx)
         {
             //AudioManager.PlayClip(projectileHit);
-            Destroy(this);
+            Destroy(this.gameObject);
         }
+
+
     }
 }
