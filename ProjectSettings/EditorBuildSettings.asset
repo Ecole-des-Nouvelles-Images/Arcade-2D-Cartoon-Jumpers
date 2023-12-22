@@ -5,13 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Master/Scenes/Menu.unity
-    guid: 53953ef5803a96b49a0f07842de968a9
-  - enabled: 0
+  - enabled: 1
+    path: Assets/Master/Scenes/Game - CopyCharlie.unity
+    guid: dfe3aa6dab1e4ca4b890bb51a6f5731c
+  - enabled: 1
     path: Assets/Master/Scenes/Intro.unity
     guid: a1cb507b95ac56f40958b1bdddb4f178
   - enabled: 1
+    path: Assets/Master/Scenes/Menu.unity
+    guid: 53953ef5803a96b49a0f07842de968a9
+  - enabled: 0
     path: Assets/Master/Scenes/Game.unity
     guid: 79836fdb99693fd48a5f523fedd0a510
   m_configObjects:

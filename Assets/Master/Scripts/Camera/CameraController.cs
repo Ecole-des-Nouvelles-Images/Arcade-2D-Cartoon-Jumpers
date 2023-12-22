@@ -31,11 +31,15 @@ namespace Master.Scripts.Camera
         private void Awake()
         {
             _vCam = GetComponent<CinemachineVirtualCamera>();
-            
+        }
+
+        private void Start()
+        {
             CinemachineComponentBase stageMode = _vCam.GetCinemachineComponent(CinemachineCore.Stage.Body);
             if (stageMode is CinemachineFramingTransposer component)
                 _body = component;
 
+            
             VelocityThreshold = _velocityThreshold;
         }
 
@@ -48,7 +52,7 @@ namespace Master.Scripts.Camera
         {
             PlayerComponent.OnDirectionChange -= OnDirectionChange;
         }
-        
+
         private void OnDirectionChange(int direction)
         {
             if (direction < 0)
