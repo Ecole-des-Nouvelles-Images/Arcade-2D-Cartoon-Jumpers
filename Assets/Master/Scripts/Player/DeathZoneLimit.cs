@@ -32,7 +32,7 @@ public class DeathZoneLimit : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
         
-        _camera.DisablePlayerTracking();
+        if (_camera) _camera.DisablePlayerTracking();
         _player.DisableInputs();
     }
 

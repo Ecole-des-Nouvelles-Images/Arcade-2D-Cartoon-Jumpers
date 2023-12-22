@@ -7,6 +7,7 @@ using UnityEngine;
 using Master.Scripts.Common;
 using Master.Scripts.SO;
 using PlayerComponent = Master.Scripts.Player.Player;
+using Random = UnityEngine.Random;
 
 namespace Master.Scripts.Enemy
 {
@@ -15,7 +16,7 @@ namespace Master.Scripts.Enemy
         public static Action<Enemy> OnAwake;
 
         [Header("Sounds")] 
-        public AudioClip AttackSound;
+        public AudioClip[] AttackSound;
 
         public AudioClip IdleSound;
         
@@ -134,8 +135,15 @@ namespace Master.Scripts.Enemy
                 OnHit.Invoke(DmgType.Dash, this);
             }
             else {
+              
                 Animator.SetTrigger(AttackTrigger);
                 OnAttack.Invoke(this.Power);
+                if (AttackSound.Length > 0)
+                {
+                    int randomIndex = Random.Range(0, AttackSound.Length);
+                    AudioSource.clip = AttackSound[randomIndex];
+                    AudioSource.Play();
+                }
             }
         }
         public void ResetShooting()

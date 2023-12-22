@@ -186,7 +186,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db50356b9fd08a8448cb9677f33460c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackSound: {fileID: 8300000, guid: 33b69c2e5eb5ef54a9d0a27d0bd81383, type: 3}
+  AttackSound:
+  - {fileID: 8300000, guid: 49208819692268843855addc9b30ade9, type: 3}
+  - {fileID: 8300000, guid: 49208819692268843855addc9b30ade9, type: 3}
+  - {fileID: 8300000, guid: 49208819692268843855addc9b30ade9, type: 3}
   IdleSound: {fileID: 0}
   _commands:
   - {fileID: 11400000, guid: 7035b8b7d3a6367429346ad8755a6786, type: 2}
