@@ -438,7 +438,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00012207031, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1820, y: 980}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &414936471
@@ -511,6 +511,14 @@ PrefabInstance:
       propertyPath: ExternalForcesModule.influenceList.Array.data[0]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4281482100845457542, guid: fa57ee578c609a349bd7258dcfd57f84, type: 3}
+      propertyPath: PlayerHitSounds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4281482100845457542, guid: fa57ee578c609a349bd7258dcfd57f84, type: 3}
+      propertyPath: PlayerHitSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: d1be5ed4205e91c478534b61a208af2e, type: 3}
     - target: {fileID: 5674010284861527753, guid: fa57ee578c609a349bd7258dcfd57f84, type: 3}
       propertyPath: m_Camera
       value: 
