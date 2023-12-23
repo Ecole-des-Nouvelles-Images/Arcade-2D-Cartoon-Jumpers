@@ -19556,7 +19556,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: dd1ca19ba2c186a4d85ed9fa2b2f64c1, type: 3}
   WeaponSounds:
   - {fileID: 8300000, guid: 33b69c2e5eb5ef54a9d0a27d0bd81383, type: 3}
-  PlayerHitSounds: []
+  PlayerHitSounds:
+  - {fileID: 8300000, guid: d1be5ed4205e91c478534b61a208af2e, type: 3}
   _initialMaxHealth: 100
   _woundedThreshold: 0
   _startingDashType: {fileID: 11400000, guid: dbef9fccaf5283f4da83cc5d4d14ff50, type: 2}
@@ -19968,15 +19969,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 81942475804040436, guid: 47efe22cfa2976e47903e23534dc1845, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.0206543
+      value: 1.0101714
       objectReference: {fileID: 0}
     - target: {fileID: 81942475804040436, guid: 47efe22cfa2976e47903e23534dc1845, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.0206543
+      value: 1.0101714
       objectReference: {fileID: 0}
     - target: {fileID: 81942475804040436, guid: 47efe22cfa2976e47903e23534dc1845, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.0206543
+      value: 1.0101714
       objectReference: {fileID: 0}
     - target: {fileID: 81942475804040436, guid: 47efe22cfa2976e47903e23534dc1845, type: 3}
       propertyPath: m_LocalPosition.x

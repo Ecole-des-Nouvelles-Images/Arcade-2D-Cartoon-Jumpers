@@ -10,14 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 3353774669508745350}
   - component: {fileID: 1965929228453099386}
-  - component: {fileID: 3544945150558600953}
   - component: {fileID: 6461199034378493153}
-  - component: {fileID: 6554307364940298908}
-  - component: {fileID: 7232423915571767534}
-  - component: {fileID: 5210492571068935542}
+  - component: {fileID: -5607024384434336805}
+  - component: {fileID: -3849016508489181060}
+  - component: {fileID: 2785861530049442662}
+  - component: {fileID: 4572155853480685665}
   m_Layer: 8
-  m_Name: Enemy
-  m_TagString: Enemy
+  m_Name: Reaper
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,11 +75,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 643818709
-  m_SortingLayer: 4
-  m_SortingOrder: -1
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.96469927, g: 1, b: 0, a: 1}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: f67811858b5df8540ab76c2e18f41a6d, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -89,33 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3544945150558600953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6897151928724700931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0967f773e0b74c76821c7b0f12df7f0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AttackSound:
-  - {fileID: 8300000, guid: 35512491bad775f4d83b33f856872aef, type: 3}
-  - {fileID: 8300000, guid: f72157934cc6d794b9599ccec8b5eb27, type: 3}
-  - {fileID: 8300000, guid: 83b25b224f52da34e8a5de43103a5758, type: 3}
-  - {fileID: 8300000, guid: c22bcf01484438a469f46e409e5accb0, type: 3}
-  IdleSound: {fileID: 0}
-  _commands:
-  - {fileID: 11400000, guid: 9a644667842fef245bfbab4c454591b4, type: 2}
-  - {fileID: 11400000, guid: cab116ef2c2dd8245b3431c0afea6142, type: 2}
-  - {fileID: 11400000, guid: e7f1b2f266be5c84f923e86deea7da78, type: 2}
-  _initialMaxHP: 20
-  _speed: 5
-  _power: 10
-  Animator: {fileID: 0}
-  AudioSource: {fileID: 0}
 --- !u!58 &6461199034378493153
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -151,28 +124,31 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!95 &6554307364940298908
-Animator:
-  serializedVersion: 5
+--- !u!114 &-5607024384434336805
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6897151928724700931}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ccff9c178e6ecf849a129ec8bd34f847, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!82 &7232423915571767534
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e655e20da877c0438379ccdab5dcb45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackSound:
+  - {fileID: 8300000, guid: 35512491bad775f4d83b33f856872aef, type: 3}
+  - {fileID: 8300000, guid: f72157934cc6d794b9599ccec8b5eb27, type: 3}
+  - {fileID: 8300000, guid: 83b25b224f52da34e8a5de43103a5758, type: 3}
+  - {fileID: 8300000, guid: c22bcf01484438a469f46e409e5accb0, type: 3}
+  IdleSound: {fileID: 0}
+  _commands: []
+  _initialMaxHP: 0
+  _speed: 5
+  _power: 0
+  Animator: {fileID: 0}
+  AudioSource: {fileID: 0}
+--- !u!82 &-3849016508489181060
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -268,7 +244,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5210492571068935542
+--- !u!95 &2785861530049442662
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6897151928724700931}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0995f6dfa16b4e74ea74f7bece7cebf4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4572155853480685665
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

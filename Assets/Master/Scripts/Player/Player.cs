@@ -201,9 +201,10 @@ namespace Master.Scripts.Player
                 AudioSource.Play();
             }
 
-            OnHealthChanged.Invoke(this);
-            OnPlayerDamaged.Invoke(this);
+            OnHealthChanged.Invoke(this); // UI
+            OnPlayerDamaged.Invoke(this);  // UI
             
+            Animator.SetTrigger("Damaged");
             
             
             if (Health <= 0) {
