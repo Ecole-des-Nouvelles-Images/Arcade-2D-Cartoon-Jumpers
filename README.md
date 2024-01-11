@@ -2,7 +2,7 @@
 
 ### Description
 
-Inside the depths of the Hell, you embody a stray soul who which wish do get the out.
-With it's will and various powers from this infernal prison, guide him through the monsters and the dangers of this infinite and everchanging Hell.
+Inside the depths of Hell, you embody a stray soul who wishes to get out.
+With its will and various powers from this infernal prison, guide him through the monsters and the dangers of this infinite and ever changing Hell.
 
 ### Thanks for Playing !
