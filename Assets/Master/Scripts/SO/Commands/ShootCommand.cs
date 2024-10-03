@@ -45,6 +45,8 @@ namespace Master.Scripts.SO.Commands
             float angle = Mathf.Atan2(fireDirection.y, fireDirection.x) * Mathf.Rad2Deg;
             GameObject projectile = Instantiate(_projectilePrefab, position, Quaternion.AngleAxis(angle, Vector3.forward));
             projectile.GetComponent<EnemyProjectile>().Initialize(enemyComponent, fireDirection, _velocity);
+            projectile.transform.rotation = Quaternion.Euler(0, 0, angle);
+            
             if (enemyComponent.AttackSound.Length > 0)
             {
                 int randomIndex = Random.Range(0, enemyComponent.AttackSound.Length);
