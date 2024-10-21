@@ -1,15 +1,14 @@
 using System;
 using System.ComponentModel;
-using UnityEngine;
-
 using Master.Scripts.Camera;
 using Master.Scripts.Common;
 using Master.Scripts.Managers;
 using Master.Scripts.SO;
+using UnityEngine;
 using EnemyComponent = Master.Scripts.Enemy.Enemy;
 using Random = UnityEngine.Random;
 
-namespace Master.Scripts.Player
+namespace Master.Scripts.PlayerManagement
 {
     [RequireComponent(typeof(Animator))]
     public class Player : MonoBehaviour
@@ -23,15 +22,13 @@ namespace Master.Scripts.Player
         public AudioClip[] WeaponSounds;
         public AudioClip[] PlayerHitSounds;
 
-    [Header("Base Stats")]
+        [Header("Base Stats")]
         [Range(0, 1000)] [SerializeField] private int _initialMaxHealth = 100;
         [Range(0, 100)] [SerializeField] private int _woundedThreshold;
 
         [Header("Power Components")]
         [SerializeField] private DashSO _startingDashType;
         [SerializeField] private WeaponSO _startingWeaponType;
-
-       
         
         private void OnValidate()
         {
@@ -47,7 +44,7 @@ namespace Master.Scripts.Player
         
         // Important fields and properties //
         
-        private PlayerController _controller;
+        public PlayerController Controller;
         public Animator Animator { get; private set; }
         public Rigidbody2D Rigidbody { get; private set; }
         public AudioSource AudioSource { get; private set; }
@@ -88,7 +85,7 @@ namespace Master.Scripts.Player
         
         private void Awake()
         {
-            _controller = new PlayerController(this, _enableTestMapInputs);
+            Controller = new PlayerController(this, _enableTestMapInputs);
             Animator = GetComponent<Animator>();
             Rigidbody = GetComponent<Rigidbody2D>();
             AudioSource = GetComponent<AudioSource>();
@@ -103,20 +100,20 @@ namespace Master.Scripts.Player
 
         private void Start()
         {
-            _controller.ActivateInputMap();
+            Controller.ActivateInputMap();
             // _dashRecoveryTimer = Dash.Cooldown;
             _projectileRecoveryTimer = Weapon.Cooldown;
         }
 
         private void OnEnable()
         {
-            _controller.ListenInput();
+            Controller.ListenInput();
             EnemyComponent.OnAwake = OnEnemyAwakening;
         }
         
         private void OnDisable()
         {
-            _controller.IgnoreInputs();
+            Controller.IgnoreInputs();
             EnemyComponent.OnAwake = OnEnemyAwakening;
         }
 
@@ -129,7 +126,7 @@ namespace Master.Scripts.Player
 
         public void DisableInputs()
         {
-            _controller.IgnoreInputs();
+            Controller.IgnoreInputs();
         }
         
         // New enemy event subscription //
@@ -221,7 +218,7 @@ namespace Master.Scripts.Player
 
         private void UpdateVerticalDirection() 
         {
-            float currentVelocity = _controller.Velocity.y;
+            float currentVelocity = Controller.Velocity.y;
 
             if (OnDirectionChange == null) return;
 

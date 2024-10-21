@@ -1,18 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEditor;
 using UnityEngine;
 using UnityEngine.U2D;
-
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 // Demo Script Usage:
 //   When you want multiple SpriteShapes to share a common Spline,
 //   attach this script to the secondary objects you would like to 
 //   copy the Spline and set the ParentObject to the original object
 //   you are copying from.
-namespace SpriteShapeExtras
+namespace Samples._2D_SpriteShape._9._0._2.Sprite_Shape_Extras.Scripts
 {
 
     [ExecuteInEditMode]

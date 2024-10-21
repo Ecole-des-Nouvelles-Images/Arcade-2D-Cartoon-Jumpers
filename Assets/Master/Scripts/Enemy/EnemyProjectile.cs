@@ -1,7 +1,5 @@
-using System;
 using UnityEngine;
 using EnemyComponent = Master.Scripts.Enemy.Enemy;
-using PlayerComponent = Master.Scripts.Player.Player;
 
 namespace Master.Scripts.Enemy
 {

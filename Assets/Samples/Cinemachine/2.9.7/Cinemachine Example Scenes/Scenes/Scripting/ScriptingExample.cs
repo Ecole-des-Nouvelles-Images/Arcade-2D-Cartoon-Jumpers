@@ -1,6 +1,7 @@
+using Cinemachine;
 using UnityEngine;
 
-namespace Cinemachine.Examples
+namespace Samples.Cinemachine._2._9._7.Cinemachine_Example_Scenes.Scenes.Scripting
 {
 
 public class ScriptingExample : MonoBehaviour

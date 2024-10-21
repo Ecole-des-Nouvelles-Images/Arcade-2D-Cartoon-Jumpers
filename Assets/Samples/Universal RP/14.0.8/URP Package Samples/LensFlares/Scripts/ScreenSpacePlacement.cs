@@ -1,35 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[ExecuteAlways]
-public class ScreenSpacePlacement : MonoBehaviour
+namespace Samples.Universal_RP._14._0._8.URP_Package_Samples.LensFlares.Scripts
 {
-    [SerializeField]
-    private Camera m_Cam;
-    [SerializeField]
-    private Transform m_FlareObject;
-
-    private bool m_MouseDown;
-
-    void OnGUI()
+    [ExecuteAlways]
+    public class ScreenSpacePlacement : MonoBehaviour
     {
-        Event currentEvent = Event.current;
-        Vector2 mousePos = new Vector2();
+        [SerializeField]
+        private Camera m_Cam;
+        [SerializeField]
+        private Transform m_FlareObject;
 
-        if (currentEvent.type == EventType.MouseDown) m_MouseDown = true;
-        if (currentEvent.type == EventType.MouseUp) m_MouseDown = false;
+        private bool m_MouseDown;
 
-        mousePos.x = currentEvent.mousePosition.x;
-        mousePos.y = m_Cam.pixelHeight - currentEvent.mousePosition.y;
-
-        if (m_FlareObject != null && mousePos.x > 0 && mousePos.y > 0 && mousePos.x < m_Cam.pixelWidth && mousePos.y < m_Cam.pixelHeight)
+        void OnGUI()
         {
-            Vector3 point = m_Cam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, m_Cam.nearClipPlane));
+            Event currentEvent = Event.current;
+            Vector2 mousePos = new Vector2();
 
-            if (m_MouseDown)
+            if (currentEvent.type == EventType.MouseDown) m_MouseDown = true;
+            if (currentEvent.type == EventType.MouseUp) m_MouseDown = false;
+
+            mousePos.x = currentEvent.mousePosition.x;
+            mousePos.y = m_Cam.pixelHeight - currentEvent.mousePosition.y;
+
+            if (m_FlareObject != null && mousePos.x > 0 && mousePos.y > 0 && mousePos.x < m_Cam.pixelWidth && mousePos.y < m_Cam.pixelHeight)
             {
-                m_FlareObject.position = point;
+                Vector3 point = m_Cam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, m_Cam.nearClipPlane));
+
+                if (m_MouseDown)
+                {
+                    m_FlareObject.position = point;
+                }
             }
         }
     }

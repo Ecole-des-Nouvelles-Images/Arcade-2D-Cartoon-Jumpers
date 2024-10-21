@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Master.Scripts.Player
+namespace Master.Scripts.PlayerManagement
 {
     public class Dash
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Master.Scripts.Player
+namespace Master.Scripts.PlayerManagement
 {
     [RequireComponent(typeof(Collider2D))]
     public class SurfaceHitbox: MonoBehaviour

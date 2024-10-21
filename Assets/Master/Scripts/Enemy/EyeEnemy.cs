@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace Master.Scripts.Enemy
 {
     public class EyeEnemy : Enemy

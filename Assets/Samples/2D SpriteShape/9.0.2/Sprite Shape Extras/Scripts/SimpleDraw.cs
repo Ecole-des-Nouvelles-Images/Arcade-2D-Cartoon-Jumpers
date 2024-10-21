@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.U2D;
 
 // Dynamic modification of spline to follow the path of mouse movement.
 // This script is just a simplified demo to demonstrate the idea.
-namespace SpriteShapeExtras
+namespace Samples._2D_SpriteShape._9._0._2.Sprite_Shape_Extras.Scripts
 {
 
     public class SimpleDraw : MonoBehaviour

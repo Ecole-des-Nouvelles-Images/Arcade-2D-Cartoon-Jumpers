@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using Master.Scripts.Player;
+using Master.Scripts.PlayerManagement;
 
 namespace Master.Scripts.SO
 {

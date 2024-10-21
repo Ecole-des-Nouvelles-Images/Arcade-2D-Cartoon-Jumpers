@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.U2D;
 
-namespace SpriteShapeExtras
+namespace Samples._2D_SpriteShape._9._0._2.Sprite_Shape_Extras.Scripts
 {
 
     // Please add this Component to Camera or some top level object on each loadable scene.

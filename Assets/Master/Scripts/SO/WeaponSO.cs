@@ -1,7 +1,5 @@
-﻿using Master.Scripts.Common;
-using UnityEngine;
-using Master.Scripts.Player;
-using UnityEditor;
+﻿using UnityEngine;
+using Master.Scripts.PlayerManagement;
 
 namespace Master.Scripts.SO
 {

@@ -838,15 +838,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1194729587871583563, guid: fa57ee578c609a349bd7258dcfd57f84, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.0206544
+      value: 1.0206543
       objectReference: {fileID: 0}
     - target: {fileID: 1194729587871583563, guid: fa57ee578c609a349bd7258dcfd57f84, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.0206544
+      value: 1.0206543
       objectReference: {fileID: 0}
     - target: {fileID: 1194729587871583563, guid: fa57ee578c609a349bd7258dcfd57f84, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.0206544
+      value: 1.0206543
       objectReference: {fileID: 0}
     - target: {fileID: 5674010284861527753, guid: fa57ee578c609a349bd7258dcfd57f84, type: 3}
       propertyPath: m_Camera
@@ -1964,6 +1964,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 475447946}
   _scoreDenominator: 10
+  eventSystem: {fileID: 0}
+  playerInput:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 7ba6092c-64fb-4783-983c-9091609364a4
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!4 &1094055942
 Transform:
   m_ObjectHideFlags: 0
@@ -2768,12 +2778,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: -1
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnRight: {fileID: 1707751856}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -2799,9 +2809,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 475447946}
+      - m_Target: {fileID: 1094055941}
         m_TargetAssemblyTypeName: Master.Scripts.Managers.GameManager, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: SetPause
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2901,11 +2911,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: -1
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnLeft: {fileID: 1571177788}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:

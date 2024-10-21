@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-namespace Cinemachine.Examples
+namespace Samples.Cinemachine._2._9._7.Cinemachine_Example_Scenes.Scenes.BossCamera
 {
     /// <summary>
     /// Simple script that makes this transform look at a target.

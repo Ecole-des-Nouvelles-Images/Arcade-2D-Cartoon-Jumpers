@@ -5,8 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 
 using Master.Scripts.Internal;
-using UnityEngine.Rendering;
-using PlayerComponent = Master.Scripts.Player.Player;
+using PlayerComponent = Master.Scripts.PlayerManagement.Player;
 
 namespace Master.Scripts.Managers
 {
@@ -64,16 +63,16 @@ namespace Master.Scripts.Managers
 
         private void OnEnable()
         {
-            GameManager.OnPause += ShowPauseMenu;
-            GameManager.OnScoreChanged += UpdateScoreMeter;
+            GameManager.Instance.OnPause += ShowPauseMenu;
+            GameManager.Instance.OnScoreChanged += UpdateScoreMeter;
             PlayerComponent.OnHealthChanged += UpdateHealthGauge;
             PlayerComponent.OnPlayerDamaged += ShowPlayerDamagedPanel; // Abonnement a l action reçue a chaque fois que le player reçoit des dégats
         }
         
         private void OnDisable()
         {
-            GameManager.OnPause -= ShowPauseMenu;
-            GameManager.OnScoreChanged -= UpdateScoreMeter;
+            GameManager.Instance.OnPause -= ShowPauseMenu;
+            GameManager.Instance.OnScoreChanged -= UpdateScoreMeter;
             PlayerComponent.OnHealthChanged -= UpdateHealthGauge;
             PlayerComponent.OnPlayerDamaged -= ShowPlayerDamagedPanel;
         }

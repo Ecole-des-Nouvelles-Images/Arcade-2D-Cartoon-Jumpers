@@ -2,7 +2,7 @@
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Master.Scripts.Player
+namespace Master.Scripts.PlayerManagement
 {
     public class Weapon
     {

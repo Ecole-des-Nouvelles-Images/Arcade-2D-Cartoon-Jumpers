@@ -1,16 +1,13 @@
-using System;
+using Master.Scripts.Managers;
+using Master.Scripts.Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Object = UnityEngine.Object;
 
-using Master.Scripts.Managers;
-
-namespace Master.Scripts.Player
+namespace Master.Scripts.PlayerManagement
 {
     public class PlayerController
     {
-        
-        private readonly PlayerControls _controls;
+        public readonly PlayerControls Controls;
         
         private readonly Player _player;
         private readonly bool _enableTestMap;
@@ -27,43 +24,43 @@ namespace Master.Scripts.Player
 
         public PlayerController(Player ctx, bool enableTestMap)
         {
-            _controls = new PlayerControls();
+            Controls = new PlayerControls();
             _enableTestMap = enableTestMap;
             _player = ctx;
         }
 
         public void ActivateInputMap()
         {
-            _controls.GamePlay.Enable();
+            Controls.GamePlay.Enable();
             
             if (_enableTestMap)
-                _controls.TestMap.Enable();
+                Controls.TestMap.Enable();
         }
 
         public void ListenInput()
         {
-            _controls.GamePlay.Dash.performed += OnDash;
-            _controls.GamePlay.AimDash.performed += OnDashAim;
-            _controls.GamePlay.Shoot.performed += OnShoot;
-            _controls.GamePlay.AimShoot.performed += OnAimShoot;
-            _controls.GamePlay.Pause.performed += OnPause;
+            Controls.GamePlay.Dash.performed += OnDash;
+            Controls.GamePlay.AimDash.performed += OnDashAim;
+            Controls.GamePlay.Shoot.performed += OnShoot;
+            Controls.GamePlay.AimShoot.performed += OnAimShoot;
+            Controls.GamePlay.Pause.performed += OnPause;
             
             if (_enableTestMap) {
-                _controls.TestMap.NextScene.performed += OnNextScene;
-                _controls.TestMap.PrevScene.performed += OnPrevScene;
+                Controls.TestMap.NextScene.performed += OnNextScene;
+                Controls.TestMap.PrevScene.performed += OnPrevScene;
             }
         }
 
         public void IgnoreInputs()
         {
-            _controls.GamePlay.Dash.performed -= OnDash;
-            _controls.GamePlay.AimDash.performed -= OnDashAim;
-            _controls.GamePlay.Shoot.performed -= OnShoot;
-            _controls.GamePlay.AimShoot.performed -= OnAimShoot;
+            Controls.GamePlay.Dash.performed -= OnDash;
+            Controls.GamePlay.AimDash.performed -= OnDashAim;
+            Controls.GamePlay.Shoot.performed -= OnShoot;
+            Controls.GamePlay.AimShoot.performed -= OnAimShoot;
             
             if (_enableTestMap) {
-                _controls.TestMap.NextScene.performed += OnNextScene;
-                _controls.TestMap.PrevScene.performed += OnPrevScene;
+                Controls.TestMap.NextScene.performed += OnNextScene;
+                Controls.TestMap.PrevScene.performed += OnPrevScene;
             }
         }
 
@@ -103,23 +100,22 @@ namespace Master.Scripts.Player
         }
 
         void OnPause(InputAction.CallbackContext ctx)
-
         {
-         Pause();
+            Pause();
         }
 
         public void Pause()
         {
-            GameManager.SetPause();
-            if (GameManager.IsPaused)
+            GameManager.Instance.SetPause();
+            if (GameManager.Instance.IsPaused)
             {
-                _controls.UIMenu.Enable();
-                _controls.GamePlay.Disable();
+                Controls.UIMenu.Enable();
+                Controls.GamePlay.Disable();
             }
             else
             {
-                _controls.GamePlay.Enable();
-                _controls.UIMenu.Disable();
+                Controls.GamePlay.Enable();
+                Controls.UIMenu.Disable();
             }
             
         }

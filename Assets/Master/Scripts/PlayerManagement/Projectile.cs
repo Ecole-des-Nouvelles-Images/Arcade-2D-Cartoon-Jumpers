@@ -1,10 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Master.Scripts.Managers;
 using UnityEngine;
 
-namespace Master.Scripts.Player
+namespace Master.Scripts.PlayerManagement
 {
     public class Projectile: MonoBehaviour
     {

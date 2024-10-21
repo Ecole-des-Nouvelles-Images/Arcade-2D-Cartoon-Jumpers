@@ -1,14 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.U2D;
-using ExtrasClipperLib;
 
-#if UNITY_EDITOR
-    using UnityEditor;
-#endif
-
-namespace SpriteShapeExtras
+namespace Samples._2D_SpriteShape._9._0._2.Sprite_Shape_Extras.Scripts
 {
 
     public enum ColliderCornerType
@@ -133,7 +128,7 @@ namespace SpriteShapeExtras
                     }
     
                     clipOffset.ArcTolerance = 200f / sc.colliderDetail;
-                    clipOffset.AddPath(path, (ExtrasClipperLib.JoinType)cct, endType);
+                    clipOffset.AddPath(path, (JoinType)cct, endType);
                     clipOffset.Execute(ref solution, s_ClipperScale * co);
     
                     if (solution.Count > 0)

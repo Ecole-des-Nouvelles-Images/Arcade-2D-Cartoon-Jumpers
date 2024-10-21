@@ -2,7 +2,7 @@
 using UnityEngine;
 using Cinemachine;
 
-using PlayerComponent = Master.Scripts.Player.Player;
+using PlayerComponent = Master.Scripts.PlayerManagement.Player;
 
 namespace Master.Scripts.Camera
 {

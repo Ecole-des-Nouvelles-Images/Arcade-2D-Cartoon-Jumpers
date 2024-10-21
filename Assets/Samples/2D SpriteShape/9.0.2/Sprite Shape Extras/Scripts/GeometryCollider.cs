@@ -1,15 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Unity.Collections;
+using UnityEditor;
 using UnityEngine;
-using UnityEngine.Experimental.U2D;
 using UnityEngine.U2D;
 
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
-
-namespace SpriteShapeExtras
+namespace Samples._2D_SpriteShape._9._0._2.Sprite_Shape_Extras.Scripts
 {
 
     [ExecuteAlways]

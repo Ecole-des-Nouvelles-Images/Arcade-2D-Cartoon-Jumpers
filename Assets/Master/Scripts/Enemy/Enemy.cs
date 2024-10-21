@@ -6,7 +6,7 @@ using UnityEngine;
 
 using Master.Scripts.Common;
 using Master.Scripts.SO;
-using PlayerComponent = Master.Scripts.Player.Player;
+using PlayerComponent = Master.Scripts.PlayerManagement.Player;
 using Random = UnityEngine.Random;
 
 namespace Master.Scripts.Enemy

@@ -51,11 +51,12 @@
 
 using System;
 using System.Collections.Generic;
+
 //using System.Text;          //for Int128.AsString() & StringBuilder
 //using System.IO;            //debugging with streamReader & StreamWriter
 //using System.Windows.Forms; //debugging to clipboard
 
-namespace ExtrasClipperLib
+namespace Samples._2D_SpriteShape._9._0._2.Sprite_Shape_Extras.Scripts
 {
 #if use_int32
     using cInt = Int32;

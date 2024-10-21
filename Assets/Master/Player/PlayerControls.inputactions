@@ -174,7 +174,7 @@
             "actions": [
                 {
                     "name": "Point",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "119931b0-2186-4a40-b901-232e772efdfe",
                     "expectedControlType": "Vector2",
                     "processors": "",
