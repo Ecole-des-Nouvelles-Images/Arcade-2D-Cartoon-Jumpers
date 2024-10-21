@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 
 using Master.Scripts.Internal;
+using UnityEngine.InputSystem;
 
 namespace Master.Scripts.Managers
 {
@@ -10,6 +11,7 @@ namespace Master.Scripts.Managers
         [Header("Score System")]
         [SerializeField] private GameObject _player;
         [SerializeField] private float _scoreDenominator = 10f;
+        static PlayerInput playerInput;
 
         public float Denominator => _scoreDenominator;
 
@@ -23,7 +25,6 @@ namespace Master.Scripts.Managers
         
         public static Action<bool> OnPause;
         public static Action<float> OnScoreChanged;
-        
         public static bool IsPaused { get; set; }
         public float Score { get; private set; }
         
@@ -32,6 +33,7 @@ namespace Master.Scripts.Managers
         private void Start()
         {
             IsPaused = false;
+            playerInput = FindObjectOfType<PlayerInput>();
         }
 
         private void Update()

@@ -213,6 +213,15 @@ namespace Master.Scripts.Player
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Cancel"",
+                    ""type"": ""Button"",
+                    ""id"": ""56ddab0c-4a25-46a8-b269-9bcf29bd8667"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -239,68 +248,24 @@ namespace Master.Scripts.Player
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""2D Vector"",
-                    ""id"": ""68eda3aa-4482-4f4c-9f40-bb924963a85b"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Point"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""2dada3a2-8cb4-46b3-8151-ab3d6f306f8d"",
-                    ""path"": ""<Gamepad>/dpad/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""GamePad"",
-                    ""action"": ""Point"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""942d5a40-5cd6-4aeb-bc96-34cdeb5241c3"",
-                    ""path"": ""<Gamepad>/dpad/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Point"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""9d87fe0c-81de-4fc9-a162-f2bc315ec9d0"",
-                    ""path"": ""<Gamepad>/dpad/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Point"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""973fb1fa-4391-4f79-a1f2-2a55132fe3d5"",
-                    ""path"": ""<Gamepad>/dpad/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Point"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
                     ""name"": """",
                     ""id"": ""3212dfcf-1f3a-44a9-be3b-71c1592158c9"",
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""GamePad"",
                     ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0d918ff8-7c5e-4726-87e8-7b891c2e0302"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GamePad"",
+                    ""action"": ""Cancel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -336,6 +301,7 @@ namespace Master.Scripts.Player
             m_UIMenu = asset.FindActionMap("UIMenu", throwIfNotFound: true);
             m_UIMenu_Point = m_UIMenu.FindAction("Point", throwIfNotFound: true);
             m_UIMenu_Click = m_UIMenu.FindAction("Click", throwIfNotFound: true);
+            m_UIMenu_Cancel = m_UIMenu.FindAction("Cancel", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -531,12 +497,14 @@ namespace Master.Scripts.Player
         private List<IUIMenuActions> m_UIMenuActionsCallbackInterfaces = new List<IUIMenuActions>();
         private readonly InputAction m_UIMenu_Point;
         private readonly InputAction m_UIMenu_Click;
+        private readonly InputAction m_UIMenu_Cancel;
         public struct UIMenuActions
         {
             private @PlayerControls m_Wrapper;
             public UIMenuActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
             public InputAction @Point => m_Wrapper.m_UIMenu_Point;
             public InputAction @Click => m_Wrapper.m_UIMenu_Click;
+            public InputAction @Cancel => m_Wrapper.m_UIMenu_Cancel;
             public InputActionMap Get() { return m_Wrapper.m_UIMenu; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -552,6 +520,9 @@ namespace Master.Scripts.Player
                 @Click.started += instance.OnClick;
                 @Click.performed += instance.OnClick;
                 @Click.canceled += instance.OnClick;
+                @Cancel.started += instance.OnCancel;
+                @Cancel.performed += instance.OnCancel;
+                @Cancel.canceled += instance.OnCancel;
             }
 
             private void UnregisterCallbacks(IUIMenuActions instance)
@@ -562,6 +533,9 @@ namespace Master.Scripts.Player
                 @Click.started -= instance.OnClick;
                 @Click.performed -= instance.OnClick;
                 @Click.canceled -= instance.OnClick;
+                @Cancel.started -= instance.OnCancel;
+                @Cancel.performed -= instance.OnCancel;
+                @Cancel.canceled -= instance.OnCancel;
             }
 
             public void RemoveCallbacks(IUIMenuActions instance)
@@ -605,6 +579,7 @@ namespace Master.Scripts.Player
         {
             void OnPoint(InputAction.CallbackContext context);
             void OnClick(InputAction.CallbackContext context);
+            void OnCancel(InputAction.CallbackContext context);
         }
     }
 }

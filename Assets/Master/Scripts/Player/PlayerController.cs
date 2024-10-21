@@ -9,6 +9,7 @@ namespace Master.Scripts.Player
 {
     public class PlayerController
     {
+        
         private readonly PlayerControls _controls;
         
         private readonly Player _player;
@@ -101,11 +102,28 @@ namespace Master.Scripts.Player
             _player.Weapon.Shoot(_player, _aimShootDirection);
         }
 
-        private void OnPause(InputAction.CallbackContext ctx)
+        void OnPause(InputAction.CallbackContext ctx)
+
+        {
+         Pause();
+        }
+
+        public void Pause()
         {
             GameManager.SetPause();
+            if (GameManager.IsPaused)
+            {
+                _controls.UIMenu.Enable();
+                _controls.GamePlay.Disable();
+            }
+            else
+            {
+                _controls.GamePlay.Enable();
+                _controls.UIMenu.Disable();
+            }
+            
         }
-        
+
         // Test Input Event Handlers //
         
         private void OnPrevScene(InputAction.CallbackContext ctx)
